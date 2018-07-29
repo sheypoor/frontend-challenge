@@ -18,7 +18,7 @@ interface IState {
     name?: boolean | string;
   };
   formNotChanged: boolean;
-  submittedSuccessfully: boolean;
+  submittedSuccessfully?: boolean;
   disableFormButton: boolean;
 }
 
@@ -33,8 +33,7 @@ export class TwoStepForm extends React.Component<{}, IState> {
       name: "",
       newsletter: "daily"
     },
-    showIndex: 1,
-    submittedSuccessfully: false
+    showIndex: 1
   };
 
   onChange = ({
@@ -81,7 +80,6 @@ export class TwoStepForm extends React.Component<{}, IState> {
   };
 
   render() {
-    console.log("this.state", this.state);
     const disableSubmit =
       this.state.disableFormButton ||
       !!Object.keys(this.state.errors).find(

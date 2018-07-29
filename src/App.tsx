@@ -1,8 +1,6 @@
 import * as React from "react";
 import { LandingPage } from "./pages";
 
-import "./App.css";
-
 class App extends React.Component {
   public render() {
     return (

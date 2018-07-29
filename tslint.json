@@ -1,7 +1,6 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "rules": {
-    "no-console": false,
     "noImplicitAny": false,
     "member-access": false,
     "interface-name": false
