@@ -1,6 +1,6 @@
 export const nameError = "Please enter a-z and space";
 export const emailError = "Please enter validate email Address";
-export const ageError = "Please enter age between 1 and 199";
+export const ageError = "Please enter age between 1 and 999";
 
 export const name = (value: string) => {
   const reg = /^[a-zA-Z ]{1,30}$/;
