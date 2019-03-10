@@ -1,0 +1,55 @@
+*{
+  box-sizing: border-box;
+  outline: 0 !important;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background: #fbfbfb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+}
+
+form{
+  width: 300px;
+}
+
+.field{
+  margin-bottom: 20px;
+}
+
+.field span{
+  display: block;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.field span:after{
+  content: '*'
+}
+
+.field input, input[type="submit"], .field select{
+  margin-top: 10px;
+  padding: 16px 8px;
+  font-family: monospace;
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid #f1f1f1;
+  transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+input[type="submit"]{
+  background: rgb(124, 215, 188);
+  cursor: pointer;
+}
+
+.field .error{
+  color: rgb(235, 127, 127);
+  font-size: 13px;
+}
