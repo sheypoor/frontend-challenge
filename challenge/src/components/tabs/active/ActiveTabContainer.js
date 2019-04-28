@@ -1,8 +1,11 @@
 import {connect} from 'react-redux'
 import ActiveTabPresentation from './ActiveTabPresentation'
+import {getDataForActiveTab} from 'challenge/src/actions/GetData'
 
 const mapStateToProps = (state) => ({
-  data: state.data
+  data: state.activeData
 })
-
-export default connect(mapStateToProps)(ActiveTabPresentation)
+const mapDispatchToProps = (dispatch) => ({
+  getDataForActiveTab: (data) => dispatch(getDataForActiveTab())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(ActiveTabPresentation)

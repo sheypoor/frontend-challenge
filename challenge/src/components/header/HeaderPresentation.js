@@ -20,7 +20,7 @@ class HeaderPresentation extends Component {
         </TouchableOpacity>
         <View style={styles.profileInfoContainer}>
           <Image style={styles.profileImg}
-                 source={{uri: 'http://i.pravatar.cc/300'}}/>
+                 source={{uri: `${config.PROTOCOL + config.MEDIA_URL}300`}}/>
           <CustomText style={styles.nameTxt}>
             رضا سعادتی پور
           </CustomText>

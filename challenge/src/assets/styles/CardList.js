@@ -2,8 +2,9 @@ import {StyleSheet} from 'react-native'
 
 export default StyleSheet.create({
   root: {
-    marginVertical: 10,
-    flex: 1
+    paddingVertical: 10,
+    flex: 1,
+    backgroundColor: '#f8f8f8'
   },
   coverFetchingContainer: {
     flex: 1,

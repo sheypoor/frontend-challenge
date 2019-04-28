@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import {priceSeparator} from 'challenge/src/helper/HelperMethods'
 import {
@@ -15,7 +16,7 @@ const CardItem = (props) => {
     <View style={styles.cardItem}>
       <View>
         <Image style={styles.image}
-               source={{uri: 'http://i.pravatar.cc/200'}}/>
+               source={{uri: `${config.PROTOCOL + config.MEDIA_URL}200`}}/>
         <View style={styles.statusMark}>
           <CustomText style={styles.statusMarkTxt}>
             {item.status.title}
@@ -43,3 +44,7 @@ const CardItem = (props) => {
 }
 
 export default CardItem
+
+CardItem.propTypes = {
+  item: PropTypes.object.isRequired
+}

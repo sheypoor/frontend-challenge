@@ -1,42 +1,24 @@
+import PropTypes from 'prop-types'
 import React, {PureComponent} from 'react'
-import {
-  FlatList,
-  Platform,
-  Text,
-  View
-} from 'react-native'
-import Card from 'challenge/src/components/public/card'
-import {makeCardsHeight} from 'challenge/src/helper/HelperMethods'
+import CardList from 'challenge/src/components/public/card/CardList'
 
 class DeactiveTabPresentation extends PureComponent {
+  static propTypes = {
+    data: PropTypes.object.isRequired,
+    getDataForDeactivateTab: PropTypes.func.isRequired
+  }
 
-  _keyExtractor = (item) => item.human_readable_id
-
-  _renderItem = ({item}) => <Card item={item}/>
-
-  _getItemLayout = (data, index) => makeCardsHeight(index)
+  componentDidMount() {
+    const {getDataForDeactivateTab} = this.props
+    getDataForDeactivateTab()
+  }
 
   render() {
-    const {data} = this.props
-    const {
-      items
-    } = data
-
-    if (items === undefined) return null
-
-    let deActiveItems = items.filter(
-      x => !x.status.advertised
-    )
-
-    return (
-      <FlatList data={deActiveItems}
-                removeClippedSubviews={
-                  Platform.OS === 'android'
-                }
-                getItemLayout={this._getItemLayout}
-                keyExtractor={this._keyExtractor}
-                renderItem={this._renderItem}/>
-    )
+    const {data, getDataForDeactivateTab} = this.props
+    return <CardList data={data}
+                     updateList={(reset) =>
+                       getDataForDeactivateTab(reset)
+                     }/>
   }
 }
 

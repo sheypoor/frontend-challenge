@@ -17,10 +17,11 @@ const TabNavigator = createMaterialTopTabNavigator({
   }),
   initialRouteName: 'All',
   lazy: true,
+  swipeEnabled: true,
   tabBarOptions: tapBarConfig
 })
 
-const exportTitle = ({routeName} = String) => {
+const exportTitle = ({routeName}) => {
   switch (routeName) {
     case 'Active':
       return 'فعال'
