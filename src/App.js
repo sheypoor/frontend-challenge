@@ -3,10 +3,11 @@ import { Container, makeStyles, createStyles } from "@material-ui/core";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 
 import { PublicRoute } from "./services/Route";
-import WP from "constants/web";
+import WEB from "constants/web";
 
 // pages
-import FistStep from "./pages/signUp/FirstStep";
+import SignupFirstStep from "pages/signup/FirstStep";
+import SignupSecondStep from "pages/signup/SecondStep";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -26,8 +27,17 @@ const App = () => {
     <Container maxWidth="xl" className={classes.container}>
       <Router>
         <Switch>
-          <PublicRoute path={WP.ROOT} component={FistStep} />
-          <PublicRoute path={WP.SIGNUP_FIRST_STEP} component={FistStep} />
+          <PublicRoute
+            exact
+            path={WEB.SIGNUP_FIRST_STEP}
+            component={SignupFirstStep}
+          />
+          <PublicRoute
+            exact
+            path={WEB.SIGNUP_SECOND_STEP}
+            component={SignupSecondStep}
+          />
+          <PublicRoute exact path={WEB.ROOT} component={SignupFirstStep} />
         </Switch>
       </Router>
     </Container>

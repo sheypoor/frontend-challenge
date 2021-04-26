@@ -10,7 +10,6 @@ const theme = createMuiTheme({
                 }
             }
         },
-
     },
     palette: {
         secondary: {

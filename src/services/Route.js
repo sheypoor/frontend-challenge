@@ -1,13 +1,13 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Layout from "layout";
-import WP from "constants/web";
+import WEB from "constants/web";
 
 const LayoutHoc = (props) => {
-  const { component: Component, history, ...rest } = props;
+  const { component: Component, ...rest } = props;
 
   if (window.location.pathname === "/") {
-    history.push(WP.SIGNUP_FIRST_STEP);
+    props.history.push(WEB.SIGNUP_FIRST_STEP);
   }
 
   return (
