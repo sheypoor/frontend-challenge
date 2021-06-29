@@ -12,6 +12,9 @@
     "url": "https://github.com/sheypoor/frontend-challenge/issues"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.6.0",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -20,16 +23,22 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-redux": "^7.1.16",
+    "@types/react-router-dom": "^5.1.7",
     "@types/redux": "^3.6.0",
     "react": "^17.0.2",
+    "react-cookie": "^4.0.3",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.9.0",
     "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
     "sdk": "file:sdk",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "universal-cookie": "^4.0.4",
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
