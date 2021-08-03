@@ -1,0 +1,63 @@
+.MuiButton-label,
+.MuiInputBase-input,
+.MuiInputLabel-formControl,
+.MuiStepLabel-label {font-family: 'iransans-web' !important;}
+
+.MuiStepLabel-iconContainer {
+    padding-left: 8px !important;
+    padding-right: 0 !important;
+}
+
+.MuiInputBase-input {
+    text-align: right !important;
+    direction: rtl !important;
+    font-family: 'iransans-web';
+}
+
+
+
+.MuiInputLabel-formControl {
+    top: 0;
+    left: auto !important;
+    right: 0 !important;
+    font-family: 'iransans' !important;
+}
+.MuiInputLabel-shrink {
+    transform-origin: top right !important;
+}
+.MuiFormControl-root .MuiInputLabel-outlined {
+    z-index: 1;
+    transform: translate(-14px, 20px) scale(1);
+    pointer-events: none;
+    -webkit-transform: translate(-14px, 20px) scale(1);
+    -moz-transform: translate(-14px, 20px) scale(1);
+    -ms-transform: translate(-14px, 20px) scale(1);
+    -o-transform: translate(-14px, 20px) scale(1);
+}
+.MuiFormControl-root .MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: translate(-14px, -6px) scale(0.75);
+    -webkit-transform: translate(-14px, -6px) scale(0.75);
+    -moz-transform: translate(-14px, -6px) scale(0.75);
+    -ms-transform: translate(-14px, -6px) scale(0.75);
+    -o-transform: translate(-14px, -6px) scale(0.75);
+}
+.MuiFormHelperText-root,
+.MuiOutlinedInput-input {
+    font-family: 'iransans-web' !important;
+}
+
+.MuiFormHelperText-root {text-align: right !important;}
+
+.MuiStepper-horizontal {max-width: 80%; margin: 0 auto;}
+.MuiSelect-icon {
+    right: auto !important;
+left: 0 !important;
+}
+.MuiSelect-select.MuiSelect-select {padding-right: 0 !important; padding-left: 24px !important;}
+
+#dropdown, .MuiButtonBase-root  {
+    text-align: right;
+    font-family: 'inherit' !important;
+    font-weight: normal !important;
+    direction: rtl !important;
+}
