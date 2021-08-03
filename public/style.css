@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'iransans-web';
+    src: url('./assets/fonts/IRANSansWeb.woff');
+}
+@font-face {
+    font-family: 'iransans-web';
+    src: url('./assets/fonts/IRANSansWeb_Bold.woff');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'iransans-web';
+    src: url('./assets/fonts/IRANSansWeb_Medium.woff');
+    font-weight: 700;
+}
+
+body {
+    text-align: right;
+    font-family: 'iransans-web' !important;
+    font-weight: normal;
+}
