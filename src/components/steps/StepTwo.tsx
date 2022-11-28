@@ -1,13 +1,12 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { addFormData } from "../../store/slices/formSlice";
+import { RootState } from "../../store/store";
 
-interface IStepTwoProps {
-  newsletterPeriod: number;
-  handleNewsletterPeriodChange: (selectValue) => void;
-}
-const StepTwo: React.FC<IStepTwoProps> = ({
-  newsletterPeriod,
-  handleNewsletterPeriodChange,
-}) => {
+const StepTwo: React.FC = () => {
+  const dispatch = useDispatch();
+  const formData = useSelector((state: RootState) => state.form.formData);
+
   return (
     <>
       <FormControl fullWidth>
@@ -17,13 +16,15 @@ const StepTwo: React.FC<IStepTwoProps> = ({
         <Select
           labelId='newsletter-period-select-label'
           id='newsletter-period-select'
-          value={newsletterPeriod}
           label='Newsletter Period'
-          onChange={(e) => handleNewsletterPeriodChange(e.target.value)}
+          value={formData["newsletter"]}
+          onChange={(e) =>
+            dispatch(addFormData({ key: "newsletter", value: e.target.value }))
+          }
         >
-          <MenuItem value={1}>Daily</MenuItem>
-          <MenuItem value={2}>Weekly</MenuItem>
-          <MenuItem value={3}>Monthly</MenuItem>
+          <MenuItem value={"daily"}>Daily</MenuItem>
+          <MenuItem value={"weekly"}>Weekly</MenuItem>
+          <MenuItem value={"monthly"}>Monthly</MenuItem>
         </Select>
       </FormControl>
     </>

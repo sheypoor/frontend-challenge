@@ -34,22 +34,13 @@ export default function Steps() {
   };
 
   const handleSubscribe = () => {};
-  const handleNewsletterPeriodChange = (selectValue) => {
-    setNewsletterPeriod(selectValue);
-  };
+
   const getStepComponent = (step: number) => {
     switch (step) {
       case 0:
         return <StepOne />;
       case 1:
-        return (
-          <StepTwo
-            handleNewsletterPeriodChange={(selectValue) =>
-              handleNewsletterPeriodChange(selectValue)
-            }
-            newsletterPeriod={newsletterPeriod}
-          />
-        );
+        return <StepTwo />;
       default:
         return "Error";
     }
