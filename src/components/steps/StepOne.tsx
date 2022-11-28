@@ -7,7 +7,6 @@ import { RootState } from "../../store/store";
 const StepOne: React.FC = () => {
   const dispatch = useDispatch();
   const formData = useSelector((state: RootState) => state.form.formData);
-  console.log(formData);
 
   return (
     <>
@@ -32,7 +31,7 @@ const StepOne: React.FC = () => {
         required
         value={formData["age"]}
         onChange={(e) =>
-          dispatch(addFormData({ key: "age", value: e.target.value }))
+          dispatch(addFormData({ key: "age", value: parseInt(e.target.value) }))
         }
         sx={{ margin: "8px 0" }}
       />
