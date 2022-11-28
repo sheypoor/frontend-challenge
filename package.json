@@ -13,10 +13,15 @@
     "url": "https://github.com/sheypoor/frontend-challenge/issues"
   },
   "dependencies": {
+    "@types/jest": "^29.2.3",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "sdk": "file:sdk"
+    "sdk": "file:sdk",
+    "typescript": "^4.9.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
