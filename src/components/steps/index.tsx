@@ -9,8 +9,9 @@ import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { Snackbar } from "@mui/material";
+import { CircularProgress, Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
+import { createUser } from "../../sdk";
 
 const steps = ["Information", "Subscribtion"];
 
@@ -18,6 +19,7 @@ export default function Steps() {
   const [currentStep, setCurrentStep] = useState(0);
   const [newsletterPeriod, setNewsletterPeriod] = useState();
   const [showSnackbar, setShowSnackbar] = useState(false);
+  const [isSendingData, setIsSendingData] = useState(false);
 
   const formData = useSelector((state: RootState) => state.form.formData);
 
@@ -33,7 +35,18 @@ export default function Steps() {
     }
   };
 
-  const handleSubscribe = () => {};
+  const handleSubscribe = () => {
+    setIsSendingData(true);
+    createUser(formData)
+      .then((response) => {
+        setIsSendingData(false);
+        console.log(response);
+      })
+      .catch((e) => {
+        setIsSendingData(false);
+        console.log(e);
+      });
+  };
 
   const getStepComponent = (step: number) => {
     switch (step) {
@@ -88,12 +101,14 @@ export default function Steps() {
 
           <Button
             variant='contained'
+            disabled={isSendingData}
             onClick={
               currentStep === 0 ? handleSubmitInformation : handleSubscribe
             }
           >
             {currentStep === steps.length - 1 ? "Subscribe" : "Next"}
           </Button>
+          {isSendingData && <CircularProgress />}
         </Box>
       </>
 
