@@ -13,6 +13,8 @@ const steps = ["Information", "Subscribtion"];
 export default function Steps() {
   const [currentStep, setCurrentStep] = useState(0);
 
+  const [newsletterPeriod, setNewsletterPeriod] = useState();
+
   const handleReview = () => {
     setCurrentStep(0);
   };
@@ -22,13 +24,22 @@ export default function Steps() {
   };
 
   const handleSubscribe = () => {};
-
-  const getStepComponent = (step) => {
+  const handleNewsletterPeriodChange = (selectValue) => {
+    setNewsletterPeriod(selectValue);
+  };
+  const getStepComponent = (step: number) => {
     switch (step) {
       case 0:
         return <StepOne />;
       case 1:
-        return <StepTwo />;
+        return (
+          <StepTwo
+            handleNewsletterPeriodChange={(selectValue) =>
+              handleNewsletterPeriodChange(selectValue)
+            }
+            newsletterPeriod={newsletterPeriod}
+          />
+        );
       default:
         return "Error";
     }
@@ -40,7 +51,7 @@ export default function Steps() {
         activeStep={currentStep}
         alternativeLabel
       >
-        {steps.map((label, index) => {
+        {steps.map((label) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {
             optional?: React.ReactNode;
