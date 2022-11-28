@@ -1,6 +1,14 @@
 import { TextField } from "@mui/material";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addFormData } from "../../store/slices/formSlice";
+import { RootState } from "../../store/store";
 
 const StepOne: React.FC = () => {
+  const dispatch = useDispatch();
+  const formData = useSelector((state: RootState) => state.form.formData);
+  console.log(formData);
+
   return (
     <>
       <TextField
@@ -8,6 +16,11 @@ const StepOne: React.FC = () => {
         label='Name'
         variant='outlined'
         fullWidth
+        required
+        value={formData["name"]}
+        onChange={(e) =>
+          dispatch(addFormData({ key: "name", value: e.target.value }))
+        }
         sx={{ margin: "8px 0" }}
       />
       <TextField
@@ -16,6 +29,11 @@ const StepOne: React.FC = () => {
         type={"number"}
         variant='outlined'
         fullWidth
+        required
+        value={formData["age"]}
+        onChange={(e) =>
+          dispatch(addFormData({ key: "age", value: e.target.value }))
+        }
         sx={{ margin: "8px 0" }}
       />
 
@@ -25,6 +43,11 @@ const StepOne: React.FC = () => {
         type={"email"}
         variant='outlined'
         fullWidth
+        required
+        value={formData["email"]}
+        onChange={(e) =>
+          dispatch(addFormData({ key: "email", value: e.target.value }))
+        }
         sx={{ margin: "8px 0" }}
       />
     </>
