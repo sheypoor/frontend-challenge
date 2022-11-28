@@ -7,20 +7,30 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { Snackbar } from "@mui/material";
+import MuiAlert from "@mui/material/Alert";
 
 const steps = ["Information", "Subscribtion"];
 
 export default function Steps() {
   const [currentStep, setCurrentStep] = useState(0);
-
   const [newsletterPeriod, setNewsletterPeriod] = useState();
+  const [showSnackbar, setShowSnackbar] = useState(false);
+
+  const formData = useSelector((state: RootState) => state.form.formData);
 
   const handleReview = () => {
     setCurrentStep(0);
   };
 
   const handleSubmitInformation = () => {
-    setCurrentStep((prevActiveStep) => prevActiveStep + 1);
+    if (formData["name"] && formData["age"] && formData["email"]) {
+      setCurrentStep((prevActiveStep) => prevActiveStep + 1);
+    } else {
+      setShowSnackbar(true);
+    }
   };
 
   const handleSubscribe = () => {};
@@ -95,6 +105,20 @@ export default function Steps() {
           </Button>
         </Box>
       </>
+
+      <Snackbar
+        open={showSnackbar}
+        autoHideDuration={6000}
+        message='Note archived'
+      >
+        <MuiAlert
+          elevation={6}
+          variant='filled'
+          severity='error'
+        >
+          Please fill all fields
+        </MuiAlert>
+      </Snackbar>
     </Box>
   );
 }
