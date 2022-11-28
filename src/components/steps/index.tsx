@@ -110,6 +110,7 @@ export default function Steps() {
         open={showSnackbar}
         autoHideDuration={6000}
         message='Note archived'
+        onClose={() => setShowSnackbar(false)}
       >
         <MuiAlert
           elevation={6}
