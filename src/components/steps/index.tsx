@@ -5,11 +5,12 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import StepOne from "./StepOne";
+import StepTwo from "./StepTwo";
 
 const steps = ["Information", "Subscribtion"];
 
 export default function Steps() {
-  //   const [activeStep, setActiveStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
 
   const handleReview = () => {
@@ -21,6 +22,17 @@ export default function Steps() {
   };
 
   const handleSubscribe = () => {};
+
+  const getStepComponent = (step) => {
+    switch (step) {
+      case 0:
+        return <StepOne />;
+      case 1:
+        return <StepTwo />;
+      default:
+        return "Error";
+    }
+  };
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -46,7 +58,9 @@ export default function Steps() {
       </Stepper>
 
       <>
-        <Typography sx={{ mt: 2, mb: 1 }}>Step {currentStep + 1}</Typography>
+        <Typography sx={{ mt: 2, mb: 1 }}>
+          {getStepComponent(currentStep)}
+        </Typography>
         <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
           {currentStep > 0 && (
             <Button
