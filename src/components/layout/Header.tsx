@@ -97,13 +97,15 @@ const Header = () => {
             <span>شیپور من</span>
           </Typography>
           <div className="hidden lg:block">{navList}</div>
-          <Button
-            variant="gradient"
-            size="sm"
-            className="hidden lg:inline-block"
-          >
-            <span>نام‌نویسی</span>
-          </Button>
+          <Link href="/register">
+            <Button
+              variant="gradient"
+              size="sm"
+              className="hidden lg:inline-block"
+            >
+              <span>نام‌نویسی</span>
+            </Button>
+          </Link>
           <IconButton
             variant="text"
             className="h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -115,9 +117,11 @@ const Header = () => {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
-            <span>نام‌نویسی</span>
-          </Button>
+          <Link href="/register">
+            <Button variant="gradient" size="sm" fullWidth className="mb-2">
+              <span>نام‌نویسی</span>
+            </Button>
+          </Link>
         </MobileNav>
       </Navbar>
     </header>
