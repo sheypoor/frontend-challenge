@@ -4,7 +4,7 @@
   "description": "Sheypoor frontend challenge",
   "main": "sdk/index.js",
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -20,15 +20,20 @@
   },
   "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
   "dependencies": {
+    "@material-tailwind/react": "^1.2.4",
     "next": "^13.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.56.1",
     "sdk": "file:sdk"
   },
   "devDependencies": {
     "@types/node": "^18.11.10",
     "@types/react": "^18.0.26",
+    "autoprefixer": "^10.4.13",
     "eslint-config-next": "^13.0.6",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
     "typescript": "^4.9.3"
   }
 }
