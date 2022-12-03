@@ -85,9 +85,9 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="my-4">
-      <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
-        <div className="container mx-auto flex flex-row-reverse items-center justify-end text-blue-gray-900 lg:flex-row lg:justify-between">
+    <header className="container my-4">
+      <Navbar className="mx-auto py-2 px-4 lg:px-8 lg:py-4">
+        <div className="container flex flex-row-reverse items-center justify-end text-blue-gray-900 lg:flex-row lg:justify-between">
           <Typography
             as={Link}
             href="/"
