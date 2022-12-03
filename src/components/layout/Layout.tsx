@@ -9,7 +9,7 @@ const Layout = ({ children }: TLayoutProps) => {
   return (
     <main>
       <Header />
-      <article className="container py-4">{children}</article>
+      <article className="container">{children}</article>
     </main>
   )
 }
