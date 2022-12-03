@@ -13,7 +13,8 @@
           "responsive",
           "apply",
           "layer",
-          "screen"
+          "screen",
+          "extends"
         ]
       }
     ],
