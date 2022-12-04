@@ -37,5 +37,5 @@ module.exports = withMT({
       },
     },
   },
-  plugins: [require('tailwindcss-rtl')],
+  plugins: [],
 })
