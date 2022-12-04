@@ -30,6 +30,8 @@
     "postcss-preset-env": "^7.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.40.0",
+    "react-icons": "^4.7.1",
     "sass": "^1.56.1",
     "sdk": "file:sdk",
     "stylelint": "^14.15.0",
@@ -50,7 +52,9 @@
     "postcss": "^8.4.19",
     "prettier": "^2.8.0",
     "prettier-plugin-tailwindcss": "^0.2.0",
+    "stylelint-config-recommended": "^9.0.0",
     "tailwindcss": "^3.2.4",
+    "tailwindcss-rtl": "^0.9.0",
     "typescript": "^4.9.3"
   }
 }
