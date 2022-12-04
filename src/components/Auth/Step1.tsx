@@ -5,13 +5,15 @@ const Step1 = ({ register }) => {
   return (
     <div className="flex flex-col gap-3">
       <Input
-        {...register('name')}
         variant="standard"
+        {...register('name')}
+        autoComplete="name"
         label="نام و نام‌خانوادگی"
       />
       <Input
-        {...register('age')}
         variant="standard"
+        autoComplete="off"
+        {...register('age')}
         label="سن"
         type="number"
         min={10}

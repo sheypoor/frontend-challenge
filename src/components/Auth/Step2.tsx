@@ -10,12 +10,13 @@ const Step2 = ({ control, register }) => {
         variant="standard"
         label="رایانامه"
         type="email"
+        autoComplete="email"
       />
       <Controller
         name="newsletter"
         control={control}
         render={({ field }) => (
-          <Select variant="standard" label="خبرنامه" {...field}>
+          <Select {...field} variant="standard" label="خبرنامه">
             <Option value="daily">روزانه</Option>
             <Option value="weekly">هفتگی</Option>
             <Option value="monthly">ماهانه</Option>
