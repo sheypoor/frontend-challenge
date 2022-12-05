@@ -7,9 +7,9 @@ type TLayoutProps = {
 
 const Layout = ({ children }: TLayoutProps) => {
   return (
-    <main>
+    <main className="py-4">
       <Header />
-      <article className="container">{children}</article>
+      <section className="container">{children}</section>
     </main>
   )
 }
