@@ -1,9 +1,26 @@
+![screenshot](./docs/screenshot.jpg)
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm i
+npm run dev
+# or
+yarn
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 # Sheypoor frontend-challenge
 
-The task is to implement a **2 step UI wizard** to create a user account. There is no UX or UI constraints, this is 
-up to you to decide. 
+The task is to implement a **2 step UI wizard** to create a user account. There is no UX or UI constraints, this is
+up to you to decide.
 
 The User information that we need to collect is described in the User type:
+
 ```
 interface User {
   name: string
@@ -12,12 +29,13 @@ interface User {
   newsletter: 'daily' | 'weekly' | 'monthly'
 }
 ```
+
 You can, for example collect the name and age in the first step and then email and newsletter in the second step.
-You may use a routing library such that every step is a separate route but this is completely optional and not 
+You may use a routing library such that every step is a separate route but this is completely optional and not
 required.
 
 There is a dummy `sdk` package(implemented in the /sdk folder) which exports a `createUser` function. This function returns a `Promise`.
-Use it to simulate a request that creates a user account. 
+Use it to simulate a request that creates a user account.
 Ex:
 
 ```
@@ -42,7 +60,7 @@ Feel free to use any other helper library although ideally the more code you wri
 - Implement your solution
 - Create a PR against this repo
 
-Optional: build the project and deploy (ie make it available as a static project) on 
+Optional: build the project and deploy (ie make it available as a static project) on
 [Github Pages](https://pages.github.com/), otherwise please provide detailed instructions
 on how to start the project locally.
 
