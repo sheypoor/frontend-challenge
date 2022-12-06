@@ -5,8 +5,7 @@ import Button from "../components/Button";
 import { useFormContext } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
-
-type Inputs = { name: string; age: number };
+import { User } from "sdk";
 
 const Step1 = () => {
   const navigate = useNavigate();
@@ -15,17 +14,12 @@ const Step1 = () => {
     register,
     formState: { errors, isValid },
     handleSubmit,
-  } = useFormContext<Inputs>();
+  } = useFormContext<User>();
 
   return (
     <Layout>
       <Card title="Register Form">
-        <Form
-          onSubmit={handleSubmit((data) => {
-            console.log("first-step", data);
-            navigate("/step-two");
-          })}
-        >
+        <Form onSubmit={handleSubmit(() => navigate("/step-two"))}>
           <Input
             placeholder="name"
             type="text"
