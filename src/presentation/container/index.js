@@ -1,9 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import FirstStepForm from "../view/firstStepForm";
+import SecondStepForm from "../view/secondStepForm";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <FirstStepForm />,
+  },
+  {
+    path: "/second-step",
+    element: <SecondStepForm />,
   },
 ]);
 
