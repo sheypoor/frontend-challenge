@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Grid, TextField, Button } from "@mui/material";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
+import { FormStateContext } from "../../../application/service/formStateService";
 
 const FirstStepSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
@@ -12,13 +13,12 @@ const FirstStepSchema = Yup.object().shape({
 
 const FirstStepForm = () => {
   const navigate = useNavigate();
+  const { getFormData, putFormData } = useContext(FormStateContext);
 
   const onSubmit = (values, { setSubmitting }) => {
+    putFormData({ ...getFormData(), values });
     setSubmitting(false);
     navigate("/second-step");
-    // setTimeout(() => {
-    //   alert(JSON.stringify(values, null, 2));
-    // }, 400);
   };
 
   return (

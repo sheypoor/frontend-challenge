@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import FormStateService from "../../application/service/formStateService";
 import FirstStepForm from "../view/firstStep";
 import SecondStepForm from "../view/secondStep";
 import "@fontsource/roboto/300.css";
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
 ]);
 
 const Container = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <FormStateService>
+      <RouterProvider router={router} />
+    </FormStateService>
+  );
 };
 
 export default Container;
