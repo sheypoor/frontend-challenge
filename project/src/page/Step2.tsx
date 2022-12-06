@@ -2,28 +2,36 @@ import Layout from "../components/Layout";
 import Input from "../components/Input";
 import Form from "../components/Form";
 import Button from "../components/Button";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Select from "../components/Select";
 import { newsletterOptions } from "../constants";
 import Card from "../components/Card";
+import { createUser, User } from "sdk";
+import { useState } from "react";
 
-type Inputs = { email: string; newsletter: "daily" | "weekly" | "monthly" };
+type Inputs = User;
 
 const Step2 = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+    formState: { errors, isValid },
+  } = useFormContext<Inputs>();
+
+  const submit = async (data: User) => {
+    setLoading(true);
+    await createUser(data).finally(() => setLoading(false));
+  };
 
   return (
     <Layout>
       <Card title="Register Form">
-        <Form onSubmit={handleSubmit((data) => console.log(data))}>
+        <Form onSubmit={handleSubmit(submit)}>
           <Input
             {...register("email", {
               required: { value: true, message: "This is required!" },
@@ -47,7 +55,9 @@ const Step2 = () => {
           />
           <ButtonContainer>
             <Button onClick={() => navigate("/")}>Previous</Button>
-            <Button type="submit">Submit</Button>
+            <Button disabled={!isValid || loading} type="submit">
+              {loading ? "Loading..." : "Submit"}
+            </Button>
           </ButtonContainer>
         </Form>
       </Card>

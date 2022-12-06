@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 
@@ -13,9 +13,9 @@ const Step1 = () => {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
-  } = useForm<Inputs>();
+  } = useFormContext<Inputs>();
 
   return (
     <Layout>
@@ -43,7 +43,11 @@ const Step1 = () => {
             })}
             error={errors.age?.message}
           />
-          <Button type="submit" style={{ marginTop: "3rem" }}>
+          <Button
+            disabled={!isValid}
+            type="submit"
+            style={{ marginTop: "3rem" }}
+          >
             next
           </Button>
         </Form>
