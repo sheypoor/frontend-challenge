@@ -20,6 +20,7 @@ const Step2 = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isValid },
   } = useFormContext<Inputs>();
 
@@ -27,7 +28,9 @@ const Step2 = () => {
     setLoading(true);
     await createUser(data).finally(() => setLoading(false));
 
-    navigate("/result");
+    reset();
+
+    navigate("/", { state: { isSubmitted: true } });
   };
 
   return (

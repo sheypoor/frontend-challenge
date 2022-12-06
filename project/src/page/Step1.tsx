@@ -6,9 +6,14 @@ import { useFormContext } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import { User } from "sdk";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import Message from "../components/Message";
 
 const Step1 = () => {
   const navigate = useNavigate();
+
+  const location = useLocation();
 
   const {
     register,
@@ -46,6 +51,11 @@ const Step1 = () => {
           </Button>
         </Form>
       </Card>
+      {location.state?.isSubmitted && (
+        <Message style={{ marginTop: "1rem" }} type="SUCCESS">
+          Your info submitted successfully
+        </Message>
+      )}
     </Layout>
   );
 };
