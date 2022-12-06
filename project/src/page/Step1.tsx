@@ -19,7 +19,7 @@ const Step1 = () => {
   return (
     <Layout>
       <Card title="Register Form">
-        <Form onSubmit={handleSubmit(() => navigate("/step-two"))}>
+        <Form onSubmit={handleSubmit(() => navigate("/step2"))}>
           <Input
             placeholder="name"
             type="text"

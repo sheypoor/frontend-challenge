@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/">
               <Route index element={<Step1 />} />
-              <Route path="/step-two" element={<Step2 />} />
+              <Route path="/step2" element={<Step2 />} />
             </Route>
           </Routes>
         </BrowserRouter>
