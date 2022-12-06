@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Grid, TextField, Button } from "@mui/material";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 import "./index.scss";
 
 const FirstStepSchema = Yup.object().shape({
@@ -10,17 +11,22 @@ const FirstStepSchema = Yup.object().shape({
 });
 
 const FirstStepForm = () => {
+  const navigate = useNavigate();
+
+  const onSubmit = (values, { setSubmitting }) => {
+    setSubmitting(false);
+    navigate("/second-step");
+    // setTimeout(() => {
+    //   alert(JSON.stringify(values, null, 2));
+    // }, 400);
+  };
+
   return (
     <Card raised={true} className="card-wrapper">
       <Formik
         initialValues={{ name: "", age: "" }}
         validationSchema={FirstStepSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
-        }}
+        onSubmit={onSubmit}
       >
         {({
           values,
