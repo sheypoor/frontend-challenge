@@ -16,7 +16,7 @@ const FirstStepForm = () => {
   const { getFormData, putFormData } = useContext(FormStateContext);
 
   const onSubmit = (values, { setSubmitting }) => {
-    putFormData({ ...getFormData(), values });
+    putFormData({ ...getFormData(), ...values });
     setSubmitting(false);
     navigate("/second-step");
   };
@@ -48,7 +48,7 @@ const FirstStepForm = () => {
                   value={values.name}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  error={errors.name && touched.name && errors.name}
+                  error={errors.name && touched.name}
                   helperText={errors.name && touched.name && errors.name}
                 />
               </Grid>
@@ -62,7 +62,7 @@ const FirstStepForm = () => {
                   type="number"
                   value={values.age}
                   onChange={handleChange}
-                  error={errors.age && touched.age && errors.age}
+                  error={errors.age && touched.age}
                   helperText={errors.age && touched.age && errors.age}
                 />
               </Grid>
