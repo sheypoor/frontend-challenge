@@ -1,7 +1,8 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Step1 from "./page/Step1";
 import Step2 from "./page/Step2";
-import { useForm, useFormContext, FormProvider } from "react-hook-form";
+import Result from "./page/result";
+import { useForm, FormProvider } from "react-hook-form";
 import { User } from "sdk";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path="/">
               <Route index element={<Step1 />} />
               <Route path="/step2" element={<Step2 />} />
+              <Route path="/result" element={<Result />} />
             </Route>
           </Routes>
         </BrowserRouter>

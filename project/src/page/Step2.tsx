@@ -26,6 +26,8 @@ const Step2 = () => {
   const submit = async (data: User) => {
     setLoading(true);
     await createUser(data).finally(() => setLoading(false));
+
+    navigate("/result");
   };
 
   return (
@@ -33,6 +35,7 @@ const Step2 = () => {
       <Card title="Register Form">
         <Form onSubmit={handleSubmit(submit)}>
           <Input
+            placeholder="email"
             {...register("email", {
               required: { value: true, message: "This is required!" },
               pattern: {
