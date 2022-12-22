@@ -1,5 +1,12 @@
+import { Container } from '~/components';
+import Form from '~/sections/home';
+
 const Home = () => {
-  return <>dsf</>;
+  return (
+    <Container>
+      <Form />
+    </Container>
+  );
 };
 
 export default Home;
