@@ -1,4 +1,5 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useContext } from 'react';
+import FormContext from '~/context/FormContext';
 import {
   Box,
   Stepper,
@@ -9,7 +10,9 @@ import {
 } from '~/components';
 
 const FormStepper = ({ steps }) => {
-  const [activeStep, setActiveStep] = useState(0);
+  // const [activeStep, setActiveStep] = useState(0);
+  const { activeStep, setActiveStep } = useContext(FormContext);
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
