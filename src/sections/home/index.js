@@ -3,8 +3,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { createUser } from '~/components/sdk';
 
-import { Card } from '~/components';
+import { Card, Box, Button } from '~/components';
 import FormStepper from '~/components/FormSteper';
+import FormSections from './FormSections';
 import StepOne from './stepOne';
 import StepTwo from './stepTwo';
 
@@ -48,6 +49,7 @@ const Form = () => {
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormStepper steps={steps} />
+          <FormSections steps={steps} />
         </form>
       </FormProvider>
     </Card>

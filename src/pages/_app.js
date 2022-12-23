@@ -6,14 +6,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import theme from '~/MUI/theme';
 import createEmotionCache from '~/MUI/createEmotionCache';
-import FormContext from '~/context/FormContext';
+import { FormProvider } from '~/context/FormContext';
 const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const [activeStep, setActiveStep] = useState(0);
   return (
-    <FormContext.Provider value={{ activeStep, setActiveStep }}>
+    <FormProvider>
       <CacheProvider value={emotionCache}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -23,7 +22,7 @@ export default function MyApp(props) {
           <Component {...pageProps} />
         </ThemeProvider>
       </CacheProvider>
-    </FormContext.Provider>
+    </FormProvider>
   );
 }
 
