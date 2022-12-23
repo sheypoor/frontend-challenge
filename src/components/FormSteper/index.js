@@ -56,9 +56,13 @@ const FormStepper = ({ steps }) => {
               Back
             </Button>
             <Box sx={{ flex: '1 1 auto' }} />
-            <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
+            {activeStep === steps.length - 1 ? (
+              <Button type="submit" variant="outlined">
+                Register
+              </Button>
+            ) : (
+              <Button onClick={handleNext}>Next</Button>
+            )}
           </Box>
         </Fragment>
       )}
