@@ -3,7 +3,7 @@ import Form from '~/sections/home';
 
 const Home = () => {
   return (
-    <Container>
+    <Container maxWidth="sm">
       <Form />
     </Container>
   );

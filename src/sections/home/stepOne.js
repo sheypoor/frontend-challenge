@@ -1,27 +1,10 @@
-import { TextField } from '~/components';
-import { useFormContext } from 'react-hook-form';
-const StepOne = () => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
+import { RHFTextField } from '~/components/Form';
 
+const StepOne = () => {
   return (
     <>
-      <TextField
-        {...register('name')}
-        label="name"
-        size="small"
-        helperText={errors.name && errors.name.message}
-        error={errors.name}
-      />
-      <TextField
-        {...register('age')}
-        label="age"
-        size="small"
-        helperText={errors.age && errors.age.message}
-        error={errors.newsletter}
-      />
+      <RHFTextField name="name" sx={{ mb: 1, mt: 5 }} size="small" />
+      <RHFTextField name="age" sx={{ my: 2 }} size="small" />
     </>
   );
 };

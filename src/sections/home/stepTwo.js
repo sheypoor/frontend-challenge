@@ -1,27 +1,20 @@
-import { TextField } from '~/components';
-import { useFormContext } from 'react-hook-form';
-const StepTwo = () => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
+import { RHFTextField, RHFSelect } from '~/components/Form';
+import { MenuItem } from '~/components';
 
+const newsletterOptions = ['daily', 'weekly', 'monthly'];
+
+const StepTwo = () => {
   return (
     <>
-      <TextField
-        {...register('email')}
-        label="email"
-        size="small"
-        helperText={errors.email && errors.email.message}
-        error={errors.email}
-      />
-      <TextField
-        {...register('newsletter')}
-        label="newsletter"
-        size="small"
-        helperText={errors.newsletter && errors.newsletter.message}
-        error={errors.newsletter}
-      />
+      <RHFTextField name="email" sx={{ mb: 1, mt: 5 }} size="small" />
+
+      <RHFSelect name="newsletter" sx={{ my: 2 }} size="small">
+        {newsletterOptions.map((item) => (
+          <MenuItem key={item} value={item}>
+            {item}
+          </MenuItem>
+        ))}
+      </RHFSelect>
     </>
   );
 };
