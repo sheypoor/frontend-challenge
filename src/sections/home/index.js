@@ -1,23 +1,27 @@
+import { useState, useContext } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
+import { FormContext } from '~/context/FormContext';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { createUser } from '~/components/sdk';
 
-import { Card, Box, Button } from '~/components';
-import FormStepper from '~/components/FormSteper';
+import { Card } from '~/components';
+import FormStepper from '~/components/FormStepper';
 import FormSections from './FormSections';
-import StepOne from './stepOne';
-import StepTwo from './stepTwo';
+import StepOne from './StepOne';
+import StepTwo from './StepTwo';
+import Finish from './Finish';
 
 const steps = [
   { index: 0, label: 'Personal Info', component: <StepOne /> },
   { index: 1, label: 'Additional Settings', component: <StepTwo /> },
+  { index: 2, label: 'Finish', component: <Finish /> },
 ];
 const defaultValues = {
   name: '',
   age: '',
   email: '',
-  newsletter: '',
+  newsletter: 'daily',
 };
 
 const schema = yup
@@ -26,30 +30,35 @@ const schema = yup
     age: yup.string().required(),
     email: yup.string().email().required(),
     newsletter: yup.string().required(),
-    // yup.mixed.oneOf(['daily', 'weekly', 'monthly']),
   })
   .required();
 
 const Form = () => {
+  const { setActiveStep } = useContext(FormContext);
+  const [loading, setLoading] = useState(false);
   const methods = useForm({
     resolver: yupResolver(schema),
     defaultValues,
   });
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-  } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (data) => {
-    createUser(data).then((res) => console.log(res));
+    setLoading(true);
+    createUser(data).then((res) => {
+      setActiveStep(2);
+      setLoading(false);
+
+      console.log(res);
+    });
   };
 
   return (
     <Card sx={{ my: 9, p: 5, border: '1px solid #e6e6e6' }} elevation={0}>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <FormStepper steps={steps} />
-          <FormSections steps={steps} />
+          <FormStepper steps={steps} loading={loading}>
+            <FormSections steps={steps} />
+          </FormStepper>
         </form>
       </FormProvider>
     </Card>

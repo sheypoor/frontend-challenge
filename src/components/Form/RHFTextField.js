@@ -1,13 +1,6 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 import { TextField } from '~/components';
-
-// RHFTextField.propTypes = {
-//   name: PropTypes.string,
-//   rules: PropTypes.object,
-//   helperText: PropTypes.string,
-//   dir: PropTypes.string,
-// };
 
 const RHFTextField = ({ name, helperText, ...other }) => {
   const {
@@ -20,10 +13,14 @@ const RHFTextField = ({ name, helperText, ...other }) => {
       label={name}
       helperText={(errors[name] && errors[name].message) || helperText}
       error={!!errors[name]}
-      SelectProps={{ native: true }}
       fullWidth
       {...other}
     />
   );
 };
+RHFTextField.propTypes = {
+  name: PropTypes.string,
+  helperText: PropTypes.string,
+};
+
 export default RHFTextField;
