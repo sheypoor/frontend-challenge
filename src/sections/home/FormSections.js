@@ -1,0 +1,61 @@
+import { Fragment, useContext } from 'react';
+import { FormContext } from '~/context/FormContext';
+import { Box, Button, Typography } from '~/components';
+
+const FormStepper = ({ steps }) => {
+  const { activeStep, setActiveStep } = useContext(FormContext);
+
+  const handleShowComponent = () => {
+    const { component } = steps.find((step) => step.index === activeStep);
+    return component;
+  };
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+  return (
+    <Box sx={{ width: '100%' }}>
+      {activeStep === steps.length ? (
+        <Fragment>
+          <Typography sx={{ mt: 2, mb: 1 }}>
+            All steps completed - you&apos;re finished
+          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Box sx={{ flex: '1 1 auto' }} />
+          </Box>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <Box>{handleShowComponent()}</Box>
+
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Button
+              color="inherit"
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              sx={{ mr: 1 }}
+            >
+              Back
+            </Button>
+            <Box sx={{ flex: '1 1 auto' }} />
+
+            {activeStep !== steps.length - 1 && (
+              <Button onClick={handleNext}>Next</Button>
+            )}
+            {activeStep === steps.length - 1 && (
+              <Button type="submit" variant="outlined">
+                Register
+              </Button>
+            )}
+          </Box>
+        </Fragment>
+      )}
+    </Box>
+  );
+};
+
+export default FormStepper;
