@@ -13,8 +13,18 @@ import StepTwo from './StepTwo';
 import Finish from './Finish';
 
 const steps = [
-  { index: 0, label: 'Personal Info', component: <StepOne /> },
-  { index: 1, label: 'Additional Settings', component: <StepTwo /> },
+  {
+    index: 0,
+    label: 'Personal Info',
+    component: <StepOne />,
+    validation: ['name', 'age'],
+  },
+  {
+    index: 1,
+    label: 'Additional Settings',
+    component: <StepTwo />,
+    validation: ['email', 'newsletter'],
+  },
   { index: 2, label: 'Finish', component: <Finish /> },
 ];
 const defaultValues = {
@@ -40,7 +50,7 @@ const Form = () => {
     resolver: yupResolver(schema),
     defaultValues,
   });
-  const { handleSubmit } = methods;
+  const { handleSubmit, trigger } = methods;
 
   const onSubmit = (data) => {
     setLoading(true);
@@ -56,7 +66,7 @@ const Form = () => {
     <Card sx={{ my: 9, p: 5, border: '1px solid #e6e6e6' }} elevation={0}>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <FormStepper steps={steps} loading={loading}>
+          <FormStepper steps={steps} loading={loading} trigger={trigger}>
             <FormSections steps={steps} />
           </FormStepper>
         </form>

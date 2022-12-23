@@ -10,11 +10,16 @@ import {
   CircularProgress,
 } from '~/components';
 
-const FormStepper = ({ steps, loading, children }) => {
+const FormStepper = ({ steps, loading, trigger, children }) => {
   const { activeStep, setActiveStep } = useContext(FormContext);
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  const handleNext = async () => {
+    let isValid = false;
+    const { validation } = steps.find((step) => step.index === activeStep);
+    isValid = await trigger(validation);
+    if (isValid) {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
   };
 
   const handleBack = () => {
