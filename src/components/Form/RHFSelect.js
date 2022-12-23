@@ -1,15 +1,8 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 import { TextField } from '~/components';
 
-// RHFSelect.propTypes = {
-//   name: PropTypes.string,
-//   rules: PropTypes.object,
-//   helperText: PropTypes.string,
-//   dir: PropTypes.string,
-// };
-
-const RHFSelect = ({ name, children, helperText, ...other }) => {
+const RHFSelect = ({ name, children, helperText, defaultValue, ...other }) => {
   const {
     register,
     formState: { errors },
@@ -18,6 +11,7 @@ const RHFSelect = ({ name, children, helperText, ...other }) => {
     <TextField
       {...register(name)}
       select
+      defaultValue={defaultValue}
       label={name}
       helperText={(errors[name] && errors[name].message) || helperText}
       error={!!errors[name]}
@@ -28,4 +22,11 @@ const RHFSelect = ({ name, children, helperText, ...other }) => {
     </TextField>
   );
 };
+
+RHFSelect.propTypes = {
+  name: PropTypes.string,
+  children: PropTypes.node,
+  helperText: PropTypes.string,
+};
+
 export default RHFSelect;

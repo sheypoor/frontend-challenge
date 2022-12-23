@@ -8,7 +8,12 @@ const StepTwo = () => {
     <>
       <RHFTextField name="email" sx={{ mb: 1, mt: 5 }} size="small" />
 
-      <RHFSelect name="newsletter" sx={{ my: 2 }} size="small">
+      <RHFSelect
+        name="newsletter"
+        sx={{ my: 2 }}
+        size="small"
+        defaultValue="daily"
+      >
         {newsletterOptions.map((item) => (
           <MenuItem key={item} value={item}>
             {item}

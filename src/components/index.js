@@ -9,3 +9,4 @@ export { default as Button } from '@mui/material/Button';
 export { default as Stepper } from '@mui/material/Stepper';
 export { default as Step } from '@mui/material/Step';
 export { default as StepLabel } from '@mui/material/StepLabel';
+export { default as CircularProgress } from '@mui/material/CircularProgress';
