@@ -6,7 +6,7 @@ const newsletterOptions = ['daily', 'weekly', 'monthly'];
 const StepTwo = () => {
   return (
     <>
-      <RHFTextField name="email" sx={{ mb: 1, mt: 5 }} size="small" />
+      <RHFTextField name="email" sx={{ mb: 2, mt: 5 }} size="small" />
 
       <RHFSelect
         name="newsletter"
