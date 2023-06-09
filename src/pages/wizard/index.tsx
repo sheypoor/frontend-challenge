@@ -1,5 +1,7 @@
 import React from 'react'
 import { Row, Col, Card } from 'reactstrap'
+import Stepper from 'src/@core/components/Stepper'
+
 import UserInfo from './Steps/UserInfo'
 import Account from './Steps/Account'
 import Complete from './Steps/Complete'
@@ -26,8 +28,7 @@ function Wizard() {
         <Col xs={12} lg={6}>
           <Card>
             <h2 className='text-center mt-4 mb-1 fw-bolder'>Create Account</h2>
-
-            {steps.map(step => step.content)}
+            <Stepper steps={steps} defaultValue={{}} />
           </Card>
         </Col>
       </Row>
