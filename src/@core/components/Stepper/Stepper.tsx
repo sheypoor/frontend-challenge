@@ -31,8 +31,12 @@ const Stepper = (props: StepperProps) => {
     if (index <= activeStep) setActiveStep(index)
   }
 
+  const handleSetStep = (index: number) => {
+    setActiveStep(index)
+  }
+
   return (
-    <StepperProvider defaultValue={defaultValue} next={next} prev={prev}>
+    <StepperProvider defaultValue={defaultValue} next={next} prev={prev} setStep={handleSetStep}>
       <div className='stepper'>
         <ul className='stepper__nav'>
           {steps.map((step, index) => (

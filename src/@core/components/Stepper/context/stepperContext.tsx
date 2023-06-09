@@ -5,13 +5,17 @@ type ContextType = {
   prev: () => void
   setValue: (data: object) => void
   getValues: () => object
+  setStep: (step: number) => void
+  resetValues: () => void
 }
 
 const StepperContext = createContext<ContextType>({
   next: () => {},
   prev: () => {},
   setValue: () => {},
-  getValues: (): object => ({})
+  getValues: (): object => ({}),
+  setStep: () => {},
+  resetValues: () => {}
 })
 
 interface StepperProviderProps {
@@ -19,9 +23,10 @@ interface StepperProviderProps {
   defaultValue?: object
   next: () => void
   prev: () => void
+  setStep: (step: number) => void
 }
 
-const StepperProvider: React.FC<StepperProviderProps> = ({ children, defaultValue, next, prev }) => {
+const StepperProvider: React.FC<StepperProviderProps> = ({ children, defaultValue, next, prev, setStep }) => {
   const contentRef = useRef<object | null>({ ...defaultValue })
 
   const setValue = (data: object): void => {
@@ -33,7 +38,15 @@ const StepperProvider: React.FC<StepperProviderProps> = ({ children, defaultValu
     return data
   }
 
-  return <StepperContext.Provider value={{ next, prev, getValues, setValue }}>{children}</StepperContext.Provider>
+  const resetValues = (): void => {
+    contentRef.current = { ...defaultValue }
+  }
+
+  return (
+    <StepperContext.Provider value={{ next, prev, getValues, setValue, setStep, resetValues }}>
+      {children}
+    </StepperContext.Provider>
+  )
 }
 
 export { StepperContext, StepperProvider }
