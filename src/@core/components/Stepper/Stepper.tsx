@@ -38,7 +38,9 @@ const Stepper = (props: StepperProps) => {
           {steps.map((step, index) => (
             <li
               key={index}
-              className={`stepper__nav--item ${index <= activeStep ? 'active' : ''}`}
+              className={`stepper__nav--item ${index <= activeStep ? 'active' : ''} ${
+                index < activeStep ? 'complete' : ''
+              }`}
               onClick={() => handleNavClick(index)}
             >
               <span>{index + 1}</span>
