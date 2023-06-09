@@ -27,7 +27,6 @@ const UserInfo = () => {
                 Name
               </Label>
               <Controller
-                //   id='phone'
                 name='name'
                 rules={{ required: true }}
                 control={control}
@@ -57,7 +56,7 @@ const UserInfo = () => {
                   <Input type='number' id='age' placeholder='24' invalid={errors.age && true} {...field} />
                 )}
               />
-              {errors.name ? <FormFeedback>Age is required</FormFeedback> : null}
+              {errors.age ? <FormFeedback>Age is required</FormFeedback> : null}
             </div>
           </Col>
         </Row>
