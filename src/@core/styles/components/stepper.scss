@@ -1,6 +1,7 @@
 // Variables
 $nav-bg-color: #e5e5e5;
 $nav-text-color: #c5c5c5;
+$active-color: $primary;
 
 // Stepper Wizard
 .stepper {
@@ -45,7 +46,6 @@ $nav-text-color: #c5c5c5;
         font-size: 14px;
         margin-bottom: 5px;
       }
-
       &:not(:last-child)::before {
         content: '';
         display: block;
@@ -56,6 +56,22 @@ $nav-text-color: #c5c5c5;
         left: 50%;
         top: 30%;
         z-index: 0;
+      }
+      // Active Nav Step
+      &.active {
+        span {
+          background-color: $white;
+          border: 2px solid $active-color;
+          color: $active-color;
+          z-index: 1;
+        }
+
+        & p {
+          color: $active-color;
+        }
+        & ~ li:before {
+          background-color: $nav-bg-color;
+        }
       }
     }
   }

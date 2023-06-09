@@ -27,12 +27,20 @@ const Stepper = (props: StepperProps) => {
     }
   }
 
+  const handleNavClick = (index: number) => {
+    if (index <= activeStep) setActiveStep(index)
+  }
+
   return (
     <StepperProvider next={next} prev={prev}>
       <div className='stepper'>
         <ul className='stepper__nav'>
           {steps.map((step, index) => (
-            <li key={index} className={`stepper__nav--item`}>
+            <li
+              key={index}
+              className={`stepper__nav--item ${index <= activeStep ? 'active' : ''}`}
+              onClick={() => handleNavClick(index)}
+            >
               <span>{index + 1}</span>
               <p>{step.title}</p>
             </li>
