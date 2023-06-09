@@ -1,0 +1,69 @@
+// Variables
+$nav-bg-color: #e5e5e5;
+$nav-text-color: #c5c5c5;
+
+// Stepper Wizard
+.stepper {
+  margin-top: 50px;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: auto;
+    padding: 0px;
+    position: relative;
+
+    &--item {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      position: relative;
+
+      span {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $nav-bg-color;
+        color: $white;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+        z-index: 1;
+      }
+
+      p {
+        color: $nav-text-color;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      &:not(:last-child)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        background-color: $nav-bg-color;
+        height: 3px;
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        z-index: 0;
+      }
+    }
+  }
+
+  &__title {
+    color: $nav-bg-color;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
