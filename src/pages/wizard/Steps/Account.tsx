@@ -1,8 +1,10 @@
+import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { Form, Label, Input, FormFeedback, Row, Col, Button } from 'reactstrap'
+import { Form, Label, Input, FormFeedback, Row, Col, Button, Spinner } from 'reactstrap'
 import { useStepper } from 'src/@core/components/Stepper'
 import { EMAIL_REGEX } from 'src/constants'
 import Select from 'react-select'
+import { createUser } from 'sdk'
 
 const newLetters = [
   { value: 'daily', label: 'daily' },
@@ -13,6 +15,7 @@ const newLetters = [
 const AccountStep = () => {
   const stepper = useStepper()
   const values = stepper.getValues()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const defaultValue = {
     email: '',
@@ -28,7 +31,12 @@ const AccountStep = () => {
 
   const handleSubmitForm = (data: any) => {
     stepper.setValue(data)
-    stepper.next()
+    setIsLoading(true)
+    createUser(data).then(res => {
+      console.log(res)
+      setIsLoading(false)
+      stepper.next()
+    })
   }
 
   const handlePrevClick = () => {
@@ -89,12 +97,21 @@ const AccountStep = () => {
         <Row className='justify-content-center'>
           <Col xs={11} lg={6}>
             <div className='d-flex align-items-center justify-content-center pb-3 pt-3'>
-              <Button className='me-2 w-50' outline type='button' color='secondary' onClick={handlePrevClick}>
-                PREV
-              </Button>
-              <Button className='w-100' type='submit' color='primary'>
-                NEXT
-              </Button>
+              {isLoading ? (
+                <div className=''>
+                  <Spinner color='primary' />
+                </div>
+              ) : (
+                <>
+                  {' '}
+                  <Button className='me-2 w-50' outline type='button' color='secondary' onClick={handlePrevClick}>
+                    PREV
+                  </Button>
+                  <Button className='w-100' type='submit' color='primary'>
+                    NEXT
+                  </Button>
+                </>
+              )}
             </div>
           </Col>
         </Row>
