@@ -32,7 +32,7 @@ const Stepper = (props: StepperProps) => {
   }
 
   return (
-    <StepperProvider next={next} prev={prev}>
+    <StepperProvider defaultValue={defaultValue} next={next} prev={prev}>
       <div className='stepper'>
         <ul className='stepper__nav'>
           {steps.map((step, index) => (
