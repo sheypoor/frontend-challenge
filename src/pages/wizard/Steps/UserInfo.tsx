@@ -5,14 +5,16 @@ import { Controller, useForm } from 'react-hook-form'
 
 const UserInfo = () => {
   const stepper = useStepper()
+  const defaultValue = stepper.getValues()
 
   const {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm({ defaultValues: { name: '', age: '' } })
+  } = useForm({ defaultValues: { name: '', age: '', ...defaultValue } })
 
   const handleSubmitForm = (data: object) => {
+    stepper.setValue(data)
     stepper.next()
   }
   return (

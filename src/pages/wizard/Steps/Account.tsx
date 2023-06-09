@@ -12,10 +12,12 @@ const newLetters = [
 
 const AccountStep = () => {
   const stepper = useStepper()
+  const values = stepper.getValues()
 
   const defaultValue = {
     email: '',
-    newsletter: ''
+    newsletter: '',
+    ...values
   }
 
   const {
@@ -25,6 +27,7 @@ const AccountStep = () => {
   } = useForm({ defaultValues: defaultValue })
 
   const handleSubmitForm = (data: any) => {
+    stepper.setValue(data)
     stepper.next()
   }
 
