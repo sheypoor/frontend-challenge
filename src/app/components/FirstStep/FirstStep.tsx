@@ -7,7 +7,7 @@ const FirstStep = ({
   onChange,
 }: {
   name: string;
-  age: number;
+  age: number | "";
   onChange: (fieldName: validFieldNames, value: any) => void;
 }) => {
   const handleChange = (e: any) => {
