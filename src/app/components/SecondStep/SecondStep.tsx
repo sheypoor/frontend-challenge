@@ -16,22 +16,31 @@ const SecondStep = ({
   };
 
   return (
-    <div>
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        onChange={handleChange}
-      />
-      <label>
+    <>
+      <label className="gap-1 flex flex-col">
+        Email:
+        <input
+          className="rounded p-2 w-full"
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+        />
+      </label>
+      <label className="gap-1 flex flex-col">
         Newsletter:
-        <select name="newsletter" id="newsletter" onChange={handleChange}>
+        <select
+          className="rounded p-2 w-full"
+          name="newsletter"
+          id="newsletter"
+          onChange={handleChange}
+        >
           <option value="daily">Daily</option>
           <option value="weekly">Weekly</option>
           <option value="monthly">Monthly</option>
         </select>
       </label>
-    </div>
+    </>
   );
 };
 
