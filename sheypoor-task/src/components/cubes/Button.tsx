@@ -12,7 +12,6 @@ interface Props {
 
 const Button = ({ children, onClick, type = 'button', className , disabled }: Props) => {
   const clickButton = (e: any) => {
-    e.preventDefault();
     onClick?.();
   };
   return (
