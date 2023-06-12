@@ -56,8 +56,8 @@ export default function Home() {
 
     setState((prevState) => ({ ...prevState, [fieldName]: targetValue }));
   };
-  console.log({ state });
-  const run = async () => {
+
+  const postData = async () => {
     if (state.age) {
       try {
         setLoading(true);
@@ -78,7 +78,7 @@ export default function Home() {
     e.preventDefault();
 
     if (currentStep) {
-      run();
+      postData();
     } else {
       setCurrentStep(1);
     }
