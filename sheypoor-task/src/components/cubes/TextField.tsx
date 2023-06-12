@@ -1,12 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
-import { UseFormRegister, FieldValues } from 'react-hook-form';
+import { UseFormRegister } from 'react-hook-form';
+import ErrorMessage from './ErrorMessage';
 
 interface Props {
   name: string;
   label: string;
-  placeholder : string;
-  register: UseFormRegister<FieldValues>;
+  placeholder ?: string;
+  register: UseFormRegister<any>;
   rules?: Record<string, any>;
   error?: any;
   as?: 'input' | 'select' | 'textarea';
@@ -16,6 +17,7 @@ interface Props {
   errorMessageClassName : string;
   [key: string]: any;
 }
+
 
 export default function TextField({
   name,
@@ -37,16 +39,33 @@ export default function TextField({
     <div className='flex flex-col mt-2'>
       <label className={labelClassName} htmlFor={name}>{label}</label>
       {as === 'select' ? (
-        <select className={className}  id={name} {...register(name, rules)} {...rest} />
-      ) : as === 'textarea' ? (
-        <textarea className={className} placeholder={placeholder} id={name} {...register(name, rules)} {...rest} />
-      ) : (
-        <input className={componentClassName} placeholder={placeholder} id={name} {...register(name, rules)} {...rest} />
+        <select 
+          className={className}  
+          id={name} 
+          {...register(name, rules)} 
+          {...rest} />
+      ) 
+      : as === 'textarea' ? (
+        <textarea 
+          className={className} 
+          placeholder={placeholder} 
+          id={name} 
+          {...register(name, rules)} 
+          {...rest} />
+      ) 
+      : (
+        <input 
+          className={componentClassName} 
+          placeholder={placeholder} 
+          id={name} 
+          {...register(name, rules)} 
+          {...rest} />
       )}
-      {error && <div className={errorElementClassName}>
-        <span className='block w-2 h-2 rounded-full bg-red-600'/>
-        <span className={errorMessageClassName}>{error.message}</span>
-      </div> 
+      {error && 
+        <ErrorMessage 
+          errorElementClassName={errorElementClassName} 
+          errorMessageClassName={errorMessageClassName} 
+          message={error.message} />
       }
     </div>
   );

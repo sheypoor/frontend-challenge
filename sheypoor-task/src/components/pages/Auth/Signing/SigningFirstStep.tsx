@@ -17,7 +17,7 @@ export default function SigningFirstStep({onNext}:Props) {
     formState: { errors },
   } = useForm<FirstStepSigning>();
 
-  const onSubmit: SubmitHandler<FirstStepSigning> = (data) => {
+  const onSubmit: SubmitHandler<FirstStepSigning> = (data) => {    
     toast.success('first Step Data Added' ,{
       position: toast.POSITION.TOP_CENTER
     })
@@ -46,7 +46,7 @@ export default function SigningFirstStep({onNext}:Props) {
             label="Age"
             type="number"
             placeholder='please add your age.'
-            register={register}
+            register={register as UseFormRegister<FirstStepSigning>}
             rules={{ required: 'Age is required' }}
             error={errors.age}
             className='p-2 bg-zinc-100 rounded-md'
@@ -55,9 +55,9 @@ export default function SigningFirstStep({onNext}:Props) {
             errorMessageClassName="ml-2 text-sm"
           />
         </div>
-        <button type='submit' className='p-2 bg-green-500 rounded w-full' >
-            <p className='text-gray-700'>Next</p>
-        </button>
+        <Button type='submit' className='p-2 bg-green-500 rounded w-full' >
+          <p className='text-gray-700'>Next</p>
+        </Button>
       </form>
     </div>
   );

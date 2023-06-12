@@ -1,7 +1,8 @@
 import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, UseFormRegister } from 'react-hook-form';
 import TextField from '@/components/cubes/TextField';
 import { SecondStepSigning } from '@/types/Signing';
+import Button from '@/components/cubes/Button';
 
 
 
@@ -9,6 +10,22 @@ interface Props {
   onBack: () => void;
   onSubmit: (data: SecondStepSigning) => void;
 }
+
+const selectMockUp =  [
+  {
+    value: 'daily',
+    text : 'Daily'
+  },
+  {
+    value: 'weekly',
+    text : 'Weekly'
+  },
+  {
+    value: 'monthly',
+    text : 'Monthly'
+  },
+
+]
 
 export default function SigningSecondStep({onBack , onSubmit} : Props) {
   const {
@@ -34,7 +51,7 @@ export default function SigningSecondStep({onBack , onSubmit} : Props) {
           label="Email"
           type="email"
           placeholder='please add your email.'
-          register={register}
+          register={register as UseFormRegister<SecondStepSigning>}
           rules={{ required: 'Email is required' }}
           error={errors.email}
           className='p-2 bg-zinc-100 rounded-md'
@@ -53,21 +70,21 @@ export default function SigningSecondStep({onBack , onSubmit} : Props) {
           errorElementClassName='flex items-center p-2 bg-red-300 border border-red-700 rounded mt-3'
           errorMessageClassName="ml-2 text-sm"
         >
-          <option value="daily">Daily</option>
-          <option value="weekly">Weekly</option>
-          <option value="monthly">Monthly</option>
+          {selectMockUp.map((option : {value : string , text : string}) => {
+            return <option value={option.value}>{option.text}</option>
+          })}
         </TextField>
         <div className='flex gap-0 mt-3 justify-between'>
-          <button className='w-1/4 border border-red-400 rounded text-sm' onClick={handlePrevious}>
+          <Button className='w-1/4 border border-red-400 rounded text-sm' onClick={handlePrevious}>
             <p className='text-gray-500'>
-              back
+                back
             </p>
-          </button>
-          <button className='w-2/3 p-2 bg-green-500 rounded text-sm' type="submit">
+          </Button>
+          <Button className='w-2/3 p-2 bg-green-500 rounded text-sm' type="submit">
             <p className='text-gray-700'>
-             Create Account
+              Create Account
             </p>
-          </button>
+          </Button>
         </div>
      
       </form>
