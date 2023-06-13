@@ -1,49 +1,34 @@
-# Sheypoor frontend-challenge
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-The task is to implement a **2 step UI wizard** to create a user account. There is no UX or UI constraints, this is 
-up to you to decide. 
+## Getting Started
 
-The User information that we need to collect is described in the User type:
-```
-interface User {
-  name: string
-  age: number
-  email: string
-  newsletter: 'daily' | 'weekly' | 'monthly'
-}
-```
-You can, for example collect the name and age in the first step and then email and newsletter in the second step.
-You may use a routing library such that every step is a separate route but this is completely optional and not 
-required.
+First, run the development server:
 
-There is a dummy `sdk` package(implemented in the /sdk folder) which exports a `createUser` function. This function returns a `Promise`.
-Use it to simulate a request that creates a user account. 
-Ex:
-
-```
-import { createUser } from 'sdk'
-
-const details = {...}
-
-createUser(details).then( ... )
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-The focus should be on code style and the way you approach the problem implementation wise.
-Feel free to use any other helper library although ideally the more code you write yourself the better.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Implementation requirements:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- use either vanilla Javascript or one of the frameworks we use at Sheypoor(React / Knockout.js) or whatever you like
-- use npm to manage dependencies, there is pre-initialized package.json included in this repo
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-### Getting started:
+## Learn More
 
-- Fork the repo
-- Implement your solution
-- Create a PR against this repo
+To learn more about Next.js, take a look at the following resources:
 
-Optional: build the project and deploy (ie make it available as a static project) on 
-[Github Pages](https://pages.github.com/), otherwise please provide detailed instructions
-on how to start the project locally.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Any questions please contact us via email (jobs AT sheypoor.com) :)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
