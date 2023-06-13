@@ -1,4 +1,5 @@
 export type validNewsletterTypes = "daily" | "weekly" | "monthly";
+export type validFieldNames = "name" | "age" | "email" | "newsletter";
 
 export interface User {
   name: string;

@@ -1,17 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import FirstStep from "./components/FirstStep/FirstStep";
 import SecondStep from "./components/SecondStep/SecondStep";
 import { User, UserResultShape, createUser, isEmailValid } from "./utils/sdk";
 
-export type validFieldNames = "name" | "age" | "email" | "newsletter";
-
-interface UserShape extends Omit<User, "age"> {
+interface CustomUserShape extends Omit<User, "age"> {
   age: number | "";
 }
 
-const isDisabled = (step: 0 | 1, data: any): boolean => {
+const isDisabled = (step: 0 | 1, data: CustomUserShape): boolean => {
   let result: boolean = true;
 
   switch (step) {
@@ -29,7 +27,7 @@ const isDisabled = (step: 0 | 1, data: any): boolean => {
   return result;
 };
 
-const initialState: UserShape = {
+const initialState: CustomUserShape = {
   name: "",
   age: "",
   email: "",
@@ -37,17 +35,19 @@ const initialState: UserShape = {
 };
 
 export default function Home() {
-  const [state, setState] = useState<UserShape>(initialState);
-
+  const [state, setState] = useState<CustomUserShape>(initialState);
   const [currentStep, setCurrentStep] = useState<0 | 1>(0);
   const [result, setResult] = useState<UserResultShape | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const updateState = (fieldName: validFieldNames, value: any) => {
-    let targetValue = value;
+  const onUpdateState = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name: fieldName, value } = e.target;
+    let targetValue: string | number = e.target.value;
 
     if (fieldName === "age") {
-      if (isNaN(value) || +value === 0) {
+      if (isNaN(+value) || +value === 0) {
         return;
       }
 
@@ -57,7 +57,7 @@ export default function Home() {
     setState((prevState) => ({ ...prevState, [fieldName]: targetValue }));
   };
 
-  const postData = async () => {
+  const onPostData = async () => {
     if (state.age) {
       try {
         setLoading(true);
@@ -74,19 +74,20 @@ export default function Home() {
     }
   };
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     if (currentStep) {
-      postData();
+      onPostData();
     } else {
       setCurrentStep(1);
     }
   };
 
-  const goBack = () => {
+  const onGoBack = () => {
     setCurrentStep(0);
   };
+
   const onReset = () => {
     setResult(null);
     setState(initialState);
@@ -127,13 +128,13 @@ export default function Home() {
                   <SecondStep
                     email={state.email}
                     newsletter={state.newsletter}
-                    onChange={updateState}
+                    onChange={onUpdateState}
                   />
                 ) : (
                   <FirstStep
                     name={state.name}
                     age={state.age}
-                    onChange={updateState}
+                    onChange={onUpdateState}
                   />
                 )}
               </div>
@@ -148,7 +149,7 @@ export default function Home() {
                 {!!currentStep && (
                   <button
                     className="bg-white cursor-pointer	 text-black p-2"
-                    onClick={goBack}
+                    onClick={onGoBack}
                   >
                     Back
                   </button>
