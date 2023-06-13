@@ -105,7 +105,7 @@ export default function Home() {
           <p>Newsletter: {result.user.newsletter}</p>
           <p>Token: {result.token}</p>
           <button
-            className="bg-white cursor-pointer	self-center text-black p-2"
+            className="bg-white cursor-pointer rounded	self-center text-black p-2"
             onClick={onReset}
           >
             Reset
@@ -140,7 +140,7 @@ export default function Home() {
               </div>
               <div className="flex w-full  flex-row-reverse justify-between">
                 <button
-                  className="bg-white self-start text-black p-2  cursor-pointer	 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-white self-start rounded text-black p-2  cursor-pointer	 disabled:opacity-50 disabled:cursor-not-allowed"
                   onClick={onSubmit}
                   disabled={isDisabled(currentStep, state)}
                 >
@@ -148,7 +148,7 @@ export default function Home() {
                 </button>
                 {!!currentStep && (
                   <button
-                    className="bg-white cursor-pointer	 text-black p-2"
+                    className="bg-white cursor-pointer rounded	 text-black p-2"
                     onClick={onGoBack}
                   >
                     Back
