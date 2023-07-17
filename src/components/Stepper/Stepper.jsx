@@ -22,6 +22,7 @@ export default () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [validatedSteps, setValidatedSteps] = useState([]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = useCallback((event) => {
     const { name, value } = event.target;
@@ -75,6 +76,8 @@ export default () => {
         setIsLoading(true);
         await createUser(formData);
         setIsLoading(false);
+        setIsSubmitted(true);
+
         setValidatedSteps((prevSteps) => [...prevSteps, activeStep]);
       } else {
         setErrors({ ...errors, ...validationErrors });
@@ -85,11 +88,16 @@ export default () => {
       setErrors({ ...errors, ...validationErrors });
     }
   }, [activeStep, formData, errors, validateStep]);
-
-  const setCurrentStep = useCallback(
+  const isStepValid = useCallback(
     (step) => {
       const stepToVerify = step.id === 1 ? step.id : step.id - 1;
-      const { isValid } = validateStep(stepToVerify);
+      return validateStep(stepToVerify).isValid;
+    },
+    [validateStep]
+  );
+  const setCurrentStep = useCallback(
+    (step) => {
+      const isValid = isStepValid(step);
 
       if (isValid) {
         setActiveStep(step.id);
@@ -107,6 +115,7 @@ export default () => {
         activeStep={activeStep}
         validatedSteps={validatedSteps}
         setCurrentStep={setCurrentStep}
+        isStepValid={isStepValid}
       />
       <div>
         <StepComponent
@@ -121,7 +130,13 @@ export default () => {
         isLoading={isLoading}
         activeStep={activeStep}
         totalLength={steps.current.length}
+        isSubmitted={isSubmitted}
       />
+      {isSubmitted && (
+        <p className="text-green-500 font-semibold mt-4">
+          Data submitted successfully!
+        </p>
+      )}
     </div>
   );
 };
