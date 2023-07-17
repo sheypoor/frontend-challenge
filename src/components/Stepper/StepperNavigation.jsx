@@ -1,4 +1,10 @@
-export default ({ steps, activeStep, validatedSteps, setCurrentStep }) => {
+export default ({
+  steps,
+  activeStep,
+  validatedSteps,
+  setCurrentStep,
+  isStepValid,
+}) => {
   return (
     <div className="flex justify-center mb-8">
       <div className="flex space-x-4">
@@ -11,7 +17,11 @@ export default ({ steps, activeStep, validatedSteps, setCurrentStep }) => {
                 : validatedSteps.includes(step.id)
                 ? "bg-green-200 text-gray-600"
                 : "bg-gray-200"
-            } `}
+            } ${
+              step.id !== 1 && !isStepValid(step)?.isValid
+                ? "cursor-not-allowed"
+                : "cursor-pointer"
+            }`}
             onClick={() => setCurrentStep(step)}
           >
             {step.name}
