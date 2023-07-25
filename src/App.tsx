@@ -1,11 +1,7 @@
-import React from 'react';
+import SignUp from '../src/pages/signup'
 
 function App() {
-  return (
-    <div className="App">
-      hello
-    </div>
-  );
+  return <SignUp />
 }
 
-export default App;
+export default App
