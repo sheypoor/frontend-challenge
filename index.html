@@ -5,7 +5,42 @@
     <link rel="stylesheet" type="text/css" href="./src/styles.css" />
   </head>
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <div
+        id="illustration"
+        class="illustration moveWithMouse illustration-step1 active"
+      ></div>
+      <div>
+        <div id="step1" class="step">
+          <h1>Step 1</h1>
+          <form id="form1">
+            <input type="text" id="name" name="name" placeholder="Name" />
+            <input type="number" id="age" name="age" placeholder="Age" />
+            <button type="button" id="next">Next</button>
+          </form>
+        </div>
+        <div id="step2" class="step hidden">
+          <h1>Step 2</h1>
+          <form id="form2">
+            <input type="email" id="email" name="email" placeholder="Email" />
+            <select id="newsletter" name="newsletter">
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+            <button type="button" id="back">Back</button>
+            <button type="submit" id="submit">Submit</button>
+          </form>
+        </div>
+        <div id="step3" class="step hidden">
+          <p>You are now signed up.</p>
+          <div id="userDetails"></div>
+          <button id="logout">Log out</button>
+        </div>
+        <div id="loader" class="hidden">Loading...</div>
+      </div>
+    </div>
   </body>
+  <!-- <script src="/sdk/sdk.js"></script> -->
   <script type="module" src="./src/index.ts"></script>
 </html>
