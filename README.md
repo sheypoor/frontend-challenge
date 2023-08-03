@@ -85,3 +85,21 @@ This project was implemented with pure TypeScript to showcase the potential of t
 - **Learning**: Writing in pure TypeScript is an excellent exercise to understand the language deeply.
 
 Despite the power of TypeScript, building larger projects without a framework could lead to challenges in managing state and side-effects, where frameworks like React could help. Nonetheless, for this task, TypeScript alone provides all the necessary features.
+
+## Future Plans
+
+Looking forward, we aim to continue improving the code quality, scalability, and developer experience of our project. In line with this goal, we plan to integrate ESLint, Husky, and Prettier into our development workflow.
+
+### ESLint
+
+ESLint is a pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. It helps maintain code quality by catching errors and inconsistencies in our codebase, such as unused variables, missing semicolons, and so on. The flexibility of ESLint allows us to set our coding standards and rules, making it easier to ensure consistency across our project. As the project grows in scale and contributors, ESLint will be an invaluable tool to keep the codebase clean and error-free.
+
+### Husky
+
+Husky is a tool that can prevent bad git commits, pushes, and more 🐶 woof! It simplifies the management of git hooks, making it easier to automate tasks in the git workflow. For instance, we can use Husky to automatically run our ESLint and Jest tests before each commit, ensuring that no failing tests or linter errors make it into our codebase. This reduces the possibility of introducing bugs, enhances code quality, and saves time in code reviews.
+
+### Prettier
+
+Prettier is an opinionated code formatter that supports multiple languages and integrates with most editors. It helps to maintain a consistent code style across the project by automatically formatting the code upon saving the file or before committing. This eliminates the need for discussions or debates on code formatting and allows developers to focus on what matters: solving problems and writing great code.
+
+Using these tools in combination can greatly enhance our development workflow. By automating the tasks of linting, testing, and formatting, we can ensure a high-quality, consistent, and bug-free codebase, regardless of the number of developers involved in the project. This approach is necessary for scalability as it simplifies the onboarding process for new developers, reduces code review time, and helps prevent the introduction of bugs or inconsistencies. Therefore, integrating ESLint, Husky, and Prettier into our project is a priority in our future plans.
