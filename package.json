@@ -2,9 +2,10 @@
   "name": "frontend-challenge",
   "version": "1.0.0",
   "description": "Sheypoor frontend challenge",
-  "main": "sdk/index.js",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,15 @@
   },
   "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
   "dependencies": {
-    "sdk": "file:sdk"
+    "sdk": "file:sdk",
+    "parcel-bundler": "^1.6.1"
+
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "typescript": "4.4.4"
+  }, 
+   "resolutions": {
+    "@babel/preset-env": "7.13.8"
   }
 }
