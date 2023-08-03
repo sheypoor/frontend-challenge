@@ -92,6 +92,29 @@ getElement("form2")?.addEventListener("submit", async (event) => {
   };
 
   removeClass("loader", "hidden");
+
+  try {
+    const { user, token } = await createUser(details);
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", token);
+
+    const userDetailsHTML = `
+      <p>Name: ${user.name}</p>
+      <p>Age: ${user.age}</p>
+      <p>Email: ${user.email}</p>
+      <p>Newsletter: ${user.newsletter}</p>
+    `;
+
+    const userDetailsElement = getElement("userDetails");
+    if (userDetailsElement) {
+      userDetailsElement.innerHTML = userDetailsHTML;
+    }
+    navigate("step3");
+  } catch (error) {
+    alert("There was an error creating the user");
+  } finally {
+    addClass("loader", "hidden");
+  }
 });
 
 window.onpopstate = () => {
