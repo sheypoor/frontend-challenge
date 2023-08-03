@@ -113,7 +113,6 @@ if (userItem && tokenItem) {
   navigate("step3");
   removeClass("illustration", "illustration-step1");
   addClass("illustration", "illustration-step3");
-
 } else {
   navigate("step1");
 }
