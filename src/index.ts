@@ -1,8 +1,8 @@
 // app.ts
 import { User } from "./components/user";
 import { createUser } from "../sdk";
-import { navigate } from "./components/navigation";
-import { getElement, addClass, removeClass, getValue } from "./components/dom";
+import { navigate } from "./components/navigation/index";
+import { getElement, addClass, removeClass, getValue } from "./components/dom/index";
 import { animate } from "./components/animation";
 
 // Event listeners
