@@ -1,72 +1,8 @@
-const routes = {
-  step1: document.getElementById("step1")!,
-  step2: document.getElementById("step2")!,
-  step3: document.getElementById("step3")!,
-};
-
-function navigate(route: keyof typeof routes) {
-  if (!routes[route]) route = "step1"; // Default route for invalid routes
-
-  Object.keys(routes).forEach((routeKey) => {
-    if (routeKey === route) {
-      setTimeout(() => {
-        routes[routeKey as keyof typeof routes].classList.remove("hidden");
-      }, 500);
-    } else {
-      routes[routeKey as keyof typeof routes].classList.add("hidden");
-    }
-  });
-
-  window.history.pushState({}, "", `/${route}`);
-}
-
-// dom.ts
-
-const getElement = (id: string): HTMLElement | null =>
-  document.getElementById(id);
-
-const addClass = (id: string, className: string) =>
-  getElement(id)?.classList.add(className);
-
-const removeClass = (id: string, className: string) =>
-  getElement(id)?.classList.remove(className);
-
-const toggleClass = (id: string, className: string) =>
-  getElement(id)?.classList.toggle(className);
-
-const getValue = (id: string) => (getElement(id) as HTMLInputElement)?.value;
-
-// animation.ts
-
-const animate = (
-  illustration: HTMLElement | null,
-  outClass: string,
-  inClass: string
-) => {
-  if (illustration) {
-    illustration.classList.remove("active", outClass);
-    setTimeout(() => {
-      illustration.classList.add(inClass);
-      setTimeout(() => {
-        illustration.classList.add("active");
-      }, 20);
-    }, 500);
-  }
-};
-interface User {
-  name: string;
-  age: string;
-  email: string;
-  newsletter: string;
-}
-
-function createUser(user: User): Promise<{ user: User; token: string }> {
-  return new Promise((resolve) => {
-    setTimeout(function () {
-      resolve({ user, token: "test.token" });
-    }, 1000);
-  });
-}
+// app.ts
+import { User, createUser } from "./components/user";
+import { navigate } from "./components/navigation";
+import { getElement, addClass, removeClass, getValue } from "./components/dom";
+import { animate } from "./components/animation";
 
 // Event listeners
 const illustrationDiv = getElement("illustration");
