@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,14 @@
   },
   "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
   "dependencies": {
-    "sdk": "file:sdk",
-    "parcel-bundler": "^1.6.1"
+    "parcel-bundler": "^1.6.1",
+    "sdk": "file:sdk"
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
+    "@types/jest": "^27.5.2",
+    "jest": "^27.1.1",
+    "ts-jest": "^27.0.7",
     "typescript": "4.4.4"
   },
   "resolutions": {
