@@ -1,5 +1,6 @@
 // app.ts
-import { User, createUser } from "./components/user";
+import { User } from "./components/user";
+import { createUser } from "../sdk";
 import { navigate } from "./components/navigation";
 import { getElement, addClass, removeClass, getValue } from "./components/dom";
 import { animate } from "./components/animation";
