@@ -8,7 +8,7 @@ The solution is built with pure TypeScript and uses Parcel as a bundler, which p
 
 The `"dependencies"` section of the `package.json` contains `sdk` and `parcel-bundler`. The `sdk` dependency is a local package responsible for providing the necessary functions to interact with the server, while `parcel-bundler` allows us to bundle our TypeScript and other resources in a seamless manner.
 
-The `"devDependencies"` section contains `@babel/core` and `typescript`. `@babel/core` is used by Parcel under the hood for JavaScript transformations, while `typescript` is used to enable TypeScript features in the project.
+The `"devDependencies"` section contains `@babel/core`, `typescript`, `jest` and `ts-jest`. `@babel/core` is used by Parcel under the hood for JavaScript transformations, while `typescript` is used to enable TypeScript features in the project. `jest` is a delightful JavaScript Testing Framework with a focus on simplicity and `ts-jest` is a TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript.
 
 ## Project Structure and Code Explanation
 
@@ -24,6 +24,16 @@ The folder structure is divided into separate files that each manage a specific 
 
 **User module**: This module contains the User interface and `createUser` function. The `createUser` function calls the SDK to create a user on the server and returns the user object and a token.
 
+## Testing
+
+We use Jest and ts-jest for testing our application. Jest is a delightful JavaScript Testing Framework with a focus on simplicity. It works with projects using Babel, TypeScript, Node.js, React, Angular, Vue.js and Svelte.
+
+Each module in our application has an accompanying `.test.ts` file which includes unit tests for the functions exported by the module. For example, `dom.test.ts` includes tests for the functions in the `dom` module.
+
+Our tests ensure that each function behaves as expected under different scenarios. For example, we test that our DOM manipulation functions correctly add, remove, and toggle classes.
+
+To run the tests, use the command `yarn test`.
+
 ## User Authentication Process
 
 The authentication process in this application is executed by saving and retrieving user data (tokens and user information) from local storage.
@@ -34,7 +44,7 @@ Here is the relevant section of the code from the `app.ts` file:
 
 tsCopy code
 
-`try {   const { user, token } = await createUser(details);   localStorage.setItem("user", JSON.stringify(user));   localStorage.setItem("token", token);   //... } catch (error) {   alert("There was an error creating the user"); }`
+`try { const { user, token } = await createUser(details); localStorage.setItem("user", JSON.stringify(user)); localStorage.setItem("token", token); //... } catch (error) { alert("There was an error creating the user"); }`
 
 Local storage in a web application allows the storage of data that persists even after the browser window is closed. Storing the token received from the server in local storage enables the application to "remember" the user's logged-in status between sessions.
 
@@ -42,7 +52,7 @@ In this application, we use the token and user information saved in local storag
 
 tsCopy code
 
-`const userItem = localStorage.getItem("user"); const tokenItem = localStorage.getItem("token");  if (userItem && tokenItem) {   // User is authenticated, load their data }`
+`const userItem = localStorage.getItem("user"); const tokenItem = localStorage.getItem("token"); if (userItem && tokenItem) { // User is authenticated, load their data }`
 
 If these items exist, it means that the user is authenticated and their details are retrieved and displayed. This helps provide a seamless user experience by eliminating the need for users to log in every time they access the application.
 
@@ -50,7 +60,7 @@ The logout process involves removing these items from local storage:
 
 tsCopy code
 
-`getElement("logout")?.addEventListener("click", () => {   localStorage.removeItem("user");   localStorage.removeItem("token");   //... });`
+`getElement("logout")?.addEventListener("click", () => { localStorage.removeItem("user"); localStorage.removeItem("token"); //... });`
 
 By removing the token and user details, we ensure that the user will need to authenticate again during their next session, thereby logging them out of the application.
 
