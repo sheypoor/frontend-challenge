@@ -36,6 +36,23 @@ const toggleClass = (id: string, className: string) =>
 
 const getValue = (id: string) => (getElement(id) as HTMLInputElement)?.value;
 
+// animation.ts
+
+const animate = (
+  illustration: HTMLElement | null,
+  outClass: string,
+  inClass: string
+) => {
+  if (illustration) {
+    illustration.classList.remove("active", outClass);
+    setTimeout(() => {
+      illustration.classList.add(inClass);
+      setTimeout(() => {
+        illustration.classList.add("active");
+      }, 20);
+    }, 500);
+  }
+};
 interface User {
   name: string;
   age: string;
@@ -68,9 +85,11 @@ getElement("next")?.addEventListener("click", () => {
   removeClass("name", "invalid");
   removeClass("age", "invalid");
   navigate("step2");
+  animate(illustrationDiv, "illustration-step1", "illustration-step2");
 });
 
 getElement("back")?.addEventListener("click", () => {
+  animate(illustrationDiv, "illustration-step2", "illustration-step1");
   navigate("step1");
 });
 
@@ -78,6 +97,7 @@ getElement("form2")?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const email = getValue("email");
   const newsletter = getValue("newsletter");
+  animate(illustrationDiv, "illustration-step2", "illustration-step3");
 
   if (!email) {
     addClass("email", "invalid");
@@ -114,6 +134,7 @@ getElement("form2")?.addEventListener("submit", async (event) => {
     alert("There was an error creating the user");
   } finally {
     addClass("loader", "hidden");
+    animate(illustrationDiv, "illustration-step2", "illustration-step3");
   }
 });
 
@@ -132,6 +153,7 @@ getElement("logout")?.addEventListener("click", () => {
   );
 
   navigate("step1");
+  animate(illustrationDiv, "illustration-step3", "illustration-step1");
 });
 
 const userItem = localStorage.getItem("user");
