@@ -2,6 +2,8 @@
 
 # Frontend Challenge: Pure JavaScript/TypeScript Solution
 
+[https://master--papaya-travesseiro-566839.netlify.app](https://master--papaya-travesseiro-566839.netlify.app)
+
 ## Technology Stack
 
 The solution is built with pure TypeScript and uses Parcel as a bundler, which provides simplicity and speed for this project. TypeScript is a strongly typed superset of JavaScript, which brings powerful type-checking and object-oriented programming capabilities to the language. This choice helps ensure code quality, ease of refactoring, and a more intuitive developer experience.
@@ -9,6 +11,12 @@ The solution is built with pure TypeScript and uses Parcel as a bundler, which p
 The `"dependencies"` section of the `package.json` contains `sdk` and `parcel-bundler`. The `sdk` dependency is a local package responsible for providing the necessary functions to interact with the server, while `parcel-bundler` allows us to bundle our TypeScript and other resources in a seamless manner.
 
 The `"devDependencies"` section contains `@babel/core`, `typescript`, `jest` and `ts-jest`. `@babel/core` is used by Parcel under the hood for JavaScript transformations, while `typescript` is used to enable TypeScript features in the project. `jest` is a delightful JavaScript Testing Framework with a focus on simplicity and `ts-jest` is a TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript.
+
+## Deployment
+
+The application is deployed using Netlify and is accessible at [https://master--papaya-travesseiro-566839.netlify.app](https://master--papaya-travesseiro-566839.netlify.app). Netlify provides a streamlined deployment process, allowing us to easily deploy our TypeScript application. Whenever changes are pushed to the main branch of our repository, Netlify automatically rebuilds and deploys our application.
+
+You can find the source code for this project on GitHub at [https://github.com/andishe-wpd/frontend-challenge-pure-ts](https://github.com/andishe-wpd/frontend-challenge-pure-ts).
 
 ## Project Structure and Code Explanation
 
