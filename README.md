@@ -1,49 +1,39 @@
 # Sheypoor frontend-challenge
 
-The task is to implement a **2 step UI wizard** to create a user account. There is no UX or UI constraints, this is 
-up to you to decide. 
+# Frontend Challenge: Pure JavaScript/TypeScript Solution
 
-The User information that we need to collect is described in the User type:
-```
-interface User {
-  name: string
-  age: number
-  email: string
-  newsletter: 'daily' | 'weekly' | 'monthly'
-}
-```
-You can, for example collect the name and age in the first step and then email and newsletter in the second step.
-You may use a routing library such that every step is a separate route but this is completely optional and not 
-required.
+## Technology Stack
 
-There is a dummy `sdk` package(implemented in the /sdk folder) which exports a `createUser` function. This function returns a `Promise`.
-Use it to simulate a request that creates a user account. 
-Ex:
+The solution is built with pure TypeScript and uses Parcel as a bundler, which provides simplicity and speed for this project. TypeScript is a strongly typed superset of JavaScript, which brings powerful type-checking and object-oriented programming capabilities to the language. This choice helps ensure code quality, ease of refactoring, and a more intuitive developer experience.
 
-```
-import { createUser } from 'sdk'
+The `"dependencies"` section of the `package.json` contains `sdk` and `parcel-bundler`. The `sdk` dependency is a local package responsible for providing the necessary functions to interact with the server, while `parcel-bundler` allows us to bundle our TypeScript and other resources in a seamless manner.
 
-const details = {...}
+The `"devDependencies"` section contains `@babel/core` and `typescript`. `@babel/core` is used by Parcel under the hood for JavaScript transformations, while `typescript` is used to enable TypeScript features in the project.
 
-createUser(details).then( ... )
-```
+## Project Structure and Code Explanation
 
-The focus should be on code style and the way you approach the problem implementation wise.
-Feel free to use any other helper library although ideally the more code you write yourself the better.
+The folder structure is divided into separate files that each manage a specific concern, following a modular architecture. The main file is `app.ts`, which is responsible for the overall flow of the application, using functions from the rest of the project's modules to achieve its requirements.
 
-### Implementation requirements:
+### Modules
 
-- use either vanilla Javascript or one of the frameworks we use at Sheypoor(React / Knockout.js) or whatever you like
-- use npm to manage dependencies, there is pre-initialized package.json included in this repo
+**Navigation module**: This module contains logic related to navigation between different steps of the form. It exports the `navigate` function, which changes the visibility of the different steps based on the argument it receives.
 
-### Getting started:
+**DOM module**: This module contains utility functions for manipulating the DOM, including getting elements, modifying classes, and getting input values.
 
-- Fork the repo
-- Implement your solution
-- Create a PR against this repo
+**Animation module**: This module is used for managing animations during transitions between steps.
 
-Optional: build the project and deploy (ie make it available as a static project) on 
-[Github Pages](https://pages.github.com/), otherwise please provide detailed instructions
-on how to start the project locally.
+**User module**: This module contains the User interface and `createUser` function. The `createUser` function calls the SDK to create a user on the server and returns the user object and a token.
 
-Any questions please contact us via email (jobs AT sheypoor.com) :)
+### CSS
+
+The CSS for this project is designed to make the form responsive and appealing. It is divided into global styles, form styles, loader styles, and animations. The variables at the top allow easy theming and style changes.
+
+## Why Pure TypeScript
+
+This project was implemented with pure TypeScript to showcase the potential of the language without any frameworks or libraries. This approach has several benefits:
+
+- **Performance**: Without the overhead of a library or framework, the project is lightweight and loads faster.
+- **Control**: It provides total control over every aspect of the code, which can sometimes be limited in a framework.
+- **Learning**: Writing in pure TypeScript is an excellent exercise to understand the language deeply.
+
+Despite the power of TypeScript, building larger projects without a framework could lead to challenges in managing state and side-effects, where frameworks like React could help. Nonetheless, for this task, TypeScript alone provides all the necessary features.
