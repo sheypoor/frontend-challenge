@@ -1,5 +1,10 @@
 [https://steady-meerkat-6f3173.netlify.app/](https://steady-meerkat-6f3173.netlify.app/)
 
+
+
+# 2nd Solution
+For my 2nd solution to the task, I provided the source code for a frontend project built with React using TypeScript. My goal in this task was to show some scaling practices in the source code of a TypeScript-based React project with the configuration of ESLint and my capability and flexibility to use some 3rd party libraries. I know the fact that using each outer library in each project is a tradeoff, but here in this project, I feel free to show you I’m flexible with a vast variety of using libraries such as MSWJS, Formik, yup, vite, Prettier, tsconfig, and of course setting a mock backend service worker to simulate accurately the fetch requests and a solid architecture for using React Query and of course using Formik and Yup for handling the 2 step wizard.
+
 # zilinblogbuster
 
 This is a frontend project built with React using TypeScript. This project is fully responsive and follows best practices, utilizing modern tools and libraries such as ESLint for code linting, Atomic Design for component organization, Yarn as the package manager, Vite as the build tool, and Figma for design collaboration. The project is also optimized using memoization and callback functions to improve performance.
