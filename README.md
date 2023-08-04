@@ -1,3 +1,5 @@
+[https://steady-meerkat-6f3173.netlify.app/](https://steady-meerkat-6f3173.netlify.app/)
+
 # zilinblogbuster
 
 This is a frontend project built with React using TypeScript. This project is fully responsive and follows best practices, utilizing modern tools and libraries such as ESLint for code linting, Atomic Design for component organization, Yarn as the package manager, Vite as the build tool, and Figma for design collaboration. The project is also optimized using memoization and callback functions to improve performance.
@@ -11,8 +13,9 @@ The tech stack includes:
 - Zustand
 - Tailwind
 - MSW (Mock Service Worker)
+- formik
+- yup
 
-The project is deployed on Netlify, you can access the live version at [https://super-pasca-9d987f.netlify.app/](https://super-pasca-9d987f.netlify.app/)
 
 ## Prerequisites
 
@@ -62,17 +65,7 @@ jsonCopy code
 
 `{   "singleQuote": true,   "semi": false,   "trailingComma": "all",   "arrowParens": "avoid",   "overrides": [     {       "files": "*.tsx",       "options": {         "parser": "typescript"       }     }   ] }`
 
-## Atomic Design
 
-The project follows the Atomic Design methodology for component organization. The components are structured into atoms, molecules, organisms, templates, and pages, providing a scalable and maintainable architecture.
-
-## Design Collaboration
-
-We use Figma for design collaboration. Access the Figma project at \[link to Figma project\] to view and collaborate on the designs.
-
-## Branching and Commit Strategy
-
-For each task or feature, create a new branch based on the master branch. Ensure that the branch name is descriptive of the task or feature being worked on. Once the task is completed, create a pull request for code review and merging it back into the master branch.
 
 We follow an atomic commit strategy, which involves breaking down changes into small, self-contained units of work. Each commit represents a single logical change or feature.
 
