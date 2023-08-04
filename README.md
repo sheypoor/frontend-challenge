@@ -1,5 +1,7 @@
 # Sheypoor frontend-challenge
 
+This solution is about transparency, speed, and challenging myself to use pure TypeScript. There is room for many improvements in many aspects, but my main method of coding in this branch was simplicity and efficiency.
+
 # Frontend Challenge: Pure JavaScript/TypeScript Solution
 
 [https://master--papaya-travesseiro-566839.netlify.app](https://master--papaya-travesseiro-566839.netlify.app)
