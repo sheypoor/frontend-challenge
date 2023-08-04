@@ -1,105 +1,122 @@
-# Sheypoor frontend-challenge
+# zilinblogbuster
 
-# Frontend Challenge: Pure JavaScript/TypeScript Solution
+This is a frontend project built with React using TypeScript. This project is fully responsive and follows best practices, utilizing modern tools and libraries such as ESLint for code linting, Atomic Design for component organization, Yarn as the package manager, Vite as the build tool, and Figma for design collaboration. The project is also optimized using memoization and callback functions to improve performance.
 
-[https://master--papaya-travesseiro-566839.netlify.app](https://master--papaya-travesseiro-566839.netlify.app)
+The tech stack includes:
 
-## Technology Stack
+- React
+- React Query
+- Vite
+- TypeScript
+- Zustand
+- Tailwind
+- MSW (Mock Service Worker)
 
-The solution is built with pure TypeScript and uses Parcel as a bundler, which provides simplicity and speed for this project. TypeScript is a strongly typed superset of JavaScript, which brings powerful type-checking and object-oriented programming capabilities to the language. This choice helps ensure code quality, ease of refactoring, and a more intuitive developer experience.
+The project is deployed on Netlify, you can access the live version at [https://super-pasca-9d987f.netlify.app/](https://super-pasca-9d987f.netlify.app/)
 
-The `"dependencies"` section of the `package.json` contains `sdk` and `parcel-bundler`. The `sdk` dependency is a local package responsible for providing the necessary functions to interact with the server, while `parcel-bundler` allows us to bundle our TypeScript and other resources in a seamless manner.
+## Prerequisites
 
-The `"devDependencies"` section contains `@babel/core`, `typescript`, `jest` and `ts-jest`. `@babel/core` is used by Parcel under the hood for JavaScript transformations, while `typescript` is used to enable TypeScript features in the project. `jest` is a delightful JavaScript Testing Framework with a focus on simplicity and `ts-jest` is a TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript.
+Before you begin, ensure you have the following installed:
 
-## Deployment
+- Node.js (v14 or higher): Visit [https://nodejs.org](https://nodejs.org) and follow the installation instructions for your operating system.
 
-The application is deployed using Netlify and is accessible at [https://master--papaya-travesseiro-566839.netlify.app](https://master--papaya-travesseiro-566839.netlify.app). Netlify provides a streamlined deployment process, allowing us to easily deploy our TypeScript application. Whenever changes are pushed to the main branch of our repository, Netlify automatically rebuilds and deploys our application.
+## Development
 
-You can find the source code for this project on GitHub at [https://github.com/andishe-wpd/frontend-challenge-pure-ts](https://github.com/andishe-wpd/frontend-challenge-pure-ts).
+To start the development server, run the following command:
 
-## Project Structure and Code Explanation
+Copy code
 
-The folder structure is divided into separate files that each manage a specific concern, following a modular architecture. The main file is `app.ts`, which is responsible for the overall flow of the application, using functions from the rest of the project's modules to achieve its requirements.
+`yarn dev`
 
-### Modules
+This will launch the application in development mode. Open [http://localhost:5173](http://localhost:5173) in your browser to view it.
 
-**Navigation module**: This module contains logic related to navigation between different steps of the form. It exports the `navigate` function, which changes the visibility of the different steps based on the argument it receives.
+## Building the Project
 
-**DOM module**: This module contains utility functions for manipulating the DOM, including getting elements, modifying classes, and getting input values.
+To build a production-ready version of the application, run the following command:
 
-**Animation module**: This module is used for managing animations during transitions between steps.
+Copy code
 
-**User module**: This module contains the User interface and `createUser` function. The `createUser` function calls the SDK to create a user on the server and returns the user object and a token.
+`yarn build`
 
-## Testing
+This will generate an optimized build in the dist directory.
 
-We use Jest and ts-jest for testing our application. Jest is a delightful JavaScript Testing Framework with a focus on simplicity. It works with projects using Babel, TypeScript, Node.js, React, Angular, Vue.js and Svelte.
+## Linting
 
-Each module in our application has an accompanying `.test.ts` file which includes unit tests for the functions exported by the module. For example, `dom.test.ts` includes tests for the functions in the `dom` module.
+This project utilizes ESLint for code linting. Here is the configuration used:
 
-Our tests ensure that each function behaves as expected under different scenarios. For example, we test that our DOM manipulation functions correctly add, remove, and toggle classes.
+javascriptCopy code
 
-To run the tests, use the command `yarn test`.
+`module.exports = {   env: { browser: true, es2020: true },   extends: [     'eslint:recommended',     'plugin:@typescript-eslint/recommended',     'plugin:react-hooks/recommended',   ],   parser: '@typescript-eslint/parser',   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },   plugins: ['react-refresh'],   rules: {     'react-refresh/only-export-components': 'warn',   }, }`
 
-## User Authentication Process
+To run the linter, use the following command:
 
-The authentication process in this application is executed by saving and retrieving user data (tokens and user information) from local storage.
+Copy code
 
-When a user submits their information using the form provided on the second step, these data are sent to the server using the `createUser()` function from the SDK. Once the server confirms the creation of a new user, the application receives a token, which is then stored in local storage together with the user's details.
+`yarn lint`
 
-Here is the relevant section of the code from the `app.ts` file:
+## Prettier
 
-tsCopy code
+This project uses Prettier for code formatting. Here is the configuration used:
 
-`try { const { user, token } = await createUser(details); localStorage.setItem("user", JSON.stringify(user)); localStorage.setItem("token", token); //... } catch (error) { alert("There was an error creating the user"); }`
+jsonCopy code
 
-Local storage in a web application allows the storage of data that persists even after the browser window is closed. Storing the token received from the server in local storage enables the application to "remember" the user's logged-in status between sessions.
+`{   "singleQuote": true,   "semi": false,   "trailingComma": "all",   "arrowParens": "avoid",   "overrides": [     {       "files": "*.tsx",       "options": {         "parser": "typescript"       }     }   ] }`
 
-In this application, we use the token and user information saved in local storage to automatically log the user in if they are already authenticated. When the application is loaded, it checks whether a token and user information are stored in local storage:
+## Atomic Design
 
-tsCopy code
+The project follows the Atomic Design methodology for component organization. The components are structured into atoms, molecules, organisms, templates, and pages, providing a scalable and maintainable architecture.
 
-`const userItem = localStorage.getItem("user"); const tokenItem = localStorage.getItem("token"); if (userItem && tokenItem) { // User is authenticated, load their data }`
+## Design Collaboration
 
-If these items exist, it means that the user is authenticated and their details are retrieved and displayed. This helps provide a seamless user experience by eliminating the need for users to log in every time they access the application.
+We use Figma for design collaboration. Access the Figma project at \[link to Figma project\] to view and collaborate on the designs.
 
-The logout process involves removing these items from local storage:
+## Branching and Commit Strategy
 
-tsCopy code
+For each task or feature, create a new branch based on the master branch. Ensure that the branch name is descriptive of the task or feature being worked on. Once the task is completed, create a pull request for code review and merging it back into the master branch.
 
-`getElement("logout")?.addEventListener("click", () => { localStorage.removeItem("user"); localStorage.removeItem("token"); //... });`
+We follow an atomic commit strategy, which involves breaking down changes into small, self-contained units of work. Each commit represents a single logical change or feature.
 
-By removing the token and user details, we ensure that the user will need to authenticate again during their next session, thereby logging them out of the application.
+## Folder Structure and Architecture
 
-### CSS
+The project follows a modular and scalable folder structure to organize the codebase effectively. Here's an overview of the folder structure:
 
-The CSS for this project is designed to make the form responsive and appealing. It is divided into global styles, form styles, loader styles, and animations. The variables at the top allow easy theming and style changes.
+- **assets**: Contains static assets used in the application (e.g., icons, pictures).
+- **components**: Contains reusable React components used throughout the application.
+  - **button**, **link**, **login**, **modal**, **postcard**, **search**, **input**, **utils**
+  - **layout**: Contains the layout components.
+    - **breadcrumb**, **header**, **footer**
+  - **lazyLoadImage**: A component for lazy loading images.
+- **constants**: Contains application-wide constants.
+- **interfaces**: Contains types and interfaces for TypeScript.
+- **hooks**: Contains React Query fetching and custom hooks.
+- **mocks**: Contains handlers for the Mock Service Worker (MSW).
+- **pages**: Contains the page-level components that represent different views of the application.
+- **router**: Contains the React Router setup.
+- **store**: Contains the Zustand state management setup.
 
-## Why Pure TypeScript
+This folder structure helps to keep the codebase organized, promotes reusability, and makes it easier to navigate and maintain the project as it grows.
 
-This project was implemented with pure TypeScript to showcase the potential of the language without any frameworks or libraries. This approach has several benefits:
+## MSW (Mock Service Worker)
 
-- **Performance**: Without the overhead of a library or framework, the project is lightweight and loads faster.
-- **Control**: It provides total control over every aspect of the code, which can sometimes be limited in a framework.
-- **Learning**: Writing in pure TypeScript is an excellent exercise to understand the language deeply.
+This project uses MSW for mocking backend responses, providing an interface to test under various scenarios without the need for an actual backend.
 
-Despite the power of TypeScript, building larger projects without a framework could lead to challenges in managing state and side-effects, where frameworks like React could help. Nonetheless, for this task, TypeScript alone provides all the necessary features.
+Here is an example configuration:
 
-## Future Plans
+javascriptCopy code
 
-Looking forward, we aim to continue improving the code quality, scalability, and developer experience of our project. In line with this goal, we plan to integrate ESLint, Husky, and Prettier into our development workflow.
+`export const handlers = [   rest.get('http://localhost:3000/api/posts', (req, res, ctx) => {     // handler logic   }),   rest.post('http://localhost:3000/api/login', (req, res, ctx) => {     // handler logic   }),   rest.get('http://localhost:3000/api/user', (req, res, ctx) => {     // handler logic   }), ]`
 
-### ESLint
+This config includes handlers for fetching posts and user data, and for simulating the authentication process.
 
-ESLint is a pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. It helps maintain code quality by catching errors and inconsistencies in our codebase, such as unused variables, missing semicolons, and so on. The flexibility of ESLint allows us to set our coding standards and rules, making it easier to ensure consistency across our project. As the project grows in scale and contributors, ESLint will be an invaluable tool to keep the codebase clean and error-free.
+## VS Code Extensions
 
-### Husky
+To enhance your development experience and maintain consistent coding standards, this project includes a set of recommended Visual Studio Code extensions. The extensions listed below are configured in the `.vscode` folder of this project:
 
-Husky is a tool that can prevent bad git commits, pushes, and more 🐶 woof! It simplifies the management of git hooks, making it easier to automate tasks in the git workflow. For instance, we can use Husky to automatically run our ESLint and Jest tests before each commit, ensuring that no failing tests or linter errors make it into our codebase. This reduces the possibility of introducing bugs, enhances code quality, and saves time in code reviews.
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Styled Components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 
-### Prettier
+These extensions provide essential functionalities for linting, code formatting, React Native development, debugging, auto-importing modules, styling components, and Git integration.
 
-Prettier is an opinionated code formatter that supports multiple languages and integrates with most editors. It helps to maintain a consistent code style across the project by automatically formatting the code upon saving the file or before committing. This eliminates the need for discussions or debates on code formatting and allows developers to focus on what matters: solving problems and writing great code.
-
-Using these tools in combination can greatly enhance our development workflow. By automating the tasks of linting, testing, and formatting, we can ensure a high-quality, consistent, and bug-free codebase, regardless of the number of developers involved in the project. This approach is necessary for scalability as it simplifies the onboarding process for new developers, reduces code review time, and helps prevent the introduction of bugs or inconsistencies. Therefore, integrating ESLint, Husky, and Prettier into our project is a priority in our future plans.
+To make the most of these recommended extensions, open the project in Visual Studio Code, and if prompted, consider installing the recommended extensions. Alternatively, you can manually install them from the links provided above.
