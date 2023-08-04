@@ -44,7 +44,6 @@ const MenuButton = () => {
                 src={avatar}
               />
             </div>
-            {email}
             <Button icon={<ZapIcon />} title="Keyboard shortcuts" />
             <Button
               onClickAction={logoutHandler}
