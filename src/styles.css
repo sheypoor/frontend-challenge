@@ -1,0 +1,29 @@
+/* tailwind setup */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Custom styles */
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0 shadow-sm;
+}
+
+.form_input {
+  @apply px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500;
+}
+
+.form_desc {
+  @apply text-xl font-thin mb-6;
+}
+
+.button_primary {
+  @apply px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 focus:bg-blue-500;
+}
+
+.button_secondary {
+  @apply px-4 py-2  text-black rounded-md border border-blue-700 hover:bg-blue-100 focus:bg-blue-100;
+}
+
+.form_label {
+  @apply block text-sm font-medium;
+}
