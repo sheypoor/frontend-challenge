@@ -1,49 +1,29 @@
-# Sheypoor frontend-challenge
+# User Account Creation Wizard
 
-The task is to implement a **2 step UI wizard** to create a user account. There is no UX or UI constraints, this is 
-up to you to decide. 
+This project is a 2-step UI wizard to create a user account. It collects user information in two steps: Personal Information and Profile Information. The user is required to provide their name, age, email, and newsletter preferences.
 
-The User information that we need to collect is described in the User type:
-```
-interface User {
-  name: string
-  age: number
-  email: string
-  newsletter: 'daily' | 'weekly' | 'monthly'
-}
-```
-You can, for example collect the name and age in the first step and then email and newsletter in the second step.
-You may use a routing library such that every step is a separate route but this is completely optional and not 
-required.
+## Showcase
 
-There is a dummy `sdk` package(implemented in the /sdk folder) which exports a `createUser` function. This function returns a `Promise`.
-Use it to simulate a request that creates a user account. 
-Ex:
+You can view the live demo of the application [here](https://lustrous-sfogliatella-9e25db.netlify.app/).
 
-```
-import { createUser } from 'sdk'
+## How to Run
 
-const details = {...}
+To run the project locally, follow these steps:
 
-createUser(details).then( ... )
-```
+1. Clone the repository: `git clone https://github.com/r3z4r/frontend-challenge`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm start`
+4. Open the application in your browser at `http://localhost:3000`
 
-The focus should be on code style and the way you approach the problem implementation wise.
-Feel free to use any other helper library although ideally the more code you write yourself the better.
+## How to Build
 
-### Implementation requirements:
+To build the production version of the application, run the following command:
+`npm run build`
 
-- use either vanilla Javascript or one of the frameworks we use at Sheypoor(React / Knockout.js) or whatever you like
-- use npm to manage dependencies, there is pre-initialized package.json included in this repo
+The optimized build will be available in the `dist` folder.
 
-### Getting started:
+## Technologies Used
 
-- Fork the repo
-- Implement your solution
-- Create a PR against this repo
-
-Optional: build the project and deploy (ie make it available as a static project) on 
-[Github Pages](https://pages.github.com/), otherwise please provide detailed instructions
-on how to start the project locally.
-
-Any questions please contact us via email (jobs AT sheypoor.com) :)
+- React
+- React Router
+- Tailwind CSS
