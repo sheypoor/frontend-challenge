@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/sheypoor/frontend-challenge/issues"
   },
-  "homepage": "https://r3z4r.github.io/frontend-challenge",
+  "homepage": "https://r3z4r.github.io/frontend-challenge/",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

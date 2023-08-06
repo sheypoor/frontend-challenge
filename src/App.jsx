@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles.css";
 import ProfileInfoCapture from "./componenets/steps/ProfileInfoCapture";
 import PersonalInfoCapture from "./componenets/steps/PersonalInfoCapture";
