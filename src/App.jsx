@@ -1,13 +1,15 @@
 import React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./styles.css";
-import ProfileInfoCapture from "./componenets/ProfileInfoCapture";
-import PersonalInfoCapture from "./componenets/PersonalInfoCapture";
+import ProfileInfoCapture from "./componenets/steps/ProfileInfoCapture";
+import PersonalInfoCapture from "./componenets/steps/PersonalInfoCapture";
 import Wizard from "./componenets/Wizard";
 import { validateEmail } from "./utils/utils";
+import Dashboard from "./componenets/Dashboard";
 
 //steps schema, could be dynamically.
 //can be improved to be generic if whole schema including fields and their types define here
-const steps = [
+const userCreationSteps = [
   {
     title: "Personal Information",
     component: PersonalInfoCapture,
@@ -37,7 +39,21 @@ const steps = [
 ];
 
 const App = () => {
-  return <Wizard steps={steps} title="User Creation Wizard" />;
+  return (
+    <React.StrictMode>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Dashboard />} />
+          <Route
+            path="/new-user"
+            element={
+              <Wizard steps={userCreationSteps} title="User Creation Wizard" />
+            }
+          />
+        </Routes>
+      </Router>
+    </React.StrictMode>
+  );
 };
 
 export default App;

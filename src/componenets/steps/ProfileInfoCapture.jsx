@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const ProfileInfoCapture = ({ request, setRequest }) => {
   return (
-    <div className="container max-w-md space-y-2">
+    <div className="container space-y-2">
       <h2 className="form_desc">
         Please enter email and newsletter preferences:
       </h2>

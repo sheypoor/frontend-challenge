@@ -5,11 +5,7 @@
 
 /* Custom styles */
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0 shadow-sm;
-}
-
-.form_input {
-  @apply px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500;
+  @apply px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-500 focus:outline-none focus:bg-sky-500 focus:text-white;
 }
 
 .form_desc {
@@ -17,11 +13,11 @@
 }
 
 .button_primary {
-  @apply px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 focus:bg-blue-500;
+  @apply px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-500 focus:bg-sky-500;
 }
 
 .button_secondary {
-  @apply px-4 py-2  text-black rounded-md border border-blue-700 hover:bg-blue-100 focus:bg-blue-100;
+  @apply px-4 py-2  text-black rounded-md border border-sky-700 hover:bg-sky-100 focus:bg-sky-100;
 }
 
 .form_label {

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { createUser } from "sdk";
+import Spinner from "./ui/Spinner";
 
 const Wizard = ({ steps, title }) => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [request, setRequest] = useState({
     name: "",
     age: null,
@@ -11,15 +14,21 @@ const Wizard = ({ steps, title }) => {
   const totalSteps = steps.length;
   const currentStepData = steps[currentStep];
 
-  const goToNextStep = () => {
+  const goToNextStep = async () => {
+    const validationError =
+      currentStepData.validate && currentStepData.validate(request);
+    if (validationError) {
+      alert(validationError);
+      return;
+    }
     if (currentStep < totalSteps - 1) {
-      const validationError =
-        currentStepData.validate && currentStepData.validate(request);
-      if (validationError) {
-        alert(validationError);
-        return;
-      }
       setCurrentStep((prevStep) => prevStep + 1);
+    } else {
+      console.log(request);
+      setIsLoading(true);
+      const response = await createUser(request);
+      console.log(response);
+      setIsLoading(false);
     }
   };
 
@@ -40,7 +49,7 @@ const Wizard = ({ steps, title }) => {
             {index > 0 && <span className="w-px mx-1 text-gray-400">/</span>}
             <span
               className={`text-xs font-medium ${
-                index === currentStep ? "text-blue-800" : "text-gray-400"
+                index === currentStep ? "text-sky-800" : "text-gray-400"
               }`}
             >
               {step.title}
@@ -60,7 +69,12 @@ const Wizard = ({ steps, title }) => {
             Previous
           </button>
         )}
-        <button onClick={goToNextStep} className="button_primary">
+        <button
+          onClick={goToNextStep}
+          disabled={isLoading}
+          className="button_primary"
+        >
+          {isLoading && <Spinner />}
           Proceed
         </button>
       </div>
