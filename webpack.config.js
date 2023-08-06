@@ -11,6 +11,9 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx"],
+    alias: {
+      sdk: path.resolve(__dirname, "sdk"),
+    },
   },
   module: {
     rules: [

@@ -13,11 +13,12 @@ const userCreationSteps = [
   {
     title: "Personal Information",
     component: PersonalInfoCapture,
-    validate: (user) => {
+    validate: ({ name, age }) => {
       if (
-        user.name.trim() === "" ||
-        isNaN(user.age) ||
-        parseInt(user.age) <= 0 //min allowed age
+        name.trim() === "" ||
+        age === "" ||
+        isNaN(age) ||
+        parseInt(age) <= 0 //min allowed age
       ) {
         return "Please enter valid name and age.";
       } else {
