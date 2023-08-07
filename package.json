@@ -1,40 +1,45 @@
 {
-  "name": "frontend-challenge",
-  "version": "1.0.0",
-  "description": "Sheypoor frontend challenge",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sheypoor/frontend-challenge.git"
-  },
-  "author": "Pendar Safari <pendar.safari@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sheypoor/frontend-challenge/issues"
-  },
-  "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
-
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "sdk": "file:sdk",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
-  }
+    "name": "frontend-challenge",
+    "version": "1.0.0",
+    "description": "Sheypoor frontend challenge",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sheypoor/frontend-challenge.git"
+    },
+    "author": "Pendar Safari <pendar.safari@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sheypoor/frontend-challenge/issues"
+    },
+    "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview",
+        "test": "xo"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "sdk": "file:sdk"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.15",
+        "@types/react-dom": "^18.2.7",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "@vitejs/plugin-react": "^4.0.3",
+        "eslint": "^8.45.0",
+        "eslint-config-xo": "^0.43.1",
+        "eslint-config-xo-react": "^0.27.0",
+        "eslint-plugin-react": "^7.33.1",
+        "eslint-plugin-react-refresh": "^0.4.3",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "prettier": "^3.0.1",
+        "typescript": "^5.0.2",
+        "vite": "^4.4.5",
+        "xo": "^0.55.1"
+    }
 }
