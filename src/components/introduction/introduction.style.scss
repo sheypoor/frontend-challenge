@@ -4,7 +4,7 @@
     .card__container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        gap: 3rem;
     }
 
     .card__side-image-holder {
@@ -14,5 +14,11 @@
         .card__side-image {
             max-width: 100%;
         }
+    }
+
+    .card__title {
+        font-weight: 900;
+        line-height: 1.75;
+        font-size: 2rem;
     }
 }
