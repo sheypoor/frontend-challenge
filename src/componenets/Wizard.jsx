@@ -89,12 +89,7 @@ const Wizard = ({ steps, title }) => {
           </div>
         ))}
       </div>
-      <StepComponent
-        request={request}
-        setRequest={setRequest}
-        goToNextStep={goToNextStep}
-        goToPreviousStep={goToPreviousStep}
-      />
+      <StepComponent request={request} setRequest={setRequest} />
       <div className="mt-8 flex justify-end gap-1">
         {currentStep > 0 && (
           <button onClick={goToPreviousStep} className="button_secondary">

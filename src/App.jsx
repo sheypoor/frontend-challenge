@@ -7,6 +7,10 @@ import Wizard from "./componenets/Wizard";
 import { validateEmail } from "./utils/utils";
 import Dashboard from "./componenets/Dashboard";
 
+const localConstants = {
+  minAge: 1,
+};
+
 //steps schema, could be dynamically.
 //can be improved to be generic if whole schema including fields and their types define here
 const userCreationSteps = [
@@ -18,7 +22,7 @@ const userCreationSteps = [
         name.trim() === "" ||
         age === "" ||
         isNaN(age) ||
-        parseInt(age) <= 0 //min allowed age
+        parseInt(age) < localConstants.minAge
       ) {
         return "Please enter valid name and age.";
       } else {
