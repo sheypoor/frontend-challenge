@@ -1,6 +1,10 @@
 $font-family-base: "IRANYekanXVF", "sans-serif";
 $font-size-base: 16px;
 $line-height-base: 1.2;
+$font-size-base: 1rem;
+$body-color: #212121;
+
+$base-padding: 1.25rem 1rem;
 
 $body-bg: rgb(242, 123, 88);
 $body-gradiant-bg: linear-gradient(232deg, #ef9389 0%, rgb(195, 91, 74) 100%);
@@ -18,13 +22,12 @@ $font-weights: (
     600: "wght" 600,
     900: "wght" 900,
 );
-
-$font-size-base: 1rem;
 $font-sizes: (
-    14: 0.875,
-    16: 1,
-    18: 1.125,
-    20: 1.25,
-    24: 1.5,
-    32: 2,
+    14: 0.875rem,
+    16: $font-size-base,
+    18: 1.125rem,
+    20: 1.25rem,
+    24: 1.5rem,
+    32: 2rem,
+    40: 2.5rem,
 );
