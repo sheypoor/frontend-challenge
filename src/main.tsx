@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-function App() {
-    return "App component";
-}
+import { App } from "./components/app/app.component.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
