@@ -1,13 +1,38 @@
 @import "css-normlizer";
+@import "variables";
 
 html {
     height: 100%;
     width: 100%;
+    direction: rtl;
+    text-align: right;
 }
 
 body {
     height: 100%;
     width: 100%;
-    background: rgb(242, 123, 88);
-    background: linear-gradient(232deg, rgba(242, 123, 88, 1) 0%, rgba(227, 87, 64, 1) 100%);
+    background: $body-bg;
+    background: $body-gradiant-bg;
+    padding: 5rem;
+}
+
+.card {
+    background-color: $card-bg;
+    border-radius: $card-border-radius;
+    box-shadow: $card-box-shadow;
+    padding: $card-padding-vertical $card-padding-horizental;
+
+    .card__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .card__side-image-holder {
+        border-radius: $card-side-image-border-radius;
+        overflow: hidden;
+        .card__side-image {
+            max-width: 100%;
+        }
+    }
 }
