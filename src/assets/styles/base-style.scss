@@ -17,14 +17,20 @@ body {
     background: $body-bg;
     background: $body-gradiant-bg;
     font-family: $font-family-base;
+}
 
-    padding: 5rem;
+#root {
+    width: 100%;
+    height: 100%;
 }
 
 main {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 1.5rem;
 
     .main-content {
         max-width: 1280px;
