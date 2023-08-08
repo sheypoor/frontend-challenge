@@ -21,16 +21,13 @@ body {
     padding: 5rem;
 }
 
-.card {
-    background-color: $card-bg;
-    border-radius: $card-border-radius;
-    box-shadow: $card-box-shadow;
-    padding: $card-padding-vertical $card-padding-horizental;
-}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-@each $name, $value in $font-weights {
-    .fw-#{$name} {
-        font-variation-settings: $value;
+    .main-content {
+        max-width: 1280px;
     }
 }
 
@@ -39,4 +36,58 @@ body {
     border-radius: $card-border-radius;
     box-shadow: $card-box-shadow;
     padding: $card-padding-vertical $card-padding-horizental;
+}
+
+input {
+    border: none;
+    background-color: $input-bg;
+    padding: $input-padding;
+    border-radius: $input-border-radius;
+    font-size: $input-font-size;
+    color: $body-color;
+
+    &:disabled {
+        background-color: map-get($colors, "disabled");
+    }
+
+    &:focus,
+    &:focus-within,
+    &:active {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+button {
+    padding: $btn-padding;
+    border-radius: $btn-border-radius;
+    font-size: $btn-font-size;
+    transition: all 0.25s ease-in-out;
+    font-variation-settings: map-get($font-weights, 600);
+
+    box-shadow: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &.primary {
+        background-color: map-get($colors, "primary");
+        color: #fff;
+
+        &:hover,
+        &:active {
+            background-color: scale-color(map-get($colors, "primary"), $lightness: -10%);
+        }
+    }
+
+    &:disabled {
+        background-color: map-get($colors, "disabled");
+        cursor: auto;
+
+        &:hover,
+        &:active {
+            background-color: map-get($colors, "disabled");
+        }
+    }
 }

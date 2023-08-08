@@ -31,3 +31,16 @@ $font-sizes: (
     32: 2rem,
     40: 2.5rem,
 );
+$colors: (
+    "primary": #7fb3b6,
+    "disabled": #cecece,
+);
+
+$input-border-radius: $card-border-radius / 2;
+$input-bg: #f4f0f0;
+$input-padding: $base-padding;
+$input-font-size: map-get($font-sizes, 20);
+
+$btn-border-radius: $card-border-radius / 2;
+$btn-padding: $base-padding;
+$btn-font-size: map-get($font-sizes, 20);
