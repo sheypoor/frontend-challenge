@@ -34,8 +34,9 @@ body {
     }
 }
 
-@each $name, $value in $font-sizes {
-    .f-#{$name} {
-        font-size: $value * $font-size-base;
-    }
+.card {
+    background-color: $card-bg;
+    border-radius: $card-border-radius;
+    box-shadow: $card-box-shadow;
+    padding: $card-padding-vertical $card-padding-horizental;
 }
