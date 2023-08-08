@@ -8,7 +8,7 @@
     "overrides": [
         {
             "extends": ["prettier", "plugin:prettier/recommended"],
-            "files": ["*.ts", "*.tsx"]
+            "files": ["*.ts", "*.tsx", "*.js", "*.jsx"]
         }
     ],
     "ignorePatterns": ["dist", ".eslintrc.js"],
@@ -24,6 +24,8 @@
             {
                 "allowConstantExport": true
             }
-        ]
+        ],
+        "react/function-component-definition": "off",
+        "react/react-in-jsx-scope": "off"
     }
 }

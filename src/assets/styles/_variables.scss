@@ -1,0 +1,46 @@
+$font-family-base: "IRANYekanXVF", "sans-serif";
+$font-size-base: 16px;
+$line-height-base: 1.2;
+$font-size-base: 1rem;
+$body-color: #212121;
+
+$base-padding: 1.25rem 1rem;
+
+$body-bg: rgb(242, 123, 88);
+$body-gradiant-bg: linear-gradient(232deg, #ef9389 0%, rgb(195, 91, 74) 100%);
+
+$card-bg: #fff;
+$card-border-radius: 2rem;
+$card-box-shadow: 0px 24px 20px -8px rgba(0, 0, 0, 0.1);
+$card-padding-vertical: 1.5rem;
+$card-padding-horizental: 2rem;
+$card-side-image-border-radius: $card-border-radius;
+
+$font-weights: (
+    300: "wght" 300,
+    400: "wght" 400,
+    600: "wght" 600,
+    900: "wght" 900,
+);
+$font-sizes: (
+    14: 0.875rem,
+    16: $font-size-base,
+    18: 1.125rem,
+    20: 1.25rem,
+    24: 1.5rem,
+    32: 2rem,
+    40: 2.5rem,
+);
+$colors: (
+    "primary": #7fb3b6,
+    "disabled": #cecece,
+);
+
+$input-border-radius: $card-border-radius / 2;
+$input-bg: #f4f0f0;
+$input-padding: $base-padding;
+$input-font-size: map-get($font-sizes, 20);
+
+$btn-border-radius: $card-border-radius / 2;
+$btn-padding: $base-padding;
+$btn-font-size: map-get($font-sizes, 20);
