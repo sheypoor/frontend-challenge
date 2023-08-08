@@ -9,3 +9,21 @@ $card-border-radius: 2rem;
 $card-box-shadow: 0px 24px 20px -8px rgba(0, 0, 0, 0.1);
 $card-padding-vertical: 1.5rem;
 $card-padding-horizental: 2rem;
+$card-side-image-border-radius: $card-border-radius;
+
+$font-weights: (
+    300: "wght" 300,
+    400: "wght" 400,
+    600: "wght" 600,
+    900: "wght" 900,
+);
+
+$font-size-base: 1rem;
+$font-sizes: (
+    14: 0.875,
+    16: 1,
+    18: 1.125,
+    20: 1.25,
+    24: 1.5,
+    32: 2,
+);

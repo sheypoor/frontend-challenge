@@ -25,19 +25,4 @@ body {
     border-radius: $card-border-radius;
     box-shadow: $card-box-shadow;
     padding: $card-padding-vertical $card-padding-horizental;
-
-    .card__container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-    }
-
-    .card__side-image-holder {
-        border-radius: $card-side-image-border-radius;
-        overflow: hidden;
-
-        .card__side-image {
-            max-width: 100%;
-        }
-    }
 }

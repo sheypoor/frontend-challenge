@@ -1,0 +1,18 @@
+@import "../../assets/styles/variables";
+
+.introduction-card {
+    .card__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .card__side-image-holder {
+        border-radius: $card-side-image-border-radius;
+        overflow: hidden;
+
+        .card__side-image {
+            max-width: 100%;
+        }
+    }
+}
