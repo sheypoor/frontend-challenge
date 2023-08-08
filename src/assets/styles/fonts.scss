@@ -7,4 +7,7 @@
     /* for the other supporting browsers */
     font-weight: 100 1000;
     font-display: fallback;
+    -moz-font-feature-settings: "ss02";
+    -webkit-font-feature-settings: "ss02";
+    font-feature-settings: "ss02";
 }

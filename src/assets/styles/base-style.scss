@@ -26,3 +26,15 @@ body {
     box-shadow: $card-box-shadow;
     padding: $card-padding-vertical $card-padding-horizental;
 }
+
+@each $name, $value in $font-weights {
+    .fw-#{$name} {
+        font-variation-settings: $value;
+    }
+}
+
+@each $name, $value in $font-sizes {
+    .f-#{$name} {
+        font-size: $value * $font-size-base;
+    }
+}
