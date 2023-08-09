@@ -26,6 +26,7 @@
             }
         ],
         "react/function-component-definition": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "no-unused-vars": "off"
     }
 }
