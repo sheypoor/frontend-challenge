@@ -1,0 +1,42 @@
+@import "../../assets/styles/variables";
+
+.subscription-card {
+    width: 100%;
+
+    .subscription-card__center-img-holder {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .subscription-card__center-img {
+            width: 300px;
+        }
+    }
+
+    .subscription-card__title {
+        font-variation-settings: map-get($font-weights, 900);
+        font-size: map-get($font-sizes, 32);
+        text-align: center;
+        margin: 1rem 0 4rem 0;
+    }
+
+    .subscription-card__content-holder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .subscription-card__email-field {
+            width: 480px;
+            max-width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .btn-group {
+            margin-bottom: 3rem;
+        }
+
+        .subscription-card__submit-btn {
+            width: 100%;
+        }
+    }
+}
