@@ -1,8 +1,7 @@
 {
-  "name": "sdk",
-  "version": "1.0.0",
-  "description": "Sample dummy sdk implementation",
-  "main": "index.js",
-  "scripts": {
-  }
+    "name": "sdk",
+    "version": "1.0.0",
+    "description": "Sample dummy sdk implementation",
+    "main": "index.js",
+    "scripts": {}
 }
