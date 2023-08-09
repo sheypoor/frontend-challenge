@@ -6,7 +6,7 @@ import type { SubmittedDataUserDetails } from "./introduction.type.ts";
 import introductionSideImage from "../../assets/image/6884525.webp";
 import "./introduction.style.scss";
 
-export function Introduction() {
+function Introduction() {
     const navigate = useNavigate();
 
     const [userDetails, setUserDetails] = useState<SubmittedDataUserDetails>({
@@ -83,3 +83,5 @@ export function Introduction() {
         </div>
     );
 }
+
+export default Introduction;
