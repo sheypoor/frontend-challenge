@@ -34,6 +34,7 @@ main {
 
     .main-content {
         max-width: 1280px;
+        width: 100%;
     }
 }
 
@@ -95,5 +96,53 @@ button {
         &:active {
             background-color: map-get($colors, "disabled");
         }
+    }
+}
+
+.btn-group {
+    display: flex;
+    list-style-type: none;
+    border-radius: $btn-border-radius;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+    .btn-group__btn {
+        display: flex;
+        background-color: $input-bg;
+        border-radius: 0;
+        user-select: none;
+        font-variation-settings: map-get($font-weights, 400);
+
+        &.active {
+            background-color: map-get($colors, "primary");
+        }
+    }
+}
+
+.toast {
+    position: fixed;
+    z-index: 99;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #fff;
+    padding: $btn-padding;
+    transition: all 0.35s ease-in-out;
+    border-radius: $btn-border-radius;
+    opacity: 0;
+    pointer-events: none;
+
+    .toast__text {
+        margin: 0;
+    }
+
+    &.success {
+        background-color: map-get($colors, "success");
+        opacity: 1;
+    }
+
+    &.failed {
+        background-color: map-get($colors, "danger");
+        opacity: 1;
     }
 }
