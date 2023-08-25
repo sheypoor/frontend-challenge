@@ -1,5 +1,6 @@
 import { Grid, TextField, MenuItem } from '@mui/material'
 import { NEWSLETTER_PERIODS } from '~~/constants/newsletter'
+
 const StepTwo = ({ errors, values, handleChange }) => {
   return (
     <Grid container rowSpacing={3} spacing={2}>
