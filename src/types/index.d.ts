@@ -1,0 +1,7 @@
+declare module 'sdk'
+declare module 'react/jsx-runtime'
+declare module 'react'
+declare module 'react-dom/client'
+declare module 'prop-types'
+declare module 'formik'
+declare module 'formik-wizard-form'
