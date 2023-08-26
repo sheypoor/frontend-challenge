@@ -1,7 +1,13 @@
 import { Grid, TextField, MenuItem } from '@mui/material'
 import { NEWSLETTER_PERIODS } from '~~/constants/newsletter'
 
-const StepTwo = ({ errors, values, handleChange }) => {
+type Props = {
+  errors: { [field: string]: string }
+  values: { [field: string]: string }
+  handleChange: () => InputEvent
+}
+
+export default function StepTwo({ errors, values, handleChange }: Props) {
   return (
     <Grid container rowSpacing={3} spacing={2}>
       <Grid item xs={12} sm={6}>
@@ -39,5 +45,3 @@ const StepTwo = ({ errors, values, handleChange }) => {
     </Grid>
   )
 }
-
-export default StepTwo

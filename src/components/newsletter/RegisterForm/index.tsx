@@ -5,17 +5,18 @@ import { LoadingButton } from '@mui/lab'
 import { FormikWizard } from 'formik-wizard-form'
 import StepOne from './steps/StepOne'
 import StepTwo from './steps/StepTwo'
-import type { newsletterRegisterForm } from '~~/types/newsletter'
+import type { newsletterRegisterForm } from '~~/types/newsletter.type'
 import useHttp from '~~/hooks/useHttp'
 import { NEWSLETTER_PERIODS } from '~~/constants/newsletter'
+import { FormikHelpers } from 'formik'
 
 export default function App() {
   const { newsletter } = useHttp()
-  const initialValues: newsletterRegisterForm = {
+  const initialValues = {
     name: '',
-    age: '',
+    age: 0,
     email: '',
-    newsletter: '',
+    newsletter: 'daily',
   }
   const steps = [
     {
@@ -43,7 +44,7 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [finalValues, setFinalValues] = useState({})
   const [finished, setFinished] = useState(false)
-  const submitForm = values => {
+  const submitForm = (values: newsletterRegisterForm) => {
     setLoading(true)
     newsletter
       .registerUserOnNewsletter(values)
@@ -63,59 +64,57 @@ export default function App() {
     <Card sx={{ mt: 5, p: 3 }}>
       <FormikWizard
         initialValues={initialValues}
-        onSubmit={submitForm}
+        onSubmit={(values: newsletterRegisterForm) => submitForm(values)}
         validateOnNext
         activeStepIndex={0}
         steps={steps}
       >
         {({
-          currentStepIndex,
+          currentStepIndex = 0,
           renderComponent,
           handlePrev,
           handleNext,
           isNextDisabled,
           isPrevDisabled,
-        }) => {
-          return (
-            <>
-              <Box sx={{ my: 1 }}>
-                <Stepper activeStep={currentStepIndex}>
-                  <Step completed={currentStepIndex > 0}>
-                    <StepLabel>Personal Details</StepLabel>
-                  </Step>
-                  <Step completed={finished}>
-                    <StepLabel>Newsletter Details</StepLabel>
-                  </Step>
-                </Stepper>
+        }: any) => (
+          <>
+            <Box sx={{ my: 1 }}>
+              <Stepper activeStep={currentStepIndex}>
+                <Step completed={currentStepIndex > 0}>
+                  <StepLabel>Personal Details</StepLabel>
+                </Step>
+                <Step completed={finished}>
+                  <StepLabel>Newsletter Details</StepLabel>
+                </Step>
+              </Stepper>
+            </Box>
+            <Box sx={{ my: 5 }}>{renderComponent()}</Box>
+            <Box display="flex" justifyContent="space-between">
+              <Button
+                variant="contained"
+                disabled={isPrevDisabled}
+                color="primary"
+                onClick={handlePrev}
+              >
+                Previous
+              </Button>
+              <LoadingButton
+                variant="contained"
+                disabled={isNextDisabled}
+                type="primary"
+                onClick={handleNext}
+                loading={loading}
+              >
+                {currentStepIndex === 1 ? 'Finish' : 'Next'}
+              </LoadingButton>
+            </Box>
+            {finished && (
+              <Box sx={{ mt: 5 }}>
+                <pre>{JSON.stringify(finalValues, null, 2)}</pre>
               </Box>
-              <Box sx={{ my: 5 }}>{renderComponent()}</Box>
-              <Box display="flex" justifyContent="space-between">
-                <Button
-                  variant="contained"
-                  disabled={isPrevDisabled}
-                  type="primary"
-                  onClick={handlePrev}
-                >
-                  Previous
-                </Button>
-                <LoadingButton
-                  variant="contained"
-                  disabled={isNextDisabled}
-                  type="primary"
-                  onClick={handleNext}
-                  loading={loading}
-                >
-                  {currentStepIndex === 1 ? 'Finish' : 'Next'}
-                </LoadingButton>
-              </Box>
-              {finished && (
-                <Box sx={{ mt: 5 }}>
-                  <pre>{JSON.stringify(finalValues, null, 2)}</pre>
-                </Box>
-              )}
-            </>
-          )
-        }}
+            )}
+          </>
+        )}
       </FormikWizard>
     </Card>
   )

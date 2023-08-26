@@ -1,13 +1,10 @@
-import React from 'react'
-import type { RouteObject } from 'react-router'
+import type { RouteProps } from 'react-router-dom'
 import Home from '~~pages/Home'
 
-const routes: RouteObject[] = [
+const routes: RouteProps[] = [
   {
     path: '/',
-    name: 'Home',
     Component: Home,
-    exact: true,
   },
 ]
 

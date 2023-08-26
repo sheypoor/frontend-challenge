@@ -1,7 +1,10 @@
-import { FC, ReactNode } from 'react'
-import Header from '~~components/layout/Header/Header'
 import { Stack } from '@mui/material'
-const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+import Header from '~~components/layout/Header'
+type Props = {
+  children: JSX.Element
+}
+
+const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />

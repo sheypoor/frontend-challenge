@@ -1,22 +1,13 @@
-import { FetchOptions } from 'ofetch'
-import type { AsyncDataOptions } from 'ofetch'
-import Request from '../http/request'
-import type { newsletterRegisterForm } from '~~/types/newsletter'
-import { createUser } from '../../../sdk'
+import Request from '~~/api/http/request'
+import type { newsletterRegisterForm } from '~~/types/newsletter.type'
+import type { RequestType } from '~~/types/api.type'
+import { createUser } from 'sdk'
 
-class newsletterModule extends Request {
+class newsletterModule extends Request<RequestType> {
   // this module endpoint
   private RESOURCE = '/newsletter'
 
-  /**
-   * Return the New user as object
-   * @param asyncDataOptions options for `useAsyncData`
-   * @returns
-   */
-  async registerUserOnNewsletter(
-    payload: newsletterRegisterForm,
-    options: AsyncDataOptions, // use for api call
-  ) {
+  async registerUserOnNewsletter(payload: newsletterRegisterForm) {
     /* 
       if we have a real REST API we can make an api call with below line !
       // return this.call('POST', this.RESOURCE, payload, options)

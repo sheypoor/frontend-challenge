@@ -1,10 +1,10 @@
-import { FC, Suspense } from 'react'
+import { Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import routes from './Routes'
-import Layout from '~~layouts'
+import Layout from '~~layouts/default'
 
-const AppRouter: FC = () => {
+const AppRouter = () => {
   return (
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>

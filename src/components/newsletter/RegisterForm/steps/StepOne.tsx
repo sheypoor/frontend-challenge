@@ -1,6 +1,12 @@
 import { Grid, TextField } from '@mui/material'
 
-const StepOne = ({ errors, values, handleChange }) => {
+type Props = {
+  errors: { [field: string]: string }
+  values: { [field: string]: string }
+  handleChange: () => InputEvent
+}
+
+export default function StepOne({ errors, values, handleChange }: Props) {
   return (
     <Grid container rowSpacing={3} spacing={2}>
       <Grid item xs={12} sm={6}>
@@ -28,5 +34,3 @@ const StepOne = ({ errors, values, handleChange }) => {
     </Grid>
   )
 }
-
-export default StepOne

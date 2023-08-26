@@ -32,6 +32,6 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": false
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "./src/types/index.d.ts"],
   "exclude": [".git", "node_modules"]
 }
