@@ -1,0 +1,24 @@
+/** @format */
+
+@import "fonts";
+
+:root {
+  --color-darkest: #757575;
+  --color-medium: #fafafa;
+  --color-light: #f1f3f5;
+  --color-primary: #008fff;
+  --color-success: #008a00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "IranSans", sans-serif !important;
+}
+
+.app {
+  margin: 0 auto;
+  width: 500px;
+  min-height: 100vh;
+}

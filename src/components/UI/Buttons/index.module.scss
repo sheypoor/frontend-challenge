@@ -1,0 +1,17 @@
+/** @format */
+.button {
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  min-width: 65px;
+  padding: 6px;
+  position: relative;
+}
+.active {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+.disabled {
+  background-color: var(--color-medium);
+  color: var(--color-darkest);
+}
