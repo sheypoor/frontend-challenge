@@ -1,9 +1,14 @@
 /** @format */
 
 export const emailValidation = (email) => {
-  return /\S+@\S+\.\S+/.test(email);
+  const emailRegExp = new RegExp(
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
+  );
+  return emailRegExp.test(email);
 };
 
-export const numberValidation = (num) => {
-  return /^[0-9\b]+$/.test(num);
+export const numberValidation = (number) => {
+  const farsiNumberRegExp = new RegExp(/^[۰-۹]+$/);
+  const numberRegExp = new RegExp(/^\d+$/);
+  return numberRegExp.test(number) || farsiNumberRegExp.test(number);
 };

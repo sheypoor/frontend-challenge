@@ -79,11 +79,11 @@ const reducer = (state, action) => {
       };
     case "SUBMIT_STEP":
       let error = {};
-      if (!state.email) error = { ...error, email: true };
+      if (!emailValidation(state.email)) error = { ...error, email: true };
       return {
         ...state,
         error: { ...state.error, ...error },
-        isLoading: !!state.email,
+        isLoading: !!emailValidation(state.email),
       };
     case "TANK_YOU_STEP":
       return { ...initialSate, isLoading: false, step: TANK_YOU_STEP };
@@ -114,7 +114,7 @@ const User = () => {
     if (step === NEWS_LETTER_STEP) {
       dispatch({ type: "SUBMIT_STEP" });
       if (validation())
-        createUser({ username, email, newsletter, age })
+        createUser({ username, email: email.trim(), newsletter, age })
           .then(() => {})
           .catch((e) => {})
           .finally(() => dispatch({ type: "TANK_YOU_STEP" }));
