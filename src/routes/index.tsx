@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Newsletter, PersonalInformation, SignUpComplete } from '../pages';
 
-const PERSONAL_INFORMATION_ADDRESS = 'personal-information';
+export const PERSONAL_INFORMATION_ADDRESS = 'personal-information';
 
 function RoutesComponent(): React.ReactElement {
 	return (

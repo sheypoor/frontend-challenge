@@ -14,7 +14,7 @@ function GlobalStyles() {
 				}
 
 				body {
-					background-color: #123456;
+					background-color: #ffffff;
 				}
 			`}
 		/>
