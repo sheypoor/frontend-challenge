@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Input } from '@components';
+import { useGlobalContext } from '@store';
+import { NEWSLETTER_ADDRESS } from '@routes';
+import { validateAge, validateName } from '@utilities';
+import { ArrowRight } from '@assets';
 import {
 	StyledPersonalInformation,
 	Title,
@@ -7,11 +13,6 @@ import {
 	Card,
 	Button,
 } from './styles';
-import { validateAge, validateName } from '../../library/utilities';
-import { ArrowRight } from '../../assets';
-import { useNavigate } from 'react-router-dom';
-import { useGlobalContext } from '../../store';
-import { Input as InputComponent } from '../../library/components';
 
 function PersonalInformationComponent() {
 	const navigate = useNavigate();
@@ -28,7 +29,7 @@ function PersonalInformationComponent() {
 			type: 'update_personal_info',
 			payload: { name: name.trim(), age },
 		});
-		navigate('/newsletter/');
+		navigate(`/${NEWSLETTER_ADDRESS}/`);
 	}
 
 	return (
@@ -37,14 +38,14 @@ function PersonalInformationComponent() {
 			<Card>
 				<Description>Can you tell us a bit about yourself? </Description>
 				<Form onSubmit={handleSubmit}>
-					<InputComponent
+					<Input
 						id='name'
 						label='Name:'
 						validator={validateName}
 						valueSetter={setName}
 						isValidSetter={setIsNameValid}
 					/>
-					<InputComponent
+					<Input
 						id='age'
 						label='Age:'
 						validator={validateAge}

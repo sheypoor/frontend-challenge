@@ -1,4 +1,4 @@
-import { Nullable } from '../library/utilities';
+import { Nullable } from '@utilities';
 
 export type ISchedule = 'daily' | 'weekly' | 'monthly';
 

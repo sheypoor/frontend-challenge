@@ -2,12 +2,12 @@ import React, { Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 const PersonalInformation = React.lazy(
-	() => import('../pages/personal-information/index')
+	() => import('@pages/personal-information/index')
 );
 const SignUpComplete = React.lazy(
-	() => import('../pages/sign-up-complete/index')
+	() => import('@pages/sign-up-complete/index')
 );
-const Newsletter = React.lazy(() => import('../pages/newsletter/index'));
+const Newsletter = React.lazy(() => import('@pages/newsletter/index'));
 
 export const PERSONAL_INFORMATION_ADDRESS = 'personal-information';
 export const NEWSLETTER_ADDRESS = 'newsletter';

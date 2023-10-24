@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HelperText, Input, Label, StyledInput } from './styles';
-import { IValidator } from '../../utilities';
+import { IValidator } from '@utilities';
 
 interface IField {
 	value: string;

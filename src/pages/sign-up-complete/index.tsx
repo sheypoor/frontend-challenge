@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
-import { useGlobalContext } from '../../store';
+import { useNavigate } from 'react-router-dom';
+import { PERSONAL_INFORMATION_ADDRESS } from '@routes';
+import { useGlobalContext } from '@store';
+import { Youtube } from '@assets';
 import {
 	Card,
 	Description,
@@ -10,9 +13,6 @@ import {
 	SuggestionLink,
 	Title,
 } from './styles';
-import { Youtube } from '../../assets';
-import { useNavigate } from 'react-router-dom';
-import { PERSONAL_INFORMATION_ADDRESS } from '../../routes';
 
 function SignUpComplete() {
 	const {

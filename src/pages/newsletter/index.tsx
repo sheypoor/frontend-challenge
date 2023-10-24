@@ -1,8 +1,10 @@
-import { createUser } from 'sdk';
 import { useEffect, useState } from 'react';
-import { useGlobalContext } from '../../store';
 import { useNavigate } from 'react-router-dom';
-import { COMPLETE_ADDRESS, PERSONAL_INFORMATION_ADDRESS } from '../../routes';
+import { createUser } from 'sdk';
+import { useGlobalContext } from '@store';
+import { COMPLETE_ADDRESS, PERSONAL_INFORMATION_ADDRESS } from '@routes';
+import { validateEmail } from '@utilities';
+import { ArrowRight, Reload } from '@assets';
 import {
 	Button,
 	Card,
@@ -16,8 +18,6 @@ import {
 	StyledNewsletter,
 	Title,
 } from './styles';
-import { validateEmail } from '../../library/utilities';
-import { ArrowRight, Reload } from '../../assets';
 
 type OptionsType = 'daily' | 'weekly' | 'monthly';
 
