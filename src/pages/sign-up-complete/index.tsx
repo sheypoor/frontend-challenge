@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../store';
 import {
+	Card,
 	Description,
 	Item,
 	List,
@@ -27,35 +28,44 @@ function SignUpComplete() {
 		) {
 			navigate(`/${PERSONAL_INFORMATION_ADDRESS}`);
 		}
-	}, [navigate, state.age, state.email, state.name, state.newsletter, state.token]);
+	}, [
+		navigate,
+		state.age,
+		state.email,
+		state.name,
+		state.newsletter,
+		state.token,
+	]);
 	return (
 		<StyledSignUpComplete>
 			<Title>We have everything we need!</Title>
-			<Description>
-				Here's the information we got back from the server:
-			</Description>
-			<List>
-				<Row>
-					Name:
-					<Item>{state.name}</Item>
-				</Row>
-				<Row>
-					Age:
-					<Item>{state.age}</Item>
-				</Row>
-				<Row>
-					Email:
-					<Item>{state.email}</Item>
-				</Row>
-				<Row>
-					Newsletter:
-					<Item>{state.newsletter}</Item>
-				</Row>
-				<Row>
-					Token:
-					<Item>{state.token}</Item>
-				</Row>
-			</List>
+			<Card>
+				<Description>
+					Here's the information we got back from the server:
+				</Description>
+				<List>
+					<Row>
+						Name:
+						<Item>{state.name}</Item>
+					</Row>
+					<Row>
+						Age:
+						<Item>{state.age}</Item>
+					</Row>
+					<Row>
+						Email:
+						<Item>{state.email}</Item>
+					</Row>
+					<Row>
+						Newsletter:
+						<Item>{state.newsletter}</Item>
+					</Row>
+					<Row>
+						Token:
+						<Item>{state.token}</Item>
+					</Row>
+				</List>
+			</Card>
 
 			<Suggestion
 				href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'

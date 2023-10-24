@@ -13,8 +13,7 @@ export const Suggestion = styled.a`
 	border-radius: 1rem;
 	:hover {
 		color: #0084ff;
-	border: 1px solid #bbb;
-
+		border: 1px solid #bbb;
 	}
 	svg {
 		width: 24px;
@@ -46,8 +45,15 @@ export const List = styled.div`
 	margin-top: 1rem;
 `;
 
+export const Card = styled.div`
+	margin-top: 16px;
+	padding: 1.5rem;
+	border-radius: 0.3125rem;
+	background-color: white;
+	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+`;
+
 export const Description = styled.p`
-	margin-top: 4rem;
 	font-size: 1rem;
 	font-weight: 600;
 `;
