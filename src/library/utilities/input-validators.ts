@@ -1,4 +1,4 @@
-interface IValidator {
+export interface IValidator {
 	errorMessage: string | undefined;
 	isValid: boolean;
 }
