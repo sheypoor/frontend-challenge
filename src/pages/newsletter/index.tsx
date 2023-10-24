@@ -26,10 +26,14 @@ type OptionsType = 'daily' | 'weekly' | 'monthly';
 
 function Newsletter() {
 	const navigate = useNavigate();
-	const { state, dispatch } = useGlobalContext();
+	const {
+		state: { personalInfo },
+		dispatch,
+	} = useGlobalContext();
 
 	const [isConnectionError, setIsConnectionError] = useState(false);
-	const [selectedOption, setSelectedOption] = useState<OptionsType>('daily');
+	const [selectedScheduleOption, setSelectedScheduleOption] =
+		useState<OptionsType>('daily');
 
 	const [emailField, setEmailField] = useState<IField>({
 		value: '',
@@ -55,28 +59,35 @@ function Newsletter() {
 		}));
 	}
 	const handleOptionClick = (option: OptionsType) => {
-		setSelectedOption(option);
+		setSelectedScheduleOption(option);
 	};
 
 	function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		setIsConnectionError(false);
-		if (state.name === undefined || state.age === undefined) {
+		if (personalInfo === null) {
 			return;
 		}
 		const user = {
-			name: state.name,
-			age: state.age,
-			email: emailField.value,
-			newsletter: selectedOption,
+			name: personalInfo.name,
+			age: personalInfo.age,
+			email: emailField.value.trim(),
+			newsletter: selectedScheduleOption,
 		};
 		createUser(user)
-			.then((res) => {
-				dispatch({ type: 'add_name', payload: res.user.name });
-				dispatch({ type: 'add_age', payload: res.user.age });
-				dispatch({ type: 'add_email', payload: res.user.email });
-				dispatch({ type: 'add_schedule', payload: res.user.newsletter });
-				dispatch({ type: 'add_token', payload: res.token });
+			.then((response) => {
+				dispatch({
+					type: 'update_personal_info',
+					payload: { name: response.user.name, age: response.user.age },
+				});
+				dispatch({
+					type: 'update_newsletter',
+					payload: {
+						email: response.user.email,
+						schedule: response.user.newsletter,
+					},
+				});
+				dispatch({ type: 'update_token', payload: response.token });
 				navigate(`/${COMPLETE_ADDRESS}`);
 			})
 			.catch(() => {
@@ -85,19 +96,23 @@ function Newsletter() {
 	}
 
 	useEffect(() => {
-		if (state.age === undefined || state.name === undefined) {
+		if (personalInfo === null) {
 			navigate(`/${PERSONAL_INFORMATION_ADDRESS}`);
 		}
-	}, [navigate, state.age, state.name]);
+	}, [navigate, personalInfo]);
 
 	const emailFieldHelperText =
 		emailField.isValid === false && emailField.isTouched === true
 			? emailField.errorMessage
 			: '';
 
+	if (personalInfo === null) {
+		return <div></div>;
+	}
+
 	return (
 		<StyledNewsletter>
-			<Title>Let's set you up for Newsletters {state.name}!</Title>
+			<Title>Let's set you up for Newsletters {personalInfo.name}!</Title>
 			<Card>
 				<Form onSubmit={handleSubmit}>
 					<InputWrapper>
@@ -116,17 +131,17 @@ function Newsletter() {
 						<Label>Schedule:</Label>
 						<Options>
 							<Chips
-								isActive={selectedOption === 'daily'}
+								isActive={selectedScheduleOption === 'daily'}
 								onClick={() => handleOptionClick('daily')}>
 								Daily
 							</Chips>
 							<Chips
-								isActive={selectedOption === 'weekly'}
+								isActive={selectedScheduleOption === 'weekly'}
 								onClick={() => handleOptionClick('weekly')}>
 								weekly
 							</Chips>
 							<Chips
-								isActive={selectedOption === 'monthly'}
+								isActive={selectedScheduleOption === 'monthly'}
 								onClick={() => handleOptionClick('monthly')}>
 								monthly
 							</Chips>

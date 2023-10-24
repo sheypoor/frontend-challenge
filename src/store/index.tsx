@@ -1,57 +1,39 @@
 import { createContext, useContext, useReducer } from 'react';
-import { Nullable } from '../library/utilities';
-
-interface IState {
-	name: Nullable<string>;
-	age: Nullable<number>;
-	email: Nullable<string>;
-	newsletter: Nullable<
-		'add_name' | 'add_age' | 'add_email' | 'add_schedule' | 'add_token'
-	>;
-	token: Nullable<string>;
-}
+import { IAction, IGlobalContext, IState } from './types';
 
 const initialState: IState = {
-	name: undefined,
-	age: undefined,
-	email: undefined,
-	newsletter: undefined,
+	personalInfo: null,
+	newsletter: null,
 	token: undefined,
 };
 
-interface IGlobalContext {
-	state: IState;
-	dispatch: React.Dispatch<IAction>;
-}
-
 export const GlobalContext = createContext<IGlobalContext>(null!);
 
-interface Props {
-	children: React.ReactNode;
-}
-
-interface IAction {
-	type: 'add_name' | 'add_age' | 'add_email' | 'add_schedule' | 'add_token';
-	payload: any;
-}
-function reducer(state: IState, action: IAction) {
+function reducer(state: IState, action: IAction): IState {
 	switch (action.type) {
-		case 'add_name':
-			return { ...state, name: action.payload };
+		case 'update_personal_info':
+			return {
+				...state,
+				personalInfo: {
+					...action.payload,
+				},
+			};
 
-		case 'add_age':
-			return { ...state, age: action.payload };
-
-		case 'add_email':
-			return { ...state, email: action.payload };
-
-		case 'add_schedule':
-			return { ...state, newsletter: action.payload };
-
-		case 'add_token':
+		case 'update_newsletter':
+			return {
+				...state,
+				newsletter: {
+					...action.payload,
+				},
+			};
+		case 'update_token':
 			return { ...state, token: action.payload };
 	}
 	throw Error('Unknown action: ' + action.type);
+}
+
+interface Props {
+	children: React.ReactNode;
 }
 
 export function GlobalContextProvider({ children }: Props) {

@@ -1,3 +1,3 @@
 export * from './input-validators';
 
-export type Nullable<T> = T | undefined;
+export type Nullable<T> = T | null;

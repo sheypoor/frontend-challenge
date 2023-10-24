@@ -74,8 +74,10 @@ function PersonalInformationComponent() {
 
 	function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
-		dispatch({ type: 'add_name', payload: nameField.value });
-		dispatch({ type: 'add_age', payload: ageField.value });
+		dispatch({
+			type: 'update_personal_info',
+			payload: { name: nameField.value.trim(), age: ageField.value },
+		});
 		navigate('/newsletter/');
 	}
 	const nameFieldHelperText =

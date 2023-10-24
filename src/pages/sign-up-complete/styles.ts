@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Suggestion = styled.a`
+export const SuggestionLink = styled.a`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -27,7 +27,6 @@ export const Item = styled.div`
 	color: #333;
 	border-radius: 2rem;
 	height: 48px;
-	text-transform: capitalize;
 	padding: 0 1rem;
 	display: flex;
 	justify-content: center;
