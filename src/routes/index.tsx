@@ -4,6 +4,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Newsletter, PersonalInformation, SignUpComplete } from '../pages';
 
 export const PERSONAL_INFORMATION_ADDRESS = 'personal-information';
+export const NEWSLETTER_ADDRESS = 'newsletter';
+export const COMPLETE_ADDRESS = 'complete';
 
 function RoutesComponent(): React.ReactElement {
 	return (
@@ -17,8 +19,8 @@ function RoutesComponent(): React.ReactElement {
 					path={`/${PERSONAL_INFORMATION_ADDRESS}/`}
 					element={<PersonalInformation />}
 				/>
-				<Route path='/newsletter/' element={<Newsletter />} />
-				<Route path='/complete/' element={<SignUpComplete />} />
+				<Route path={`/${NEWSLETTER_ADDRESS}/`} element={<Newsletter />} />
+				<Route path={`/${COMPLETE_ADDRESS}/`} element={<SignUpComplete />} />
 				<Route
 					path='/*'
 					element={<Navigate to={`/${PERSONAL_INFORMATION_ADDRESS}`} />}

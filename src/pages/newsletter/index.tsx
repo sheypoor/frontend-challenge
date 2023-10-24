@@ -2,7 +2,7 @@ import { createUser } from 'sdk';
 import { useEffect, useState } from 'react';
 import { useGlobalContext } from '../../store';
 import { useNavigate } from 'react-router-dom';
-import { PERSONAL_INFORMATION_ADDRESS } from '../../routes';
+import { COMPLETE_ADDRESS, PERSONAL_INFORMATION_ADDRESS } from '../../routes';
 import {
 	Button,
 	Card,
@@ -72,9 +72,12 @@ function Newsletter() {
 		};
 		createUser(user)
 			.then((res) => {
-				dispatch({ type: 'add_email', payload: emailField.value });
-				dispatch({ type: 'add_schedule', payload: selectedOption });
+				dispatch({ type: 'add_name', payload: res.user.name });
+				dispatch({ type: 'add_age', payload: res.user.age });
+				dispatch({ type: 'add_email', payload: res.user.email });
+				dispatch({ type: 'add_schedule', payload: res.user.newsletter });
 				dispatch({ type: 'add_token', payload: res.token });
+				navigate(`/${COMPLETE_ADDRESS}`);
 			})
 			.catch(() => {
 				setIsConnectionError(true);
