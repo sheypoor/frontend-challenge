@@ -1,49 +1,57 @@
-# Sheypoor frontend-challenge
+# Two Steps UI Wizard
 
-The task is to implement a **2 step UI wizard** to create a user account. There is no UX or UI constraints, this is 
-up to you to decide. 
+This Application is a two steps form.\
+In the first step user can enter his/her name and age and in second step user can enter his/her email and Newsletter sending settings.\
+After submit form user can see a successful message.
 
-The User information that we need to collect is described in the User type:
-```
-interface User {
-  name: string
-  age: number
-  email: string
-  newsletter: 'daily' | 'weekly' | 'monthly'
-}
-```
-You can, for example collect the name and age in the first step and then email and newsletter in the second step.
-You may use a routing library such that every step is a separate route but this is completely optional and not 
-required.
+## Tech Stack
 
-There is a dummy `sdk` package(implemented in the /sdk folder) which exports a `createUser` function. This function returns a `Promise`.
-Use it to simulate a request that creates a user account. 
-Ex:
+- React
+- TypeScript
+- Tailwind
 
-```
-import { createUser } from 'sdk'
+## Setup
 
-const details = {...}
+```bash
+git clone https://github.com/mahyabaktiari/frontend-challenge
 
-createUser(details).then( ... )
+cd frontend-challenge
+
+npm install
+
+npm run start
+
+or
+
+npm start
 ```
 
-The focus should be on code style and the way you approach the problem implementation wise.
-Feel free to use any other helper library although ideally the more code you write yourself the better.
+## Project Repository:
 
-### Implementation requirements:
+[https://github.com/mahyabaktiari/frontend-challenge](https://github.com/mahyabaktiari/frontend-challenge)
 
-- use either vanilla Javascript or one of the frameworks we use at Sheypoor(React / Knockout.js) or whatever you like
-- use npm to manage dependencies, there is pre-initialized package.json included in this repo
+## Project Structure
 
-### Getting started:
+```
+|-- public
+|-- src
+  |-- components
+  |-- constants
+  |-- hooks
+  |-- pages
+  |-- sdk
+  |-- styles
+  |-- utils
+```
 
-- Fork the repo
-- Implement your solution
-- Create a PR against this repo
+## Dependencies
 
-Optional: build the project and deploy (ie make it available as a static project) on 
-[Github Pages](https://pages.github.com/), otherwise please provide detailed instructions
-on how to start the project locally.
+- [ReactJs](https://reactjs.org/) : version 18.2.0
+- [TypeScript](https://www.typescriptlang.org/) : version 4.9.5
+- [Tailwind CSS](https://tailwindcss.com/)
 
-Any questions please contact us via email (jobs AT sheypoor.com) :)
+## Contact Me
+
+- Email: mahyabakhtiari93@gmail.com
+- LinkedIn: https://www.linkedin.com/in/mahya-bakhtiari/
+- GitHub: https://github.com/mahyabaktiari
