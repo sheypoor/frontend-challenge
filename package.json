@@ -20,11 +20,15 @@
   },
   "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
   "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.47.0",
     "react-router-dom": "^6.17.0",
+    "sass": "^1.69.4",
     "sdk": "file:sdk",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "yup": "^1.3.2"
   },
   "devDependencies": {
     "@types/node": "^20.8.8",
