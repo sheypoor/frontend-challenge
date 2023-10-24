@@ -15,7 +15,7 @@ import { validateAge, validateName } from '../../library/utilities';
 import { ArrowRight } from '../../assets';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../../store';
-interface IField {
+export interface IField {
 	value: string;
 	isValid: boolean;
 	isTouched: boolean;

@@ -4,11 +4,19 @@ import { Nullable } from '../library/utilities';
 interface IState {
 	name: Nullable<string>;
 	age: Nullable<number>;
+	email: Nullable<string>;
+	newsletter: Nullable<
+		'add_name' | 'add_age' | 'add_email' | 'add_schedule' | 'add_token'
+	>;
+	token: Nullable<string>;
 }
 
 const initialState: IState = {
 	name: undefined,
 	age: undefined,
+	email: undefined,
+	newsletter: undefined,
+	token: undefined,
 };
 
 interface IGlobalContext {
@@ -23,7 +31,7 @@ interface Props {
 }
 
 interface IAction {
-	type: 'add_name' | 'add_age';
+	type: 'add_name' | 'add_age' | 'add_email' | 'add_schedule' | 'add_token';
 	payload: any;
 }
 function reducer(state: IState, action: IAction) {
@@ -33,6 +41,15 @@ function reducer(state: IState, action: IAction) {
 
 		case 'add_age':
 			return { ...state, age: action.payload };
+
+		case 'add_email':
+			return { ...state, email: action.payload };
+
+		case 'add_schedule':
+			return { ...state, newsletter: action.payload };
+
+		case 'add_token':
+			return { ...state, token: action.payload };
 	}
 	throw Error('Unknown action: ' + action.type);
 }

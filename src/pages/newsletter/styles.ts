@@ -1,8 +1,14 @@
 import styled from '@emotion/styled';
 
-export const Button = styled.button`
+export const RetryMessage = styled.p`
+	color: #fe5576;
+	margin-top: 1rem;
+	text-align: center;
+`;
+
+export const Button = styled.button<{ isRetry: boolean }>`
 	margin-top: 2rem;
-	background-color: #0084ff;
+	background-color: ${({ isRetry }) => (isRetry ? '#fe5576' : '#0084ff')};
 	border-radius: 5rem;
 	padding: 0 16px;
 	border: 0;
@@ -22,6 +28,36 @@ export const Button = styled.button`
 	svg {
 		fill: #ffffff;
 	}
+`;
+
+export const Chips = styled.div<{ isActive: boolean }>`
+	background-color: ${({ isActive }) => (isActive ? '#0084ff' : '#ddd')};
+	color: ${({ isActive }) => (isActive ? '#fff' : '#333')};
+	border-radius: 2rem;
+	height: 48px;
+	text-transform: capitalize;
+	padding: 0 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+
+	${({ isActive }) =>
+		isActive
+			? `
+	outline: 2px solid #0084ff;
+	outline-offset: 2px;
+	`
+			: ''}
+`;
+
+export const Options = styled.div`
+	display: flex;
+	column-gap: 0.625rem;
+`;
+
+export const OptionsWrapper = styled.div`
+	margin-top: 1rem;
 `;
 
 export const HelperText = styled.p`
@@ -60,14 +96,13 @@ export const Input = styled.input<{ isValid: boolean }>`
 
 export const InputWrapper = styled.div`
 	margin-top: 1.5rem;
+
+	:first-of-type {
+		margin: 0;
+	}
 `;
 
 export const Form = styled.form``;
-
-export const Description = styled.p`
-	font-size: 1rem;
-	font-weight: 600;
-`;
 
 export const Card = styled.div`
 	margin-top: 16px;
@@ -83,7 +118,7 @@ export const Title = styled.h2`
 	margin-top: 48px;
 `;
 
-export const StyledPersonalInformation = styled.div`
+export const StyledNewsletter = styled.div`
 	max-width: 28rem;
 	width: 100%;
 	margin: auto;

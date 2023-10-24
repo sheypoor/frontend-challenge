@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"description": "Sheypoor frontend challenge",
-	"main": "sdk/index.js",
+	"main": "sdk/index.ts",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
