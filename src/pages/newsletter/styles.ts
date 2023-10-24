@@ -2,52 +2,55 @@ import { Input as InputComponent } from '../../library/components';
 import styled from '@emotion/styled';
 
 export const RetryMessage = styled.p`
-	color: #fe5576;
 	margin-top: 1rem;
+	color: ${({ theme }) => theme.colors.error};
 	text-align: center;
 `;
 
 export const Button = styled.button<{ isRetry: boolean }>`
-	margin-top: 2rem;
-	background-color: ${({ isRetry }) => (isRetry ? '#fe5576' : '#0084ff')};
-	border-radius: 5rem;
-	padding: 0 16px;
-	border: 0;
 	width: 100%;
-	height: 44px;
+	height: 2.75rem;
+	margin-top: 2rem;
+	padding: 0 1rem;
+	border: 0;
+	border-radius: 5rem;
+	background-color: ${({ isRetry, theme }) =>
+		isRetry ? theme.colors.error : theme.colors.primary};
 
 	:hover {
-		outline: #0084ff solid 2px;
-		outline-offset: 2px;
+		outline: ${({ theme }) => theme.colors.primary} solid 0.125rem;
+		outline-offset: 0.125rem;
 	}
 
 	:disabled {
-		background-color: #dddddd;
 		outline: none;
+		background-color: ${({ theme }) => theme.colors.disabled};
 	}
 
 	svg {
-		fill: #ffffff;
+		fill: ${({ theme }) => theme.colors.white};
 	}
 `;
 
 export const Chips = styled.div<{ isActive: boolean }>`
-	background-color: ${({ isActive }) => (isActive ? '#0084ff' : '#ddd')};
-	color: ${({ isActive }) => (isActive ? '#fff' : '#333')};
-	border-radius: 2rem;
-	height: 48px;
-	text-transform: capitalize;
-	padding: 0 1rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: 3rem;
+	padding: 0 1rem;
+	border-radius: 2rem;
+	color: ${({ isActive, theme }) =>
+		isActive ? theme.colors.white : 'currentColor'};
+	text-transform: capitalize;
 	cursor: pointer;
+	background-color: ${({ isActive, theme }) =>
+		isActive ? theme.colors.primary : theme.colors.disabled};
 
-	${({ isActive }) =>
+	${({ isActive, theme }) =>
 		isActive
 			? `
-	outline: 2px solid #0084ff;
-	outline-offset: 2px;
+	outline: 0.125rem solid ${theme.colors.primary};
+	outline-offset: 0.125rem;
 	`
 			: ''}
 `;
@@ -62,13 +65,10 @@ export const OptionsWrapper = styled.div`
 `;
 
 export const Label = styled.label`
-	font-weight: 400;
-	font-size: 0.75rem;
-	line-height: 1.4;
-	letter-spacing: 0;
-	color: #030a17;
 	display: block;
 	margin-bottom: 0.5rem;
+	font-size: 0.75rem;
+	line-height: 1.4;
 `;
 
 export const Form = styled.form``;
@@ -78,21 +78,21 @@ export const Input = styled(InputComponent)`
 `;
 
 export const Card = styled.div`
-	margin-top: 16px;
+	margin-top: 1rem;
 	padding: 1.5rem 1rem;
-	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
-	background-color: white;
 	border-radius: 0.3125rem;
+	background-color: ${({ theme }) => theme.colors.white};
+	box-shadow: ${({ theme }) => theme.shadows.main};
 `;
 
 export const Title = styled.h2`
-	text-align: center;
+	margin-top: 3rem;
 	font-size: 3rem;
-	margin-top: 48px;
+	text-align: center;
 `;
 
 export const StyledNewsletter = styled.div`
-	max-width: 28rem;
 	width: 100%;
+	max-width: ${({ theme }) => theme.breakpoints.medium};
 	margin: auto;
 `;

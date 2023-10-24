@@ -2,42 +2,42 @@ import styled from '@emotion/styled';
 
 export const SuggestionLink = styled.a`
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	text-decoration: none;
+	align-items: center;
 	margin-top: 1rem;
-	column-gap: 1rem;
-	font-size: 0.75rem;
-	color: #777;
-	border: 1px solid #ddd;
+	border: 1px solid ${({ theme }) => theme.colors.secondary};
 	border-radius: 1rem;
+	column-gap: 1rem;
+	color: #777777;
+	font-size: 0.75rem;
+	text-decoration: none;
+
 	:hover {
-		color: #0084ff;
-		border: 1px solid #bbb;
+		color: ${({ theme }) => theme.colors.primary};
+		border: 1px solid #bbbbbb;
 	}
 	svg {
 		width: 24px;
 		height: 24px;
-		fill: red;
+		fill: #ff0000;
 	}
 `;
 
 export const Item = styled.div`
-	background-color: #ddd;
-	color: #333;
-	border-radius: 2rem;
-	height: 48px;
-	padding: 0 1rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: 3rem;
+	padding: 0 1rem;
+	border-radius: 2rem;
+	background-color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const Row = styled.div`
 	display: flex;
 	align-items: center;
-	column-gap: 1rem;
 	margin-top: 0.75rem;
+	column-gap: 1rem;
 `;
 
 export const List = styled.div`
@@ -45,26 +45,26 @@ export const List = styled.div`
 `;
 
 export const Card = styled.div`
-	margin-top: 16px;
+	margin-top: 1rem;
 	padding: 1.5rem;
 	border-radius: 0.3125rem;
-	background-color: white;
-	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+	background-color: ${({ theme }) => theme.colors.white};
+	box-shadow: ${({ theme }) => theme.shadows.main};
 `;
 
 export const Description = styled.p`
-	font-size: 1rem;
 	font-weight: 600;
+	font-size: 1rem;
 `;
 
 export const Title = styled.h2`
-	text-align: center;
+	margin-top: 3rem;
 	font-size: 3rem;
-	margin-top: 48px;
+	text-align: center;
 `;
 
 export const StyledSignUpComplete = styled.div`
-	max-width: 28rem;
 	width: 100%;
+	max-width: ${({ theme }) => theme.breakpoints.medium};
 	margin: auto;
 `;

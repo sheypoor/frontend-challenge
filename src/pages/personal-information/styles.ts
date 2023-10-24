@@ -1,52 +1,52 @@
 import styled from '@emotion/styled';
 
 export const Button = styled.button`
-	margin-top: 2rem;
-	background-color: #0084ff;
-	border-radius: 5rem;
-	padding: 0 16px;
-	border: 0;
 	width: 100%;
-	height: 44px;
+	height: 2.75rem;
+	margin-top: 2rem;
+	padding: 0 1rem;
+	border: 0;
+	border-radius: 5rem;
+	background-color: ${({ theme }) => theme.colors.primary};
 
 	:hover {
-		outline: #0084ff solid 2px;
-		outline-offset: 2px;
+		outline: ${({ theme }) => theme.colors.primary} solid 0.125rem;
+		outline-offset: 0.125rem;
 	}
 
 	:disabled {
-		background-color: #dddddd;
 		outline: none;
+		background-color: ${({ theme }) => theme.colors.disabled};
 	}
 
 	svg {
-		fill: #ffffff;
+		fill: ${({ theme }) => theme.colors.white};
 	}
 `;
 
 export const Form = styled.form``;
 
 export const Description = styled.p`
-	font-size: 1rem;
 	font-weight: 600;
+	font-size: 1rem;
 `;
 
 export const Card = styled.div`
-	margin-top: 16px;
+	margin-top: 1rem;
 	padding: 1.5rem 1rem;
-	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
-	background-color: white;
 	border-radius: 0.3125rem;
+	background-color: ${({ theme }) => theme.colors.white};
+	box-shadow: ${({ theme }) => theme.shadows.main};
 `;
 
 export const Title = styled.h2`
-	text-align: center;
+	margin-top: 3rem;
 	font-size: 3rem;
-	margin-top: 48px;
+	text-align: center;
 `;
 
 export const StyledPersonalInformation = styled.div`
-	max-width: 28rem;
 	width: 100%;
+	max-width: ${({ theme }) => theme.breakpoints.medium};
 	margin: auto;
 `;
