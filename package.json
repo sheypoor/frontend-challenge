@@ -22,14 +22,15 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.17.0",
     "sdk": "file:sdk",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/node": "^20.8.8",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
     "@vitejs/plugin-react": "^4.1.0",
-    "vite": "^4.5.0",
-    "@types/node": "^20.8.8"
+    "vite": "^4.5.0"
   }
 }

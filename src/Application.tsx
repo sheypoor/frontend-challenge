@@ -1,9 +1,10 @@
 import React from 'react'
+import Routes from './Routes'
 
 const Application: React.FC = () => {
   return (
     <div>
-      Aud is here!
+      <Routes />
     </div>
   )
 }
