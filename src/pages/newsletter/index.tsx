@@ -8,9 +8,7 @@ import {
 	Card,
 	Chips,
 	Form,
-	HelperText,
 	Input,
-	InputWrapper,
 	Label,
 	Options,
 	OptionsWrapper,
@@ -18,7 +16,6 @@ import {
 	StyledNewsletter,
 	Title,
 } from './styles';
-import { IField } from '../personal-information';
 import { validateEmail } from '../../library/utilities';
 import { ArrowRight, Reload } from '../../assets';
 
@@ -35,29 +32,9 @@ function Newsletter() {
 	const [selectedScheduleOption, setSelectedScheduleOption] =
 		useState<OptionsType>('daily');
 
-	const [emailField, setEmailField] = useState<IField>({
-		value: '',
-		isValid: false,
-		isTouched: false,
-		errorMessage: "Name can't be empty",
-	});
+	const [email, setEmail] = useState('');
+	const [isEmailValid, setIsEmailValid] = useState(false);
 
-	function handleEmailChange(event: React.ChangeEvent<HTMLInputElement>) {
-		const validationObject = validateEmail(event.target.value);
-
-		setEmailField((prev) => ({
-			...prev,
-			isTouched: true,
-			value: event.target.value,
-			...validationObject,
-		}));
-	}
-	function handleEmailFocusChange() {
-		setEmailField((prev) => ({
-			...prev,
-			isTouched: true,
-		}));
-	}
 	const handleOptionClick = (option: OptionsType) => {
 		setSelectedScheduleOption(option);
 	};
@@ -71,7 +48,7 @@ function Newsletter() {
 		const user = {
 			name: personalInfo.name,
 			age: personalInfo.age,
-			email: emailField.value.trim(),
+			email: email.trim(),
 			newsletter: selectedScheduleOption,
 		};
 		createUser(user)
@@ -101,11 +78,6 @@ function Newsletter() {
 		}
 	}, [navigate, personalInfo]);
 
-	const emailFieldHelperText =
-		emailField.isValid === false && emailField.isTouched === true
-			? emailField.errorMessage
-			: '';
-
 	if (personalInfo === null) {
 		return <div></div>;
 	}
@@ -115,18 +87,13 @@ function Newsletter() {
 			<Title>Let's set you up for Newsletters {personalInfo.name}!</Title>
 			<Card>
 				<Form onSubmit={handleSubmit}>
-					<InputWrapper>
-						<Label htmlFor='email'>E-mail:</Label>
-						<Input
-							name='email'
-							type='email'
-							value={emailField.value}
-							onChange={handleEmailChange}
-							onFocus={handleEmailFocusChange}
-							isValid={emailFieldHelperText ? false : true}
-						/>
-						<HelperText>{emailFieldHelperText}</HelperText>
-					</InputWrapper>
+					<Input
+						id='email'
+						label='E-mail:'
+						validator={validateEmail}
+						valueSetter={setEmail}
+						isValidSetter={setIsEmailValid}
+					/>
 					<OptionsWrapper>
 						<Label>Schedule:</Label>
 						<Options>
@@ -147,7 +114,7 @@ function Newsletter() {
 							</Chips>
 						</Options>
 					</OptionsWrapper>
-					<Button disabled={!emailField.isValid} isRetry={isConnectionError}>
+					<Button disabled={isEmailValid === false} isRetry={isConnectionError}>
 						{isConnectionError ? <Reload /> : <ArrowRight />}
 					</Button>
 					{isConnectionError ? (
