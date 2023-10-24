@@ -2,9 +2,12 @@
   "name": "frontend-challenge",
   "version": "1.0.0",
   "description": "Sheypoor frontend challenge",
-  "main": "sdk/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,14 @@
   },
   "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sdk": "file:sdk"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.31",
+    "@types/react-dom": "^18.2.14",
+    "@vitejs/plugin-react": "^4.1.0",
+    "vite": "^4.5.0"
   }
 }
