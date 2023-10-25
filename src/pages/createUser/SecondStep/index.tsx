@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import createUserStyles from '../CreateUser.module.scss'
 import Wizard from 'src/components/app/Wizard'
 import Input from 'src/components/kit/Input'
@@ -15,9 +15,12 @@ import Select from 'src/components/kit/Select'
 import { newsLetterOptions } from './constants'
 import { TOAST_STATUS, toast } from 'src/utils/toast'
 import { createUser } from '../../../../sdk'
+import { useCreateUserContext } from '../hooks'
+import { IUser } from './types'
 
 const StepComponent: React.FC = () => {
     const navigate = useNavigate()
+    const { firstStepData } = useCreateUserContext()
     const [loading, setLoading] = useState<boolean>(false)
 
     const { control, formState: { errors }, handleSubmit } = useForm<ISData>({
@@ -27,9 +30,15 @@ const StepComponent: React.FC = () => {
     });
 
     const onSubmit = async (value: ISData) => {
+        if(!firstStepData) return 
+        
         setLoading(true)
+        const tempData: IUser = {
+            ...firstStepData, 
+            ...value
+        }
         try{
-            // await createUser()
+            await createUser(tempData)
             toast.fire({
                 icon: TOAST_STATUS.SUCCESS,
                 title: 'User has been created successfully!',
@@ -43,6 +52,12 @@ const StepComponent: React.FC = () => {
             setLoading(false)
         }
     }
+
+    useLayoutEffect(() => {
+        if(!firstStepData) navigate(-1)
+    }, [])
+
+    if(!firstStepData) return null
 
     return (
         <div className={createUserStyles.container}>
@@ -80,6 +95,7 @@ const StepComponent: React.FC = () => {
                                         options={newsLetterOptions}
                                         onChange={field.onChange}
                                         value={field.value}
+                                        placeholder='Choose News Letter'
                                     />
                                     {errors?.newsletter?.message && (
                                         <span className='form-error-text'>

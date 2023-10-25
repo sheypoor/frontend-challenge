@@ -7,8 +7,9 @@ interface IInputProps {
     value?: string | number;
     options: ISelectOptions[];
     onChange?: ChangeEventHandler<HTMLSelectElement>;
+    placeholder?: string;
 }
-const Select: React.FC<IInputProps> = ({ style, value, options, onChange }) => {
+const Select: React.FC<IInputProps> = ({ style, value, options, placeholder, onChange }) => {
     const handleSelectChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
         if (onChange) onChange(event);
     };
@@ -18,6 +19,7 @@ const Select: React.FC<IInputProps> = ({ style, value, options, onChange }) => {
         value={value}
         onChange={handleSelectChange}
     >
+        <option value="">{placeholder || 'Select an item'}</option>
         {options.map((option: ISelectOptions) => <option key={option.value} value={option.value}>{option.label}</option>)}
     </select>
 }
