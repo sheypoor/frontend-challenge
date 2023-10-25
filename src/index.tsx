@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client'
-import Application from './Application'
 import { ROUTE_CONSTANTS } from './Routes/constants/route-constants';
+import Application from './Application';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(

@@ -1,8 +1,9 @@
 import React from 'react'
-import { Routes as RoutesWrapper, Navigate, Route, Outlet } from 'react-router-dom';
+import { Routes as RoutesWrapper, Navigate, Route } from 'react-router-dom';
 import { ROUTE_CONSTANTS } from './constants/route-constants';
-import FirstStep from '../pages/createUser/FirstStep'
-import SecondStep from '../pages/createUser/SecondStep'
+import FirstStep from 'src/pages/CreateUser/FirstStep'
+import SecondStep from 'src/pages/CreateUser/SecondStep'
+import CreateUser from 'src/pages/CreateUser';
 
 const Routes: React.FC = () => {
     return (
@@ -13,7 +14,7 @@ const Routes: React.FC = () => {
                     <Navigate to={ROUTE_CONSTANTS.CREATE_USER_FLOW.FIRST_STEP.ABSOLUTE} replace />
                 } 
             />
-            <Route path={ROUTE_CONSTANTS.CREATE_USER_FLOW.ROOT.RELATIVE} element={<Outlet />}>
+            <Route path={ROUTE_CONSTANTS.CREATE_USER_FLOW.ROOT.RELATIVE} element={<CreateUser />}>
                 <Route path="" element={<Navigate to={ROUTE_CONSTANTS.CREATE_USER_FLOW.FIRST_STEP.RELATIVE} replace/>} />
                 <Route path={ROUTE_CONSTANTS.CREATE_USER_FLOW.FIRST_STEP.RELATIVE} element={<FirstStep />} />
                 <Route path={ROUTE_CONSTANTS.CREATE_USER_FLOW.SECOND_STEP.RELATIVE} element={<SecondStep />} />
