@@ -8,7 +8,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  direction: rtl;
 }
 
 code {
@@ -16,7 +15,7 @@ code {
     monospace;
 }
 
-.container{
+.container {
   width: 100vw;
   min-height: 100vh;
   display: flex;
@@ -24,4 +23,10 @@ code {
   align-items: center;
   background-color: $app-background-color;
   color: $app-color;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0
 }

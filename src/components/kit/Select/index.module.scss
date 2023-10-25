@@ -1,0 +1,13 @@
+@import 'src/assets/styles/colors';
+@import 'src/assets/styles/variables';
+
+.inputStyle{
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #0e1315;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: $app-background-color;
+    color: #fff;
+}
