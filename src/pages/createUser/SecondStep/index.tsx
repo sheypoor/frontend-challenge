@@ -30,93 +30,90 @@ const StepComponent: React.FC = () => {
     });
 
     const onSubmit = async (value: ISData) => {
-        if(!firstStepData) return 
-        
+        if (!firstStepData) return
+
         setLoading(true)
         const tempData: IUser = {
-            ...firstStepData, 
+            ...firstStepData,
             ...value
         }
-        try{
+        try {
             await createUser(tempData)
             toast.fire({
                 icon: TOAST_STATUS.SUCCESS,
                 title: 'User has been created successfully!',
             });
-        }catch(error) {
+        } catch (error) {
             toast.fire({
                 icon: TOAST_STATUS.ERROR,
                 title: 'Error in creating user',
             });
-        } finally{
+        } finally {
             setLoading(false)
         }
     }
 
     useLayoutEffect(() => {
-        if(!firstStepData) navigate(-1)
+        if (!firstStepData) navigate(-1)
     }, [])
 
-    if(!firstStepData) return null
+    if (!firstStepData) return null
 
     return (
-        <div className={createUserStyles.container}>
-            <h4>Create Your Account</h4>
-            <Wizard
-                steps={formSteps}
-                currentStep={formSteps['SECOND_STEP']}
-            >
-                <form className={createUserStyles.form} noValidate onSubmit={handleSubmit(onSubmit)}>
-                    <FormFieldWrapper>
-                        <label>Email</label>
-                        <Controller
-                            name="email"
-                            control={control}
-                            render={({ field }) => (
-                                <>
-                                    <Input onChange={field.onChange} value={field.value} />
-                                    {errors?.email?.message && (
-                                        <span className='form-error-text'>
-                                            {errors?.email?.message.toString()}
-                                        </span>
-                                    )}
-                                </>
-                            )}
-                        />
-                    </FormFieldWrapper>
-                    <FormFieldWrapper>
-                        <label>News Letter</label>
-                        <Controller
-                            name="newsletter"
-                            control={control}
-                            render={({ field }) => (
-                                <>
-                                    <Select 
-                                        options={newsLetterOptions}
-                                        onChange={field.onChange}
-                                        value={field.value}
-                                        placeholder='Choose News Letter'
-                                    />
-                                    {errors?.newsletter?.message && (
-                                        <span className='form-error-text'>
-                                            {errors?.newsletter?.message.toString()}
-                                        </span>
-                                    )}
-                                </>
-                            )}
-                        />
-                    </FormFieldWrapper>
-                    <div className={createUserStyles.formAction}>
-                        <Button style={{ padding: '8px 18px', marginRight: '8px' }} onClick={() => navigate(ROUTE_CONSTANTS.CREATE_USER_FLOW.FIRST_STEP.ABSOLUTE)}>
-                            Back
-                        </Button>
-                        <Button disabled={loading} style={{ padding: '8px 18px' }} onClick={handleSubmit(onSubmit)}>
-                            Submit
-                        </Button>
-                    </div>
-                </form>
-            </Wizard>
-        </div>
+        <Wizard
+            steps={formSteps}
+            currentStep={formSteps['SECOND_STEP']}
+        >
+            <form className={createUserStyles.form} noValidate onSubmit={handleSubmit(onSubmit)}>
+                <FormFieldWrapper>
+                    <label>Email</label>
+                    <Controller
+                        name="email"
+                        control={control}
+                        render={({ field }) => (
+                            <>
+                                <Input onChange={field.onChange} value={field.value} />
+                                {errors?.email?.message && (
+                                    <span className='form-error-text'>
+                                        {errors?.email?.message.toString()}
+                                    </span>
+                                )}
+                            </>
+                        )}
+                    />
+                </FormFieldWrapper>
+                <FormFieldWrapper>
+                    <label>News Letter</label>
+                    <Controller
+                        name="newsletter"
+                        control={control}
+                        render={({ field }) => (
+                            <>
+                                <Select
+                                    options={newsLetterOptions}
+                                    onChange={field.onChange}
+                                    value={field.value}
+                                    placeholder='Choose News Letter'
+                                />
+                                {errors?.newsletter?.message && (
+                                    <span className='form-error-text'>
+                                        {errors?.newsletter?.message.toString()}
+                                    </span>
+                                )}
+                            </>
+                        )}
+                    />
+                </FormFieldWrapper>
+                <div className={createUserStyles.formAction}>
+                    <Button style={{ padding: '8px 18px', marginRight: '8px' }} onClick={() => navigate(ROUTE_CONSTANTS.CREATE_USER_FLOW.FIRST_STEP.ABSOLUTE)}>
+                        Back
+                    </Button>
+                    <Button disabled={loading} style={{ padding: '8px 18px' }} onClick={handleSubmit(onSubmit)}>
+                        Submit
+                    </Button>
+                </div>
+            </form>
+        </Wizard>
     )
 }
 

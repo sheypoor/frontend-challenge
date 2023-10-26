@@ -6,7 +6,6 @@ export const CreateUserContext = createContext<ICreateUserContextType>({} as ICr
 const CreateUserProvider: React.FC<IPProps> = ({ children }) => {
     const [formStep, setFormStep] = useState<FORM_STEP>(FORM_STEP.FIRST_STEP)
     const [firstStepData, setFirstStepData] = useState<IFData>()
-    const [secondStepData, setSecondStepData] = useState<ISData>()
     
     return (
         <CreateUserContext.Provider

@@ -31,57 +31,54 @@ const StepComponent: React.FC = () => {
     }
 
     return (
-        <div className={createUserStyles.container}>
-            <h4>Create Your Account</h4>
-            <Wizard steps={formSteps} currentStep={formSteps['FIRST_STEP']}>
-                <form className={createUserStyles.form} noValidate onSubmit={handleSubmit(onSubmit)}>
-                    <FormFieldWrapper>
-                        <label>Name</label>
-                        <Controller
-                            name="name"
-                            control={control}
-                            render={({ field }) => (
-                                <>
-                                    <Input onChange={field.onChange} value={field.value} />
-                                    {errors?.name?.message && (
-                                        <span className='form-error-text'>
-                                            {errors?.name?.message.toString()}
-                                        </span>
-                                    )}
-                                </>
-                            )}
-                        />
-                    </FormFieldWrapper>
-                    <FormFieldWrapper>
-                        <label>Age</label>
-                        <Controller
-                            name="age"
-                            control={control}
-                            render={({ field }) => (
-                                <>
-                                    <Input
-                                        onChange={field.onChange}
-                                        value={field.value || ''}
-                                        onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
-                                        type='number'
-                                    />
-                                    {errors?.age?.message && (
-                                        <span className='form-error-text'>
-                                            {errors?.age?.message.toString()}
-                                        </span>
-                                    )}
-                                </>
-                            )}
-                        />
-                    </FormFieldWrapper>
-                    <div className={createUserStyles.formAction}>
-                        <Button style={{ padding: '8px 18px' }} onClick={handleSubmit(onSubmit)}>
-                            Next
-                        </Button>
-                    </div>
-                </form>
-            </Wizard>
-        </div>
+        <Wizard steps={formSteps} currentStep={formSteps['FIRST_STEP']}>
+            <form className={createUserStyles.form} noValidate onSubmit={handleSubmit(onSubmit)}>
+                <FormFieldWrapper>
+                    <label>Name</label>
+                    <Controller
+                        name="name"
+                        control={control}
+                        render={({ field }) => (
+                            <>
+                                <Input onChange={field.onChange} value={field.value} />
+                                {errors?.name?.message && (
+                                    <span className='form-error-text'>
+                                        {errors?.name?.message.toString()}
+                                    </span>
+                                )}
+                            </>
+                        )}
+                    />
+                </FormFieldWrapper>
+                <FormFieldWrapper>
+                    <label>Age</label>
+                    <Controller
+                        name="age"
+                        control={control}
+                        render={({ field }) => (
+                            <>
+                                <Input
+                                    onChange={field.onChange}
+                                    value={field.value || ''}
+                                    onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+                                    type='number'
+                                />
+                                {errors?.age?.message && (
+                                    <span className='form-error-text'>
+                                        {errors?.age?.message.toString()}
+                                    </span>
+                                )}
+                            </>
+                        )}
+                    />
+                </FormFieldWrapper>
+                <div className={createUserStyles.formAction}>
+                    <Button style={{ padding: '8px 18px' }} onClick={handleSubmit(onSubmit)}>
+                        Next
+                    </Button>
+                </div>
+            </form>
+        </Wizard>
     )
 }
 
