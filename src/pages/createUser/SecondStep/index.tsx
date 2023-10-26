@@ -1,9 +1,9 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './SecondStep.module.scss'
 import Wizard from 'src/components/app/Wizard'
 import { formSteps } from '../constants/form-steps'
 import { ISData } from '../context/types'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { TOAST_STATUS, toast } from 'src/utils/toast'
 import { createUser } from '../../../../sdk'
 import { useCreateUserContext } from '../hooks'
@@ -13,7 +13,6 @@ import { FORM_STEP } from '../context/enums'
 import { ROUTE_CONSTANTS } from 'src/Routes/constants/route-constants'
 
 const StepComponent: React.FC = () => {
-    const navigate = useNavigate()
     const { firstStepData } = useCreateUserContext()
     const [loading, setLoading] = useState<boolean>(false)
     const [formCompleted, setFormCompleted] = useState<boolean>(false)
@@ -23,6 +22,7 @@ const StepComponent: React.FC = () => {
 
         setLoading(true)
         const tempData: IUser = { ...firstStepData, ...value }
+        
         try {
             await createUser(tempData)
             setFormCompleted(true)
