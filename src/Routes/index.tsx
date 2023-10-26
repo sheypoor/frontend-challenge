@@ -4,6 +4,7 @@ import { ROUTE_CONSTANTS } from './constants/route-constants';
 import FirstStep from 'src/pages/CreateUser/FirstStep'
 import SecondStep from 'src/pages/CreateUser/SecondStep'
 import CreateUser from 'src/pages/CreateUser';
+import NotFound from 'src/pages/NotFound';
 
 const Routes: React.FC = () => {
     return (
@@ -19,6 +20,7 @@ const Routes: React.FC = () => {
                 <Route path={ROUTE_CONSTANTS.CREATE_USER_FLOW.FIRST_STEP.RELATIVE} element={<FirstStep />} />
                 <Route path={ROUTE_CONSTANTS.CREATE_USER_FLOW.SECOND_STEP.RELATIVE} element={<SecondStep />} />
             </Route>
+            <Route path={ROUTE_CONSTANTS.ROOT_STAR.RELATIVE} element={<NotFound />}/>
         </RoutesWrapper>
     )
 }

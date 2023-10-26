@@ -1,30 +1,18 @@
 import React, { ReactNode } from 'react'
-import styles from './index.module.scss'
 import { BUTTON_CLASS_OPTIONS } from './enums';
+import { buttonClassName } from './config';
 
 interface IButtonProps {
     style?: Record<string, string>;
     children?: ReactNode;
-    onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     disabled?: boolean;
     type?: keyof typeof BUTTON_CLASS_OPTIONS;
+    onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
-const Button: React.FC<IButtonProps> = ({ children, style, onClick, disabled, type}) => {
-    const buttonStyleDetector = () => {
-        switch (type) {
-            case BUTTON_CLASS_OPTIONS.INFO:
-                return styles.button_info
-            case BUTTON_CLASS_OPTIONS.SUCCESS:
-                return styles.button_success
-            case BUTTON_CLASS_OPTIONS.DANGER:
-                return styles.button_danger
-            default:
-                return styles.button
-        }
-    }
+const Button: React.FC<IButtonProps> = ({ children, style, disabled, type, onClick}) => {
     return <button 
         onClick={onClick}
-        className={buttonStyleDetector()}
+        className={buttonClassName(type)}
         style={{...style}}
         disabled={disabled}
     >

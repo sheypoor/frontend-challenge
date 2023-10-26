@@ -1,5 +1,5 @@
 import { ISelectOptions } from "src/components/kit/Select/types";
-import { NEWS_LETTER } from "../context/enums";
+import { NEWS_LETTER } from "../../../context/enums";
 
 export const newsLetterOptions: ISelectOptions[] = [
     {

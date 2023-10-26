@@ -4,6 +4,10 @@ export const ROUTE_CONSTANTS = {
         RELATIVE: '/',
         ABSOLUTE: '/',
     },
+    ROOT_STAR: {
+        RELATIVE: '/*',
+        ABSOLUTE: '/*',
+    },
     CREATE_USER_FLOW: {
         ROOT: {
             RELATIVE: 'create-user',

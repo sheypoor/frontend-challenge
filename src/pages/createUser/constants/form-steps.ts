@@ -1,14 +1,15 @@
 import { IWizardStep } from "src/components/app/Wizard/types";
+import { FORM_STEP } from "../context/enums";
 
-export type formStepType = Record<string, IWizardStep>
+export type formStepType = Record<FORM_STEP, IWizardStep>
 
 export const formSteps: formStepType = {
-    FIRST_STEP: {
-        title: 'Personal',
+    [FORM_STEP.FIRST_STEP]: {
+        title: 'First',
         index: 1,
     },
-    SECOND_STEP: {
-        title: 'Work',
+    [FORM_STEP.SECOND_STEP]: {
+        title: 'Second',
         index: 2,
     }
 }

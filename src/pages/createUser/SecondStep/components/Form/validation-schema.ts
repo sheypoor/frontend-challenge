@@ -1,5 +1,5 @@
 import { string, object } from 'yup';
-import { NEWS_LETTER } from '../context/enums';
+import { NEWS_LETTER } from '../../../context/enums';
 
 export const formValidator = () =>
     object().shape({

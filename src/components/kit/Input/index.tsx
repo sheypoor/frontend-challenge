@@ -6,7 +6,7 @@ interface IInputProps {
     onKeyDown?: React.KeyboardEventHandler<HTMLInputElement> | undefined
     style?: Record<string, string | number>;
     value?: string | number;
-    type?: 'number';
+    type?: string;
 }
 const Input: React.FC<IInputProps> = ({ style, onChange, value, type, onKeyDown }) => {
     return <input 
