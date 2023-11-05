@@ -1,0 +1,11 @@
+@import 'src/assets/styles/_variables.scss';
+@import 'src/assets/styles/_colors.scss';
+
+.form-error-text {
+    color: $annotations-error;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: $spacing-4;
+    margin-top: $spacing-1;
+}

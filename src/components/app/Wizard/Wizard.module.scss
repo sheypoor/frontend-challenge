@@ -1,0 +1,107 @@
+@import 'src/assets/styles/_variables.scss';
+@import 'src/assets/styles/_colors.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    background-color: $card-background-color;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-2;
+
+    @media (max-width: 1400px) {
+        width: 50%;
+    }
+
+    @media (max-width: 1000px) {
+        width: 60%;
+    }
+
+    @media (max-width: 600px) {
+        width: 80%;
+    }
+
+    @media (max-width: 400px) {
+        width: 90%;
+    }
+
+    .header {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: $spacing-4 0px;
+        border-bottom: 1px solid $border-color;
+
+        .bulletWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            margin-bottom: $spacing-5;
+
+            .bullet {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: rgb(69, 69, 69);
+
+                >span {
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 900;
+                    line-height: $spacing-4;
+                }
+            }
+
+            .completeBullet {
+                @extend .bullet;
+                background: $green;
+            }
+
+            .activeBullet {
+                @extend .bullet;
+                background: $yellow;
+            }
+
+            .bulletPoint {
+                position: absolute;
+                bottom: -20px;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: $spacing-4;
+            }
+        }
+
+        .line {
+            width: 30%;
+            height: 4px;
+            margin-bottom: $spacing-5;
+            background-color: rgb(69, 69, 69);
+        }
+
+        .activeLine {
+            @extend .line;
+            background-color: $green;
+        }
+    }
+
+    .body {
+        flex: 4;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

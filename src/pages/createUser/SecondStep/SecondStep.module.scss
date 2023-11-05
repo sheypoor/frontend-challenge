@@ -1,0 +1,17 @@
+@import 'src/assets/styles/_variables.scss';
+@import 'src/assets/styles/_colors.scss';
+
+.completeFormMessage {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: $spacing-4;
+        margin-top: $spacing-1;
+    }
+}

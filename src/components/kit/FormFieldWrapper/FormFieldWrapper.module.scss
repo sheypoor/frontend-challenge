@@ -1,0 +1,14 @@
+
+@import 'src/assets/styles/colors';
+@import 'src/assets/styles/variables';
+
+.fieldContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: $spacing-6;
+
+    label{
+        font-size: 13px;
+        margin-bottom: $spacing-1;
+    }
+}

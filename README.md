@@ -1,49 +1,15 @@
-# Sheypoor frontend-challenge
+# Audrey's frontend challenge
 
-The task is to implement a **2 step UI wizard** to create a user account. There is no UX or UI constraints, this is 
-up to you to decide. 
+### Getting started locally:
+In the root directory run commands below:
+-  ```npm install``` to install the dependencies. 
+-  ```npm run dev``` or ```yarn dev``` to run the repository on **[http://localhost:3000](http://localhost:3000)** 
 
-The User information that we need to collect is described in the User type:
-```
-interface User {
-  name: string
-  age: number
-  email: string
-  newsletter: 'daily' | 'weekly' | 'monthly'
-}
-```
-You can, for example collect the name and age in the first step and then email and newsletter in the second step.
-You may use a routing library such that every step is a separate route but this is completely optional and not 
-required.
+### Getting started with docker:
+In the root directory run commands below:
+-  ```docker build -t [any name you like] .``` to create a docker image. 
+-  ```docker run -d --rm -p 5173:3000 [any name you like]``` to create and run the docker container. 
+-  **open [http://localhost:5173](http://localhost:5173)** to visit the app.  
 
-There is a dummy `sdk` package(implemented in the /sdk folder) which exports a `createUser` function. This function returns a `Promise`.
-Use it to simulate a request that creates a user account. 
-Ex:
-
-```
-import { createUser } from 'sdk'
-
-const details = {...}
-
-createUser(details).then( ... )
-```
-
-The focus should be on code style and the way you approach the problem implementation wise.
-Feel free to use any other helper library although ideally the more code you write yourself the better.
-
-### Implementation requirements:
-
-- use either vanilla Javascript or one of the frameworks we use at Sheypoor(React / Knockout.js) or whatever you like
-- use npm to manage dependencies, there is pre-initialized package.json included in this repo
-
-### Getting started:
-
-- Fork the repo
-- Implement your solution
-- Create a PR against this repo
-
-Optional: build the project and deploy (ie make it available as a static project) on 
-[Github Pages](https://pages.github.com/), otherwise please provide detailed instructions
-on how to start the project locally.
-
-Any questions please contact us via email (jobs AT sheypoor.com) :)
+### Prerequisites
+- **Node v18.17.1**

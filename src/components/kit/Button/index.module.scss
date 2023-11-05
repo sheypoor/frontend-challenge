@@ -1,0 +1,27 @@
+@import 'src/assets/styles/_variables.scss';
+@import 'src/assets/styles/_colors.scss';
+
+.button{
+    cursor: pointer;
+    outline: none;
+    border: 1px solid $button-primary-border-color;
+    padding: $spacing-2;
+    border-radius: $border-radius-2;
+    background-color: $button-primary-background-color;
+    color: $white;
+}
+
+.button:disabled{
+    opacity: 0.6;
+    cursor: default
+}
+
+.button_info{
+    @extend .button;
+}
+
+.button_success{
+    @extend .button;
+    border: 1px solid $button-success-border-color;
+    background-color: $button-success-background-color;
+}
